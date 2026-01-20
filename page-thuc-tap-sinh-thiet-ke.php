@@ -22,12 +22,39 @@ get_header(); ?>
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Combobox Styles */
+        /* Combobox Styles - Styled for Dark Green Theme */
         .combobox-dropdown {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 240px;
+            overflow-y: auto;
+            background-color: #064e3b; /* Dark Green bg */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            z-index: 50;
+            margin-top: 0.25rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
         .combobox-dropdown.active {
             display: block;
+        }
+        .combobox-item {
+            padding: 0.75rem 1rem;
+            color: #d1d5db; /* Gray-300 */
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .combobox-item:last-child {
+            border-bottom: none;
+        }
+        .combobox-item:hover {
+            background-color: #54b259; /* Brand Green */
+            color: white;
         }
     </style>
 
@@ -274,32 +301,39 @@ get_header(); ?>
 
                     <!-- Address Comboboxes (Simulated with simple Select for native stability, but styled beautifully) -->
                     <!-- Note: Implementation of full custom combobox in Vanilla JS is complex, using styled select for reliability first as per PHP template standard, styled to match minimalist look -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
+                    <!-- Address Comboboxes (Searchable) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-20"> <!-- z-20 for dropdowns -->
+                        <!-- Province -->
+                        <div class="relative group" id="provinceCombobox">
                              <label class="block text-xs font-bold text-[#f8c03f] uppercase tracking-widest mb-2 ml-1">Tỉnh / Thành Phố *</label>
                              <div class="relative">
-                                 <select id="internProvince" name="province" required class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm appearance-none cursor-pointer">
-                                     <option value="" class="text-black">Chọn Tỉnh...</option>
-                                 </select>
-                                 <i data-lucide="chevron-down" class="w-3 h-3 text-white/50 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                                 <!-- Visible Input for Search -->
+                                 <input type="text" id="provInput" placeholder="Nhập hoặc chọn Tỉnh..." autocomplete="off"
+                                     class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm cursor-pointer">
+                                 <!-- Hidden Input for Value -->
+                                 <input type="hidden" name="province" id="provHidden">
+                                 
+                                 <i data-lucide="chevron-down" class="w-3 h-3 text-white/50 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300"></i>
+                                 
+                                 <!-- Dropdown List -->
+                                 <div id="provList" class="combobox-dropdown custom-scrollbar">
+                                     <!-- Items injected via JS -->
+                                 </div>
                              </div>
                         </div>
-                         <div>
-                             <label class="block text-xs font-bold text-[#f8c03f] uppercase tracking-widest mb-2 ml-1">Quận / Huyện *</label>
-                             <div class="relative">
-                                 <select id="internDistrict" name="district" required disabled class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm appearance-none disabled:opacity-50 cursor-pointer">
-                                     <option value="" class="text-black">Chọn Quận/Huyện...</option>
-                                 </select>
-                                 <i data-lucide="chevron-down" class="w-3 h-3 text-white/50 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-                             </div>
-                        </div>
-                        <div class="md:col-span-2">
+
+                        <!-- Ward -->
+                        <div class="relative group" id="wardCombobox">
                              <label class="block text-xs font-bold text-[#f8c03f] uppercase tracking-widest mb-2 ml-1">Xã / Phường *</label>
                              <div class="relative">
-                                 <select id="internWard" name="commune" required disabled class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm appearance-none disabled:opacity-50 cursor-pointer">
-                                     <option value="" class="text-black">Chọn Xã/Phường...</option>
-                                 </select>
-                                 <i data-lucide="chevron-down" class="w-3 h-3 text-white/50 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                                 <input type="text" id="wardInput" name="commune" placeholder="Nhập hoặc chọn Xã/Phường..." autocomplete="off" disabled
+                                     class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+                                 
+                                 <i data-lucide="chevron-down" class="w-3 h-3 text-white/50 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300"></i>
+                                 
+                                 <div id="wardList" class="combobox-dropdown custom-scrollbar">
+                                     <!-- Items injected via JS -->
+                                 </div>
                              </div>
                         </div>
                     </div>
@@ -352,9 +386,13 @@ get_header(); ?>
 
 </div>
 
-<script>
+<script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
         lucide.createIcons();
+        
+        // Define AJAX URL safely (in case object is missing)
+        const AJAX_URL = '<?php echo admin_url('admin-ajax.php'); ?>';
+        const NONCE = '<?php echo wp_create_nonce("np_recruit_nonce"); ?>';
 
         // --- DYNAMIC DOCUMENTS ---
         function addInternDocRow() {
@@ -384,79 +422,121 @@ get_header(); ?>
         addInternDocRow();
         document.getElementById('addInternDoc').addEventListener('click', addInternDocRow);
 
-        // --- ADDRESS API (Standard Selects) ---
+        // --- ADDRESS LOGIC (SEARCHABLE COMBOBOX) ---
         const PROVINCE_API = 'https://provinces.open-api.vn/api/v2';
+        let allProvinces = [];
+        let allWards = [];
+
+        // Elements
+        const provInput = document.getElementById('provInput');
+        const provHidden = document.getElementById('provHidden');
+        const provList = document.getElementById('provList');
         
+        const wardInput = document.getElementById('wardInput');
+        const wardList = document.getElementById('wardList');
+
+        // --- Helper: Setup Combobox ---
+        function setupCombobox(input, listElement, getData, onSelect) {
+            function renderList(items) {
+                listElement.innerHTML = '';
+                if(items.length === 0) {
+                     listElement.innerHTML = '<div class="p-3 text-gray-400 text-xs italic">Không tìm thấy kết quả</div>';
+                     return;
+                }
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'combobox-item';
+                    div.textContent = item.name;
+                    div.onclick = function() {
+                        input.value = item.name;
+                        onSelect(item);
+                        listElement.classList.remove('active');
+                    };
+                    listElement.appendChild(div);
+                });
+            }
+
+            function filterAndRender() {
+                const term = input.value.toLowerCase();
+                const data = getData();
+                const filtered = term ? data.filter(i => i.name.toLowerCase().includes(term)) : data;
+                renderList(filtered);
+                listElement.classList.add('active');
+            }
+
+            // Input Event (Filtering)
+            input.addEventListener('input', function() {
+                filterAndRender();
+            });
+
+            // Focus Event (Show All/Filtered)
+            input.addEventListener('focus', function() {
+                filterAndRender();
+            });
+
+            // Click Outside to Close
+            document.addEventListener('click', function(e) {
+                if (!input.contains(e.target) && !listElement.contains(e.target)) {
+                    listElement.classList.remove('active');
+                }
+            });
+        }
+
+        // --- 1. Init Province Combobox ---
         // Fetch Provinces
         fetch(`${PROVINCE_API}/p/`)
             .then(res => res.json())
             .then(data => {
-                const provSelect = document.getElementById('internProvince');
-                data.forEach(p => {
-                    const opt = document.createElement('option');
-                    opt.value = p.code;
-                    opt.textContent = p.name;
-                    opt.className = "text-black";
-                    provSelect.appendChild(opt);
+                allProvinces = data;
+                // Init Combobox
+                setupCombobox(provInput, provList, () => allProvinces, function(selectedItem) {
+                    provHidden.value = selectedItem.code; // Store code for API
+                    // Trigger Ward Load
+                    loadWards(selectedItem.code);
                 });
             })
             .catch(err => console.error(err));
 
-        // Province Change
-        document.getElementById('internProvince').addEventListener('change', function() {
-            const provCode = this.value;
-            const distSelect = document.getElementById('internDistrict');
-            const wardSelect = document.getElementById('internWard');
-            
-            distSelect.innerHTML = '<option value="" class="text-black">Chọn Quận/Huyện...</option>';
-            distSelect.disabled = true;
-            wardSelect.innerHTML = '<option value="" class="text-black">Chọn Xã/Phường...</option>';
-            wardSelect.disabled = true;
 
-            if(provCode) {
-                fetch(`${PROVINCE_API}/p/${provCode}?depth=2`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.districts) {
-                            data.districts.forEach(d => {
-                                const opt = document.createElement('option');
-                                opt.value = d.code;
-                                opt.textContent = d.name;
-                                opt.className = "text-black";
-                                distSelect.appendChild(opt);
-                            });
-                            distSelect.disabled = false;
-                        }
-                    });
-            }
+        // --- 2. Ward Logic ---
+        function loadWards(provinceCode) {
+             wardInput.value = '';
+             wardInput.placeholder = 'Đang tải dữ liệu...';
+             wardInput.disabled = true;
+             wardList.innerHTML = '';
+             allWards = [];
+             
+             const params = new URLSearchParams({
+                action: 'np_get_wards',
+                province_code: provinceCode
+             });
+
+             fetch(`${AJAX_URL}?${params.toString()}`)
+                .then(res => res.json())
+                .then(response => {
+                    if(response.success && Array.isArray(response.data)) {
+                        allWards = response.data; // [{name: '...'}, ...]
+                        
+                        wardInput.disabled = false;
+                        wardInput.placeholder = 'Nhập hoặc chọn Xã/Phường...';
+                        
+                        // Re-use logic (closures will capture new data via getData)
+                    } else {
+                        wardInput.placeholder = 'Không có dữ liệu';
+                        wardInput.disabled = false;
+                    }
+                })
+                .catch(err => {
+                    wardInput.placeholder = 'Lỗi tải dữ liệu';
+                    wardInput.disabled = false;
+                });
+        }
+
+        // Init Ward Combobox (Initially empty)
+        setupCombobox(wardInput, wardList, () => allWards, function(item) {
+            // Ward Selected - nothing specific to do besides setting value (handled in setup)
         });
-
-        // District Change
-        document.getElementById('internDistrict').addEventListener('change', function() {
-            const distCode = this.value;
-            const wardSelect = document.getElementById('internWard');
-            
-            wardSelect.innerHTML = '<option value="" class="text-black">Chọn Xã/Phường...</option>';
-            wardSelect.disabled = true;
-
-            if(distCode) {
-                fetch(`${PROVINCE_API}/d/${distCode}?depth=2`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.wards) {
-                            data.wards.forEach(w => {
-                                const opt = document.createElement('option');
-                                opt.value = w.name; // Keep name
-                                opt.textContent = w.name;
-                                opt.className = "text-black";
-                                wardSelect.appendChild(opt);
-                            });
-                            wardSelect.disabled = false;
-                        }
-                    });
-            }
-        });
-
+        
         // --- SUBMIT ---
         const form = document.getElementById('internForm');
         form.addEventListener('submit', function(e) {
@@ -465,19 +545,30 @@ get_header(); ?>
             const msg = form.querySelector('.intern-form-message');
             const originalBtn = btn.innerHTML;
             
+            // Validation
+            if(!provHidden.value && !provInput.value) { // Allow typing if it matches name? No, strictly require code for wards.
+                // Actually user might type "Hanoi". We need the code.
+                // So strictly need hidden value.
+                if(!provHidden.value) {
+                     alert("Vui lòng chọn Tỉnh/Thành phố từ danh sách gợi ý.");
+                     provInput.focus();
+                     return;
+                }
+            }
+            if(!wardInput.value.trim()) {
+                 alert("Vui lòng nhập hoặc chọn Xã/Phường.");
+                 wardInput.focus();
+                 return;
+            }
+
             btn.disabled = true;
             btn.innerHTML = 'Đang gửi...';
             msg.classList.add('hidden');
 
             const formData = new FormData(form);
             formData.append('action', 'np_submit_application');
-            // Security nonce needs to be localized or we can try to assume it's global if header scripts run, 
-            // but for this specific page, we might need to enqueue the script locally or manually print nonce.
-            // Since this is a template, we can print nonce in PHP above.
-            formData.append('security', '<?php echo wp_create_nonce("np_recruit_nonce"); ?>');
-            
-            // Job ID
-            formData.append('job_id', 0); // General
+            formData.append('security', NONCE);
+            formData.append('job_id', 9999); 
             
             // Construct Message
             const portfolio = formData.get('portfolioLink');
@@ -490,26 +581,18 @@ get_header(); ?>
                 const link = row.querySelector('.doc-link').value;
                 if(name || link) docs.push(`- ${name}: ${link}`);
             });
-            
-            if(docs.length > 0) {
-                message += "Tài liệu bổ sung:\n" + docs.join('\n');
-            }
+            if(docs.length > 0) message += "Tài liệu bổ sung:\n" + docs.join('\n');
             formData.append('message', message);
             
-            // Address Handling
-            const provSelect = document.getElementById('internProvince');
-            const distSelect = document.getElementById('internDistrict');
-            const wardSelect = document.getElementById('internWard');
-            
-            formData.set('province_name', provSelect.options[provSelect.selectedIndex].text);
-            formData.set('commune', `${wardSelect.value}, ${distSelect.options[distSelect.selectedIndex].text}`);
-            
-            // CV Input Name mapping
-            // Backend expects 'cv_file' (url). Form has 'cvLink'.
+            // Address Data
+            // We send 'province_name' via provInput value (User sees name)
+            // We send 'commune' via wardInput value
+            formData.set('province_name', provInput.value); 
+            formData.set('commune', wardInput.value);
+
             formData.append('cv_file', formData.get('cvLink'));
 
-            // AJAX
-            fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+            fetch(AJAX_URL, {
                 method: 'POST',
                 body: formData
             })
@@ -517,21 +600,25 @@ get_header(); ?>
             .then(data => {
                 if(data.success) {
                     form.reset();
+                    // Clear custom inputs
+                    provInput.value = ''; provHidden.value = '';
+                    wardInput.value = '';
+                    
                     document.getElementById('internForm').classList.add('hidden');
                     document.getElementById('successMessage').classList.remove('hidden');
+                    document.getElementById('successMessage').scrollIntoView({behavior: 'smooth'});
                 } else {
                     msg.textContent = data.data.message || 'Lỗi xảy ra.';
                     msg.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtn;
                 }
             })
             .catch(err => {
                 msg.textContent = 'Lỗi kết nối.';
                 msg.classList.remove('hidden');
-            })
-            .finally(() => {
                 btn.disabled = false;
                 btn.innerHTML = originalBtn;
-                lucide.createIcons();
             });
         });
     });

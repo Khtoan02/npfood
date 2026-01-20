@@ -40,6 +40,41 @@ get_header(); ?>
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+        
+        /* Combobox Styles - Styled for Light Theme */
+        .combobox-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 240px;
+            overflow-y: auto;
+            background-color: #ffffff; /* White bg */
+            border: 1px solid #e5e7eb; /* Gray-200 */
+            border-radius: 0.5rem;
+            z-index: 50;
+            margin-top: 0.25rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .combobox-dropdown.active {
+            display: block;
+        }
+        .combobox-item {
+            padding: 0.75rem 1rem;
+            color: #374151; /* Gray-700 */
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .combobox-item:last-child {
+            border-bottom: none;
+        }
+        .combobox-item:hover {
+            background-color: #f0fdf4; /* Light Green */
+            color: #166534; /* Dark Green */
+        }
     </style>
 
     <!-- 1. HERO SECTION: KHỞI NGUỒN SỰ NGHIỆP - CINEMATIC STYLE -->
@@ -456,26 +491,31 @@ get_header(); ?>
                              <i data-lucide="map-pin" class="w-4 h-4 text-[#54b259]"></i>
                              <span class="text-sm font-bold uppercase tracking-wider text-gray-500">Nơi ở hiện tại</span>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-20"> <!-- z-20 for dropdowns -->
+                            <!-- Province Combobox -->
+                            <div class="relative group" id="provinceCombobox">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Tỉnh / Thành phố <span class="text-red-500">*</span></label>
                                 <div class="relative">
-                                    <select id="provinceSelect" name="province" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] appearance-none bg-white font-medium" required>
-                                        <option value="">Chọn Tỉnh...</option>
-                                    </select>
+                                    <input type="text" id="provInput" placeholder="Nhập hoặc chọn Tỉnh..." autocomplete="off"
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] bg-white font-medium cursor-pointer">
+                                    <input type="hidden" name="province" id="provHidden">
+                                    
                                     <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                    
+                                    <div id="provList" class="combobox-dropdown custom-scrollbar"></div>
                                 </div>
                             </div>
                             
-                            <!-- District field removed as requested -->
-
-                            <div>
+                            <!-- Ward Combobox -->
+                            <div class="relative group" id="wardCombobox">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Xã / Phường <span class="text-red-500">*</span></label>
                                 <div class="relative">
-                                    <select id="wardSelect" name="ward" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] appearance-none bg-white font-medium disabled:bg-gray-100" required disabled>
-                                        <option value="">Chọn Xã / Phường...</option>
-                                    </select>
+                                    <input type="text" id="wardInput" name="ward" placeholder="Nhập hoặc chọn Xã/Phường..." autocomplete="off" disabled
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] bg-white font-medium disabled:bg-gray-100 disabled:text-gray-400 cursor-pointer">
+                                    
                                     <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                    
+                                    <div id="wardList" class="combobox-dropdown custom-scrollbar"></div>
                                 </div>
                             </div>
                         </div>
@@ -700,65 +740,120 @@ if ($all_jobs_query->have_posts()) {
             });
         });
 
-        // --- ADDRESS API LOGIC (2-Level: Province -> Ward via Proxy) ---
-        // Uses PHP Proxy to bypass CORS on the Search endpoint
+        // --- ADDRESS LOGIC (SEARCHABLE COMBOBOX) ---
         const PROVINCE_API = 'https://provinces.open-api.vn/api/v2';
+        let allProvinces = [];
+        let allWards = [];
+
+        // Elements
+        const provInput = document.getElementById('provInput');
+        const provHidden = document.getElementById('provHidden');
+        const provList = document.getElementById('provList');
         
-        // 1. Fetch Provinces
+        const wardInput = document.getElementById('wardInput');
+        const wardList = document.getElementById('wardList'); // HTML element exists now from step 2
+
+        // --- Helper: Setup Combobox ---
+        function setupCombobox(input, listElement, getData, onSelect) {
+            function renderList(items) {
+                listElement.innerHTML = '';
+                if(items.length === 0) {
+                     listElement.innerHTML = '<div class="p-3 text-gray-400 text-xs italic">Không tìm thấy kết quả</div>';
+                     return;
+                }
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'combobox-item';
+                    div.textContent = item.name;
+                    div.onclick = function() {
+                        input.value = item.name;
+                        onSelect(item);
+                        listElement.classList.remove('active');
+                    };
+                    listElement.appendChild(div);
+                });
+            }
+
+            function filterAndRender() {
+                const term = input.value.toLowerCase();
+                const data = getData();
+                const filtered = term ? data.filter(i => i.name.toLowerCase().includes(term)) : data;
+                renderList(filtered);
+                listElement.classList.add('active');
+            }
+
+            // Input Event (Filtering)
+            input.addEventListener('input', function() {
+                filterAndRender();
+            });
+
+            // Focus Event (Show All/Filtered)
+            input.addEventListener('focus', function() {
+                filterAndRender();
+            });
+
+            // Click Outside to Close
+            document.addEventListener('click', function(e) {
+                if (!input.contains(e.target) && !listElement.contains(e.target)) {
+                    listElement.classList.remove('active');
+                }
+            });
+        }
+
+        // --- 1. Init Province Combobox ---
+        // Fetch Provinces
         fetch(`${PROVINCE_API}/p/`)
             .then(res => res.json())
             .then(data => {
-                const provSelect = document.getElementById('provinceSelect');
-                provSelect.innerHTML = '<option value="">Chọn Tỉnh / Thành phố...</option>';
-                data.forEach(p => {
-                    const opt = document.createElement('option');
-                    opt.value = p.code;
-                    opt.textContent = p.name;
-                    provSelect.appendChild(opt);
+                allProvinces = data;
+                // Init Combobox
+                setupCombobox(provInput, provList, () => allProvinces, function(selectedItem) {
+                    provHidden.value = selectedItem.code; // Store code for API
+                    // Trigger Ward Load
+                    loadWards(selectedItem.code);
                 });
             })
             .catch(err => console.error(err));
 
-        // 2. Province Change -> Fetch Wards via WP Proxy
-        document.getElementById('provinceSelect').addEventListener('change', function() {
-            const provCode = this.value;
-            const wardSelect = document.getElementById('wardSelect');
-            
-            wardSelect.innerHTML = '<option value="">Đang tải dữ liệu...</option>';
-            wardSelect.disabled = true;
 
-            if(provCode) {
-                 // Call WP Proxy
-                 // Using jQuery explicitly to avoid $ conflict
-                 jQuery.ajax({
+        // --- 2. Ward Logic ---
+        function loadWards(provinceCode) {
+             wardInput.value = '';
+             wardInput.placeholder = 'Đang tải dữ liệu...';
+             wardInput.disabled = true;
+             wardList.innerHTML = '';
+             allWards = [];
+             
+             // Using jQuery AJAX to match existing proxy logic if available
+             if (typeof np_recruit_obj !== 'undefined') {
+                jQuery.ajax({
                     url: np_recruit_obj.ajax_url,
                     type: 'GET',
                     data: {
                         action: 'np_get_wards',
-                        province_code: provCode
+                        province_code: provinceCode
                     },
                     success: function(response) {
-                        wardSelect.innerHTML = '<option value="">Chọn Xã / Phường...</option>';
-                        if(response.success && Array.isArray(response.data) && response.data.length > 0) {
-                             response.data.forEach(w => {
-                                const opt = document.createElement('option');
-                                opt.value = w.name;
-                                opt.textContent = w.name;
-                                wardSelect.appendChild(opt);
-                            });
-                            wardSelect.disabled = false;
+                        if(response.success && Array.isArray(response.data)) {
+                            allWards = response.data; // [{name: '...'}, ...]
+                            wardInput.disabled = false;
+                            wardInput.placeholder = 'Nhập hoặc chọn Xã/Phường...';
                         } else {
-                             wardSelect.innerHTML = '<option value="">Không có dữ liệu</option>';
+                            wardInput.placeholder = 'Không có dữ liệu';
+                            wardInput.disabled = false;
                         }
                     },
-                    error: function(err) {
-                        console.error(err);
-                        wardSelect.innerHTML = '<option value="">Lỗi tải dữ liệu</option>';
+                    error: function() {
+                        wardInput.placeholder = 'Lỗi tải dữ liệu';
+                         wardInput.disabled = false;
                     }
-                 });
-            } else {
-                wardSelect.innerHTML = '<option value="">Chọn Xã / Phường...</option>';
-            }
+                });
+             }
+        }
+
+        // Init Ward Combobox (Initially empty)
+        setupCombobox(wardInput, wardList, () => allWards, function(item) {
+            // Ward Selected
         });
         
         // Handle Submit
@@ -768,6 +863,18 @@ if ($all_jobs_query->have_posts()) {
             const btn = appForm.querySelector('button[type="submit"]');
             const msg = appForm.querySelector('.form-message');
             const originalBtnText = btn.innerHTML;
+            
+            // Validation
+             if(!provHidden.value) {
+                 alert("Vui lòng chọn Tỉnh/Thành phố từ danh sách gợi ý.");
+                 provInput.focus();
+                 return;
+            }
+            if(!wardInput.value.trim()) {
+                 alert("Vui lòng nhập hoặc chọn Xã/Phường.");
+                 wardInput.focus();
+                 return;
+            }
             
             btn.disabled = true;
             btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Đang gửi...';
@@ -779,15 +886,9 @@ if ($all_jobs_query->have_posts()) {
                 formData.append('security', np_recruit_obj.nonce);
             }
 
-            // Address
-            const provSelect = document.getElementById('provinceSelect');
-            const wardSelect = document.getElementById('wardSelect');
-
-            const provName = provSelect.options[provSelect.selectedIndex].text;
-            const wardName = wardSelect.value; 
-
-            formData.set('province_name', provName);
-            formData.set('commune', wardName); 
+            // Address: Override with explicit combo values
+            formData.set('province_name', provInput.value);
+            formData.set('commune', wardInput.value); 
 
             // Message + Docs Construction
             const docs = [];
