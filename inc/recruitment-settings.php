@@ -180,6 +180,46 @@ function np_job_details_callback($post) {
     <?php
 }
 
+// --- AJAX PROXY FOR WARDS (Bypass CORS) ---
+add_action('wp_ajax_np_get_wards', 'np_get_wards_proxy');
+add_action('wp_ajax_nopriv_np_get_wards', 'np_get_wards_proxy');
+
+function np_get_wards_proxy() {
+    $province_code = isset($_GET['province_code']) ? sanitize_text_field($_GET['province_code']) : '';
+    
+    if (!$province_code) {
+        wp_send_json_error(['message' => 'Missing province code']);
+    }
+
+    // Call external API via PHP (Server-to-Server)
+    // Using Search Endpoint: api/v2/w/search/?p={code}
+    $api_url = "https://provinces.open-api.vn/api/v2/w/search/?p=" . $province_code;
+    
+    $response = wp_remote_get($api_url, [
+        'timeout' => 15,
+        'headers' => [
+            'Accept' => 'application/json' // Ensure JSON
+        ]
+    ]);
+
+    if (is_wp_error($response)) {
+        wp_send_json_error(['message' => 'API Connection Error']);
+    }
+
+    $response_code = wp_remote_retrieve_response_code($response);
+    if ($response_code !== 200) {
+         wp_send_json_error(['message' => 'API Error: ' . $response_code]);
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body);
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        wp_send_json_error(['message' => 'Invalid JSON from API']);
+    }
+    
+    wp_send_json_success($data);
+}
 // 3.3 Callback: Candidate Info
 function np_candidate_info_callback($post) {
     $email = get_post_meta($post->ID, '_np_candidate_email', true);

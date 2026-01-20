@@ -450,13 +450,13 @@ get_header(); ?>
                         <input type="email" name="email" required placeholder="email@example.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] focus:ring-2 focus:ring-[#54b259]/20">
                     </div>
 
-                    <!-- 3. Address (API - 3 Levels) -->
+                    <!-- 3. Address (API - 2 Levels) -->
                     <div class="space-y-4">
                         <div class="flex items-center gap-2 mb-2 border-b border-gray-100 pb-2">
                              <i data-lucide="map-pin" class="w-4 h-4 text-[#54b259]"></i>
-                             <span class="text-sm font-bold uppercase tracking-wider text-gray-500">Địa chỉ (Cập nhật sau sáp nhập 07/2025)</span>
+                             <span class="text-sm font-bold uppercase tracking-wider text-gray-500">Nơi ở hiện tại</span>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Tỉnh / Thành phố <span class="text-red-500">*</span></label>
                                 <div class="relative">
@@ -467,15 +467,7 @@ get_header(); ?>
                                 </div>
                             </div>
                             
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Quận / Huyện <span class="text-red-500">*</span></label>
-                                <div class="relative">
-                                    <select id="districtSelect" name="district" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#54b259] appearance-none bg-white font-medium disabled:bg-gray-100" required disabled>
-                                        <option value="">Chọn Quận / Huyện...</option>
-                                    </select>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                                </div>
-                            </div>
+                            <!-- District field removed as requested -->
 
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Xã / Phường <span class="text-red-500">*</span></label>
@@ -708,7 +700,8 @@ if ($all_jobs_query->have_posts()) {
             });
         });
 
-        // --- ADDRESS API LOGIC (3-Level) ---
+        // --- ADDRESS API LOGIC (2-Level: Province -> Ward via Proxy) ---
+        // Uses PHP Proxy to bypass CORS on the Search endpoint
         const PROVINCE_API = 'https://provinces.open-api.vn/api/v2';
         
         // 1. Fetch Provinces
@@ -716,6 +709,7 @@ if ($all_jobs_query->have_posts()) {
             .then(res => res.json())
             .then(data => {
                 const provSelect = document.getElementById('provinceSelect');
+                provSelect.innerHTML = '<option value="">Chọn Tỉnh / Thành phố...</option>';
                 data.forEach(p => {
                     const opt = document.createElement('option');
                     opt.value = p.code;
@@ -725,61 +719,42 @@ if ($all_jobs_query->have_posts()) {
             })
             .catch(err => console.error(err));
 
-        // 2. Handle Province Change -> Fetch Districts
+        // 2. Province Change -> Fetch Wards via WP Proxy
         document.getElementById('provinceSelect').addEventListener('change', function() {
             const provCode = this.value;
-            const districtSelect = document.getElementById('districtSelect');
             const wardSelect = document.getElementById('wardSelect');
             
-            // Reset children
-            districtSelect.innerHTML = '<option value="">Đang tải...</option>';
-            districtSelect.disabled = true;
-            wardSelect.innerHTML = '<option value="">Chọn Xã / Phường...</option>';
+            wardSelect.innerHTML = '<option value="">Đang tải dữ liệu...</option>';
             wardSelect.disabled = true;
 
             if(provCode) {
-                 fetch(`${PROVINCE_API}/p/${provCode}?depth=2`)
-                    .then(res => res.json())
-                    .then(data => {
-                        districtSelect.innerHTML = '<option value="">Chọn Quận / Huyện...</option>';
-                        if(data.districts) {
-                            data.districts.forEach(d => {
-                                const opt = document.createElement('option');
-                                opt.value = d.code;
-                                opt.textContent = d.name;
-                                districtSelect.appendChild(opt);
-                            });
-                        }
-                        districtSelect.disabled = false;
-                    });
-            } else {
-                districtSelect.innerHTML = '<option value="">Chọn Quận / Huyện...</option>';
-            }
-        });
-
-        // 3. Handle District Change -> Fetch Wards
-        document.getElementById('districtSelect').addEventListener('change', function() {
-            const distCode = this.value;
-            const wardSelect = document.getElementById('wardSelect');
-            
-            wardSelect.innerHTML = '<option value="">Đang tải...</option>';
-            wardSelect.disabled = true;
-
-            if(distCode) {
-                 fetch(`${PROVINCE_API}/d/${distCode}?depth=2`)
-                    .then(res => res.json())
-                    .then(data => {
+                 // Call WP Proxy
+                 $.ajax({
+                    url: np_recruit_obj.ajax_url,
+                    type: 'GET',
+                    data: {
+                        action: 'np_get_wards',
+                        province_code: provCode
+                    },
+                    success: function(response) {
                         wardSelect.innerHTML = '<option value="">Chọn Xã / Phường...</option>';
-                        if(data.wards) {
-                            data.wards.forEach(w => {
+                        if(response.success && Array.isArray(response.data) && response.data.length > 0) {
+                             response.data.forEach(w => {
                                 const opt = document.createElement('option');
-                                opt.value = w.name; // Keep name for final submission
+                                opt.value = w.name;
                                 opt.textContent = w.name;
                                 wardSelect.appendChild(opt);
                             });
+                            wardSelect.disabled = false;
+                        } else {
+                             wardSelect.innerHTML = '<option value="">Không có dữ liệu</option>';
                         }
-                        wardSelect.disabled = false;
-                    });
+                    },
+                    error: function(err) {
+                        console.error(err);
+                        wardSelect.innerHTML = '<option value="">Lỗi tải dữ liệu</option>';
+                    }
+                 });
             } else {
                 wardSelect.innerHTML = '<option value="">Chọn Xã / Phường...</option>';
             }
@@ -795,7 +770,7 @@ if ($all_jobs_query->have_posts()) {
             
             btn.disabled = true;
             btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Đang gửi...';
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
 
             const formData = new FormData(appForm);
             formData.append('action', 'np_submit_application');
@@ -803,31 +778,37 @@ if ($all_jobs_query->have_posts()) {
                 formData.append('security', np_recruit_obj.nonce);
             }
 
-            // Construct Full Address & Overwrite fields for Backend
+            // Address
             const provSelect = document.getElementById('provinceSelect');
-            const distSelect = document.getElementById('districtSelect');
             const wardSelect = document.getElementById('wardSelect');
 
             const provName = provSelect.options[provSelect.selectedIndex].text;
-            const distName = distSelect.options[distSelect.selectedIndex].text;
-            const wardName = wardSelect.value; // value is name
+            const wardName = wardSelect.value; 
 
             formData.set('province_name', provName);
-            // Combine District + Ward into "commune" field for backend compatibility
-            formData.set('commune', `${wardName}, ${distName}`);
+            formData.set('commune', wardName); 
 
             // Message + Docs Construction
             const docs = [];
-            document.querySelectorAll('#docsContainer > div').forEach(row => {
-                const name = row.querySelector('.doc-name').value.trim();
-                const link = row.querySelector('.doc-link').value.trim();
-                if(name || link) {
-                    docs.push(`- ${name || 'Tài liệu'}: ${link}`);
-                }
-            });
+            const docRows = document.querySelectorAll('#docsContainer > div');
+            if(docRows.length > 0) {
+                 docRows.forEach(row => {
+                    const nameInput = row.querySelector('.doc-name');
+                    const linkInput = row.querySelector('.doc-link');
+                    if(nameInput && linkInput) {
+                        const name = nameInput.value.trim();
+                        const link = linkInput.value.trim();
+                        if(name || link) {
+                             docs.push(`- ${name || 'Tài liệu'}: ${link}`);
+                        }
+                    }
+                });
+            }
+            
+            const msgInput = document.getElementById('messageInput') || appForm.querySelector('textarea[name="message"]'); 
+            const messageVal = msgInput ? msgInput.value.trim() : (formData.get('message') || '');
 
-            const userMsg = document.getElementById('messageInput').value.trim();
-            let finalMsg = userMsg;
+            let finalMsg = messageVal;
             if(docs.length > 0) {
                 finalMsg += "\n\n--- TÀI LIỆU BỔ SUNG ---\n" + docs.join("\n");
             }
@@ -858,7 +839,7 @@ if ($all_jobs_query->have_posts()) {
                 complete: function() {
                     btn.disabled = false;
                     btn.innerHTML = originalBtnText;
-                    lucide.createIcons();
+                    if (window.lucide) lucide.createIcons();
                 }
             });
         });
