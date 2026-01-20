@@ -729,7 +729,8 @@ if ($all_jobs_query->have_posts()) {
 
             if(provCode) {
                  // Call WP Proxy
-                 $.ajax({
+                 // Using jQuery explicitly to avoid $ conflict
+                 jQuery.ajax({
                     url: np_recruit_obj.ajax_url,
                     type: 'GET',
                     data: {
@@ -814,7 +815,7 @@ if ($all_jobs_query->have_posts()) {
             }
             formData.set('message', finalMsg);
 
-            $.ajax({
+            jQuery.ajax({
                 url: np_recruit_obj.ajax_url,
                 type: 'POST',
                 data: formData,

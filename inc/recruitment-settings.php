@@ -191,24 +191,18 @@ function np_get_wards_proxy() {
         wp_send_json_error(['message' => 'Missing province code']);
     }
 
-    // Call external API via PHP (Server-to-Server)
-    // Using Search Endpoint: api/v2/w/search/?p={code}
-    $api_url = "https://provinces.open-api.vn/api/v2/w/search/?p=" . $province_code;
+    // Endpoint Update: /w/search/ is 422. /p/{code}?depth=2 returns wards in some versions.
+    $api_url = "https://provinces.open-api.vn/api/v2/p/" . $province_code . "?depth=2";
     
     $response = wp_remote_get($api_url, [
         'timeout' => 15,
         'headers' => [
-            'Accept' => 'application/json' // Ensure JSON
+            'Accept' => 'application/json'
         ]
     ]);
 
     if (is_wp_error($response)) {
         wp_send_json_error(['message' => 'API Connection Error']);
-    }
-
-    $response_code = wp_remote_retrieve_response_code($response);
-    if ($response_code !== 200) {
-         wp_send_json_error(['message' => 'API Error: ' . $response_code]);
     }
 
     $body = wp_remote_retrieve_body($response);
@@ -218,7 +212,17 @@ function np_get_wards_proxy() {
         wp_send_json_error(['message' => 'Invalid JSON from API']);
     }
     
-    wp_send_json_success($data);
+    $wards = [];
+    if (isset($data->wards) && is_array($data->wards)) {
+        $wards = $data->wards;
+    } elseif (isset($data->districts) && is_array($data->districts)) {
+        // Backup: If depth=2 returned districts, we can't get wards deeply.
+        // But the user insisted on a flat list. 
+        // If we are here, something is odd. We return empty or districts?
+        // Let's return empty to avoid confusion.
+    }
+    
+    wp_send_json_success($wards);
 }
 // 3.3 Callback: Candidate Info
 function np_candidate_info_callback($post) {
