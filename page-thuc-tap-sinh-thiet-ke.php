@@ -359,9 +359,9 @@ get_header(); ?>
 
                        <div class="group relative">
                           <label class="block text-xs font-bold text-[#f8c03f] uppercase tracking-widest mb-2 ml-1 flex items-center gap-2">
-                             <i data-lucide="mouse-pointer-2" class="w-3.5 h-3.5"></i> Link Portfolio (Behance/Drive) *
+                             <i data-lucide="mouse-pointer-2" class="w-3.5 h-3.5"></i> Link Portfolio (Behance/Drive) (Nếu có)
                           </label>
-                          <input type="url" name="portfolioLink" required placeholder="https://www.behance.net/..." class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-blue-400 placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm">
+                          <input type="url" name="portfolioLink" placeholder="https://www.behance.net/..." class="w-full px-0 py-3 bg-transparent border-b border-white/20 text-blue-400 placeholder-white/30 focus:outline-none focus:border-[#f8c03f] transition-all font-light text-sm">
                        </div>
 
                        <!-- Tài liệu bổ sung -->

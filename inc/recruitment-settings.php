@@ -124,6 +124,20 @@ add_action('admin_menu', 'np_recruitment_menu');
 // 3. META BOXES (Job Details & Candidate Info)
 // ==========================================================================
 
+// Helper: Status Definitions
+function np_get_recruit_statuses() {
+    return [
+        'new'       => ['label' => 'Mới nhận', 'color' => '#3c434a', 'bg' => '#f0f0f1'],
+        'contacted' => ['label' => 'Đã liên hệ', 'color' => '#0073aa', 'bg' => '#dbeafe'],
+        'test'      => ['label' => 'Đang làm bài test', 'color' => '#8224e3', 'bg' => '#f3e8ff'],
+        'interview' => ['label' => 'Đã phỏng vấn', 'color' => '#b45309', 'bg' => '#fffbeb'],
+        'offer'     => ['label' => 'Đã gửi Offer', 'color' => '#0284c7', 'bg' => '#e0f2fe'], 
+        'hired'     => ['label' => 'Đã đi làm', 'color' => '#15803d', 'bg' => '#dcfce7'],
+        'rejected'  => ['label' => 'Loại / Không đạt', 'color' => '#b91c1c', 'bg' => '#fee2e2'],
+        'saved'     => ['label' => 'Lưu hồ sơ', 'color' => '#4b5563', 'bg' => '#f3f4f6'],
+    ];
+}
+
 // 3.1 Register Meta Boxes
 function np_recruit_add_meta_boxes() {
     // For Job
@@ -232,10 +246,32 @@ function np_candidate_info_callback($post) {
     $job_id = get_post_meta($post->ID, '_np_candidate_job_id', true);
     $address = get_post_meta($post->ID, '_np_candidate_address', true);
     $message = get_post_meta($post->ID, '_np_candidate_message', true);
+    $status = get_post_meta($post->ID, '_np_candidate_status', true);
+    if(!$status) $status = 'new';
+    $statuses = np_get_recruit_statuses();
     
     $job_title = $job_id ? get_the_title($job_id) : 'N/A';
     ?>
     <table class="form-table">
+        <tr style="background: #f0f0f1;">
+            <th>Trạng thái:</th>
+            <td>
+                <?php $current_st = isset($statuses[$status]) ? $statuses[$status] : $statuses['new']; ?>
+                <select name="np_candidate_status" style="width: 200px; font-weight:bold; color: <?php echo $current_st['color']; ?>;">
+                    <?php foreach ($statuses as $key => $info): ?>
+                        <option value="<?php echo esc_attr($key); ?>" <?php selected($status, $key); ?> data-color="<?php echo $info['color']; ?>">
+                            <?php echo esc_html($info['label']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <script>
+                    jQuery('select[name="np_candidate_status"]').change(function() {
+                        var color = jQuery(this).find(':selected').data('color');
+                        jQuery(this).css('color', color);
+                    });
+                </script>
+            </td>
+        </tr>
         <tr>
             <th>Ứng tuyển vị trí:</th>
             <td>
@@ -291,6 +327,9 @@ function np_recruit_save_meta($post_id) {
     if (isset($_POST['np_job_type'])) update_post_meta($post_id, '_np_job_type', sanitize_text_field($_POST['np_job_type']));
     if (isset($_POST['np_job_custom_page'])) update_post_meta($post_id, '_np_job_custom_page', sanitize_text_field($_POST['np_job_custom_page']));
     
+    // Save Candidate Status
+    if (isset($_POST['np_candidate_status'])) update_post_meta($post_id, '_np_candidate_status', sanitize_text_field($_POST['np_candidate_status']));
+
     // Checkbox handling
     $is_hot = isset($_POST['np_job_hot']) ? '1' : '0';
     // Only update if it's the correct post type to avoid overwriting on bulk edit sometimes or wrong page
@@ -328,6 +367,7 @@ add_action('manage_np_job_posts_custom_column', function($column, $post_id) {
 // 4.2 Columns for Candidates
 add_filter('manage_np_candidate_posts_columns', function($columns) {
     $new_cols = ['cb' => $columns['cb'], 'title' => 'Tên Ứng viên'];
+    $new_cols['cand_status'] = 'Trạng thái';
     $new_cols['cand_position'] = 'Vị trí Ứng tuyển';
     $new_cols['cand_contact'] = 'Liên hệ';
     $new_cols['cand_cv'] = 'CV';
@@ -336,6 +376,23 @@ add_filter('manage_np_candidate_posts_columns', function($columns) {
 });
 
 add_action('manage_np_candidate_posts_custom_column', function($column, $post_id) {
+    if ($column == 'cand_status') {
+        $status = get_post_meta($post_id, '_np_candidate_status', true);
+        if(!$status) $status = 'new';
+        $statuses = np_get_recruit_statuses();
+        $info = isset($statuses[$status]) ? $statuses[$status] : $statuses['new'];
+        
+        echo '<span style="
+            display:inline-block; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: '.$info['color'].'; 
+            background: '.$info['bg'].';
+            border: 1px solid '.$info['color'].'20;
+        ">'.esc_html($info['label']).'</span>';
+    }
     if ($column == 'cand_position') {
         $job_id = get_post_meta($post_id, '_np_candidate_job_id', true);
         
@@ -814,6 +871,12 @@ function np_ajax_get_candidate_detail() {
     $address = get_post_meta($post_id, '_np_candidate_address', true);
     $message = nl2br(esc_html(get_post_meta($post_id, '_np_candidate_message', true)));
     
+    // Status Logic
+    $status = get_post_meta($post_id, '_np_candidate_status', true);
+    if(!$status) $status = 'new';
+    $statuses = np_get_recruit_statuses();
+    $st_info = isset($statuses[$status]) ? $statuses[$status] : $statuses['new'];
+    
     $job_title = 'Ứng tuyển tự do';
     if($job_id) {
         if($job_id == 9999) $job_title = 'Design Intern (Landing)';
@@ -829,9 +892,14 @@ function np_ajax_get_candidate_detail() {
         <h2 style="margin: 0; color: #052e16; font-size: 24px; font-weight: 700;">
             <?php echo esc_html($post->post_title); ?>
         </h2>
-        <span style="display: inline-block; background: #e6fffa; color: #052e16; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 5px;">
-            <?php echo esc_html($job_title); ?>
-        </span>
+        <div style="margin-top:8px;">
+            <span style="display: inline-block; background: #e6fffa; color: #052e16; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-right: 5px;">
+                <?php echo esc_html($job_title); ?>
+            </span>
+            <span style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; color: <?php echo $st_info['color']; ?>; background: <?php echo $st_info['bg']; ?>; border:1px solid <?php echo $st_info['color']; ?>;">
+                <?php echo esc_html($st_info['label']); ?>
+            </span>
+        </div>
     </div>
     
     <div class="np-modal-body" style="display: flex; gap: 30px;">
