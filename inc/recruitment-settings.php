@@ -338,16 +338,30 @@ add_filter('manage_np_candidate_posts_columns', function($columns) {
 add_action('manage_np_candidate_posts_custom_column', function($column, $post_id) {
     if ($column == 'cand_position') {
         $job_id = get_post_meta($post_id, '_np_candidate_job_id', true);
-        echo $job_id ? '<b>'.get_the_title($job_id).'</b>' : '—';
         
-        $job_dept = wp_get_post_terms($job_id, 'np_department');
-        if (!empty($job_dept) && !is_wp_error($job_dept)) {
-            echo '<br><small>('.$job_dept[0]->name.')</small>';
+        if ($job_id == 9999) {
+             echo '<b>Design Intern</b> <span style="color:#888; font-size:11px;">(Trang Landing)</span>';
+        } elseif ($job_id) {
+            $title = get_the_title($job_id);
+            if ($title) {
+                 echo '<b>' . esc_html($title) . '</b>';
+                 $job_dept = wp_get_post_terms($job_id, 'np_department');
+                 if (!empty($job_dept) && !is_wp_error($job_dept)) {
+                     echo '<br><small>(' . esc_html($job_dept[0]->name) . ')</small>';
+                 }
+            } else {
+                 echo '<span style="color:red;">ID: ' . esc_html($job_id) . ' (Đã xóa)</span>';
+            }
+        } else {
+             echo '<span style="color:orange;">Ứng tuyển tự do</span>';
         }
     }
     if ($column == 'cand_contact') {
         echo '<a href="mailto:'.get_post_meta($post_id, '_np_candidate_email', true).'">'.get_post_meta($post_id, '_np_candidate_email', true).'</a><br>';
         echo get_post_meta($post_id, '_np_candidate_phone', true);
+        
+        // Add View Button
+        echo '<br><button class="button button-small quick-view-candidate" data-id="' . $post_id . '" style="margin-top:5px; border-color:#54b259; color:#54b259;">★ Xem nhanh hồ sơ</button>';
     }
     if ($column == 'cand_cv') {
         $cv = get_post_meta($post_id, '_np_candidate_cv', true);
@@ -583,7 +597,7 @@ function np_process_demo_import() {
             ['title' => "Designer", 'dept' => 'marketing', 'loc' => "Hà Nội", 'sal' => "Thỏa thuận", 'desc' => "Thiết kế hình ảnh và đồ họa cho các chiến dịch marketing.", 'type' => "Toàn thời gian"],
             ['title' => "Quay Phim và Chụp Ảnh", 'dept' => 'marketing', 'loc' => "Hà Nội", 'sal' => "Thỏa thuận", 'desc' => "Sản xuất nội dung hình ảnh và video cho sản phẩm.", 'type' => "Toàn thời gian"],
             ['title' => "Thực Tập Sinh Marketing", 'dept' => 'marketing', 'loc' => "Hà Nội", 'sal' => "Thỏa thuận", 'desc' => "Hỗ trợ các công việc chuyên môn của bộ phận Marketing.", 'type' => "Thực tập", 'hot' => '1'],
-
+            
             // CSKH
             ['title' => "Trưởng Bộ Phận Chăm Sóc Khách Hàng", 'dept' => 'cs', 'loc' => "Hà Nội", 'sal' => "Thỏa thuận", 'desc' => "Xây dựng quy trình CSKH, xử lý khiếu nại và nâng cao trải nghiệm khách hàng.", 'type' => "Toàn thời gian"],
             ['title' => "Nhân Viên Tư Vấn Dinh Dưỡng", 'dept' => 'cs', 'loc' => "Online / Hà Nội", 'sal' => "Thỏa thuận", 'desc' => "Tư vấn sản phẩm sữa hạt và thực phẩm chức năng qua hotline, fanpage, Zalo OA.", 'type' => "Toàn thời gian"],
@@ -780,3 +794,202 @@ function np_recruitment_frontend_scripts() {
     }
 }
 
+// ==========================================================================
+// 8. QUICK VIEW MODAL (ADMIN)
+// ==========================================================================
+
+// 8.1 Register AJAX for fetching details
+add_action('wp_ajax_np_get_candidate_detail', 'np_ajax_get_candidate_detail');
+function np_ajax_get_candidate_detail() {
+    $post_id = intval($_GET['post_id']);
+    if (!$post_id) wp_send_json_error('Invalid ID');
+    
+    $post = get_post($post_id);
+    if (!$post || $post->post_type !== 'np_candidate') wp_send_json_error('Not a Candidate');
+    
+    $email = get_post_meta($post_id, '_np_candidate_email', true);
+    $phone = get_post_meta($post_id, '_np_candidate_phone', true);
+    $cv_url = get_post_meta($post_id, '_np_candidate_cv', true);
+    $job_id = get_post_meta($post_id, '_np_candidate_job_id', true);
+    $address = get_post_meta($post_id, '_np_candidate_address', true);
+    $message = nl2br(esc_html(get_post_meta($post_id, '_np_candidate_message', true)));
+    
+    $job_title = 'Ứng tuyển tự do';
+    if($job_id) {
+        if($job_id == 9999) $job_title = 'Design Intern (Landing)';
+        else $job_title = get_the_title($job_id);
+    }
+    
+    // Determine Age/DoB (Placeholder as we don't have it yet)
+    // We only have Fullname, Phone, Email, Address, CV, Message
+    
+    ob_start();
+    ?>
+    <div class="np-modal-header" style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px;">
+        <h2 style="margin: 0; color: #052e16; font-size: 24px; font-weight: 700;">
+            <?php echo esc_html($post->post_title); ?>
+        </h2>
+        <span style="display: inline-block; background: #e6fffa; color: #052e16; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 5px;">
+            <?php echo esc_html($job_title); ?>
+        </span>
+    </div>
+    
+    <div class="np-modal-body" style="display: flex; gap: 30px;">
+        <div class="np-col-left" style="flex: 1; border-right: 1px solid #eee; padding-right: 30px;">
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 10px; color: #666; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Liên Hệ</h4>
+                <p style="margin: 5px 0;"><strong>📧 Email:</strong> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
+                <p style="margin: 5px 0;"><strong>📱 SĐT:</strong> <a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></p>
+                <p style="margin: 5px 0;"><strong>📍 Địa chỉ:</strong> <?php echo esc_html($address); ?></p>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4 style="margin: 0 0 10px; color: #666; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Hồ Sơ CV</h4>
+                <?php if ($cv_url): ?>
+                    <a href="<?php echo esc_url($cv_url); ?>" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; background: #54b259; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: bold; width: 100%; box-sizing: border-box;">
+                        Xem CV / Portfolio &rarr;
+                    </a>
+                    <p style="font-size: 12px; color: #999; margin-top: 5px; word-break: break-all;"><?php echo esc_url($cv_url); ?></p>
+                <?php else: ?>
+                    <p style="color: #999; font-style: italic;">Ứng viên chưa đính kèm CV.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+        
+        <div class="np-col-right" style="flex: 1.5;">
+            <h4 style="margin: 0 0 10px; color: #666; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Lời Nhắn & Tài Liệu Bổ Sung</h4>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; color: #333; line-height: 1.6; max-height: 400px; overflow-y: auto;">
+                <?php echo $message ? $message : 'Không có lời nhắn.'; ?>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: right;">
+                 <a href="<?php echo get_edit_post_link($post_id); ?>" class="button" target="_blank">Chỉnh sửa chi tiết &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <?php
+    $html = ob_get_clean();
+    wp_send_json_success($html);
+}
+
+// 8.2 Inject Modal & Script into Admin Footer
+add_action('admin_footer', 'np_recruit_admin_quick_view_assets');
+function np_recruit_admin_quick_view_assets() {
+    $screen = get_current_screen();
+    if ($screen && $screen->post_type === 'np_candidate') {
+    ?>
+    <!-- Modal Styles and Markup -->
+    <style>
+        #np-candidate-modal-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99999;
+            align-items: center; justify-content: center;
+        }
+        #np-candidate-modal {
+            background: white;
+            width: 800px;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        #np-candidate-modal.open {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .np-close-modal {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: #f1f3f4;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: #5f6368;
+            transition: all 0.2s;
+        }
+        .np-close-modal:hover {
+            background: #e0e0e0;
+            color: #000;
+        }
+    </style>
+
+    <div id="np-candidate-modal-overlay">
+        <div id="np-candidate-modal">
+            <div class="np-close-modal">✕</div>
+            <div id="np-modal-content">
+                <div style="text-align: center; padding: 60px;">
+                    <span class="spinner is-active" style="float:none; margin:0;"></span> Đang tải...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($) {
+        
+        // Open Modal
+        $(document).on('click', '.quick-view-candidate', function(e) {
+            e.preventDefault();
+            var postId = $(this).data('id');
+            var overlay = $('#np-candidate-modal-overlay');
+            var modal = $('#np-candidate-modal');
+            var content = $('#np-modal-content');
+            
+            overlay.css('display', 'flex');
+            setTimeout(function(){ modal.addClass('open'); }, 10);
+            
+            content.html('<div style="text-align: center; padding: 60px;"><span class="spinner is-active" style="float:none; margin:0;"></span> Đang tải dữ liệu...</div>');
+            
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    action: 'np_get_candidate_detail',
+                    post_id: postId
+                },
+                success: function(res) {
+                    if(res.success) {
+                        content.html(res.data);
+                    } else {
+                        content.html('<p style="color:red; text-align:center;">Lỗi: ' + (res.data || 'Không thể tải dữ liệu') + '</p>');
+                    }
+                },
+                error: function() {
+                    content.html('<p style="color:red; text-align:center;">Lỗi kết nối server</p>');
+                }
+            });
+        });
+
+        // Close Modal
+        function closeNpModal() {
+            $('#np-candidate-modal').removeClass('open');
+            setTimeout(function() {
+                $('#np-candidate-modal-overlay').hide();
+            }, 300);
+        }
+        
+        $('.np-close-modal, #np-candidate-modal-overlay').on('click', function(e) {
+            if (e.target === this) {
+                closeNpModal();
+            }
+        });
+        
+        // Also bind to Escape key
+        $(document).keyup(function(e) {
+            if (e.key === "Escape") {
+                closeNpModal();
+            }
+        });
+    });
+    </script>
+    <?php
+    }
+}

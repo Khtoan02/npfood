@@ -279,6 +279,11 @@ get_header(); ?>
                         $custom_page_id = get_post_meta($job_id, '_np_job_custom_page', true);
                         $job_link = $custom_page_id ? get_permalink($custom_page_id) : '#'; 
                         
+                        // Append job_id to URL for tracking
+                        if ($custom_page_id) {
+                            $job_link = add_query_arg('ref_job_id', $job_id, $job_link);
+                        }
+                        
                         // Click Logic: If custom page -> Go there. If not -> Open Modal
                         $card_onclick = $custom_page_id ? "window.location.href='$job_link'" : "return false;";
                         $extra_class = $custom_page_id ? "" : "open-application-modal";

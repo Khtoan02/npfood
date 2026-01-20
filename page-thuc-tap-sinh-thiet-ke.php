@@ -2,6 +2,11 @@
 /**
  * Template Name: Design Intern Page
  */
+ $ref_job_id = isset($_GET['ref_job_id']) ? intval($_GET['ref_job_id']) : (isset($_GET['job_id']) ? intval($_GET['job_id']) : 0);
+ $job_title = "Design Intern"; // Default
+ if ($ref_job_id > 0) {
+     $job_title = get_the_title($ref_job_id);
+ }
 get_header(); ?>
 
 <div class="font-sans text-gray-800 bg-white selection:bg-[#54b259] selection:text-white">
@@ -79,7 +84,12 @@ get_header(); ?>
             </div>
             
             <h1 class="text-6xl md:text-8xl font-serif font-bold mb-6 text-center leading-none">
-                Design <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#f8c03f] to-[#eab308]">Intern</span>
+                <?php if($ref_job_id > 0): ?>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#f8c03f] to-[#eab308] block text-4xl md:text-6xl mb-2">Ứng Tuyển</span>
+                    <span class="text-white block text-5xl md:text-7xl"><?php echo esc_html($job_title); ?></span>
+                <?php else: ?>
+                    Design <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#f8c03f] to-[#eab308]">Intern</span>
+                <?php endif; ?>
             </h1>
             
             <p className="text-xl md:text-2xl font-light text-gray-200 max-w-3xl text-center mb-12 leading-relaxed">
@@ -393,6 +403,10 @@ get_header(); ?>
         // Define AJAX URL safely (in case object is missing)
         const AJAX_URL = '<?php echo admin_url('admin-ajax.php'); ?>';
         const NONCE = '<?php echo wp_create_nonce("np_recruit_nonce"); ?>';
+        
+        // DYNAMIC JOB DATA
+        const JOB_ID = <?php echo $ref_job_id > 0 ? $ref_job_id : 9999; ?>;
+        const JOB_TITLE = "<?php echo esc_js($job_title); ?>";
 
         // --- DYNAMIC DOCUMENTS ---
         function addInternDocRow() {
@@ -568,11 +582,11 @@ get_header(); ?>
             const formData = new FormData(form);
             formData.append('action', 'np_submit_application');
             formData.append('security', NONCE);
-            formData.append('job_id', 9999); 
+            formData.append('job_id', JOB_ID); 
             
             // Construct Message
             const portfolio = formData.get('portfolioLink');
-            let message = "Ứng tuyển: Design Intern\n";
+            let message = "Ứng tuyển: " + JOB_TITLE + "\n";
             message += "Portfolio: " + portfolio + "\n\n";
             
             const docs = [];
