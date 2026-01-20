@@ -76,7 +76,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
                 <div class="lg:w-1/2 relative">
                     <div class="absolute top-[-20px] left-[-20px] w-24 h-24 border-t-4 border-l-4 border-[#54b259]"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
+                        src="https://npfood.vn/wp-content/uploads/2023/02/19-03-2022_Nutriscience_Mixed-race27655-1-scaled-e1768883629591.jpg" 
                         alt="NP Food Office" 
                         class="rounded shadow-2xl relative z-10 w-full object-cover h-[500px]"
                     />
@@ -120,9 +120,9 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
 
     <!-- --- QUOTE 1: HIPPOCRATES --- -->
     <?php np_render_quote_section(
-        "Hãy để thức ăn là thuốc và thuốc là thức ăn.",
-        "Hippocrates",
-        "Ông tổ ngành Y học phương Tây",
+        "Thực phẩm không chỉ là calo; nó là thông tin. Nó chứa đựng những thông điệp kết nối với từng tế bào trong cơ thể bạn.",
+        "Tiến sĩ Mark Hyman",
+        "Chuyên gia y học chức năng hàng đầu tại Mỹ",
         "bg-[#14532d]"
     ); ?>
 

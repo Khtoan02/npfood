@@ -398,7 +398,7 @@ get_header(); ?>
           
             <div class="inline-flex flex-col sm:flex-row gap-6 items-center">
                 <div class="px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-[#f8c03f] font-bold text-lg flex items-center gap-4 hover:bg-white/10 transition-colors">
-                    <i data-lucide="briefcase" class="w-[22px] h-[22px]"></i> hr@npfood.vn
+                    <i data-lucide="briefcase" class="w-[22px] h-[22px]"></i> npnutri1908@gmail.com
                 </div>
                 <!-- Global Apply Button -->
                 <button 

@@ -502,7 +502,7 @@ function np_recruitment_settings_page() {
                         <tr valign="top">
                             <th scope="row">Email Nhận CV</th>
                             <td>
-                                <input type="email" name="np_recruit_receiver_email" value="<?php echo esc_attr(get_option('np_recruit_receiver_email')); ?>" class="regular-text" placeholder="hr@npfood.vn" />
+                                <input type="email" name="np_recruit_receiver_email" value="<?php echo esc_attr(get_option('np_recruit_receiver_email')); ?>" class="regular-text" placeholder="npnutri1908@gmail.com" />
                             </td>
                         </tr>
                         <tr valign="top">

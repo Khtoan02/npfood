@@ -99,8 +99,8 @@
                    <i data-lucide="map-pin" class="w-4 h-4"></i>
                 </div>
                 <div class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors font-light">
-                  <strong class="text-white font-medium block mb-1">Văn phòng chính</strong>
-                  Tầng 12, Tòa nhà NP Tower, 123 Đường Cầu Giấy, Q. Cầu Giấy, Hà Nội.
+                  <strong class="text-white font-medium block mb-1">Văn phòng</strong>
+                  489 Hoàng Quốc Việt, Nghĩa Đô, Hà Nội
                 </div>
               </li>
               <li class="flex items-center gap-4 group">
@@ -108,8 +108,8 @@
                    <i data-lucide="phone" class="w-4 h-4"></i>
                 </div>
                 <div class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors font-light">
-                   <strong class="text-white font-medium block mb-1">Hotline Hợp tác</strong>
-                   (+84) 24 3999 9999
+                   <strong class="text-white font-medium block mb-1">Hotline</strong>
+                   0869.858.268
                 </div>
               </li>
               <li class="flex items-center gap-4 group">
@@ -118,7 +118,7 @@
                 </div>
                 <div class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors font-light">
                    <strong class="text-white font-medium block mb-1">Email</strong>
-                   partner@npfood.vn
+                   npnutri1908@gmail.com
                 </div>
               </li>
             </ul>
@@ -126,10 +126,14 @@
         </div>
 
         <!-- 4. BOTTOM BAR -->
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-light tracking-wide">
-          <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-left">
-             <p>&copy; <?php echo date('Y'); ?> Công ty TNHH Thực phẩm NP.</p>
-             <p>MST: 0109082378 | Cấp ngày: 01/01/2014</p>
+        <div class="flex flex-col md:flex-row justify-between items-end gap-6 text-xs text-gray-500 font-light tracking-wide border-t border-white/5 pt-8">
+          <div class="flex flex-col gap-2 text-center md:text-left">
+             <p class="mb-1 text-white font-medium">&copy; <?php echo date('Y'); ?> CÔNG TY TNHH THỰC PHẨM NP</p>
+             <p class="leading-relaxed opacity-70">
+                Địa chỉ: Tổ 4, Xã Quang Minh, TP Hà Nội, Việt Nam <br>
+                MST: 0109082378 | Ngày cấp: 06/02/2020 | Thay đổi lần 2: 27/09/2024 <br>
+                Nơi cấp: Sở Kế hoạch và Đầu tư Thành phố Hà Nội
+             </p>
           </div>
           
           <div class="flex items-center gap-6">

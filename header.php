@@ -89,8 +89,8 @@
     <div class="bg-[#184241] text-white py-2 text-xs font-medium hidden lg:block border-b border-[#2a5e5d]">
         <div class="container mx-auto px-4 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-6">
-                <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-secondary"></i> (+84) 24 3999 9999</span>
-                <span class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-secondary"></i> partner@npfood.vn</span>
+                <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-secondary"></i> 0869.858.268</span>
+                <span class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-secondary"></i> npnutri1908@gmail.com</span>
             </div>
             <div class="flex items-center gap-4">
                 <a href="#" class="opacity-80 hover:opacity-100 cursor-pointer transition-opacity text-white no-underline hover:text-secondary">Tin tức</a>
