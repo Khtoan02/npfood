@@ -2,6 +2,22 @@
 /**
  * Template Name: Quản Lý Thực Tập Sinh
  */
+
+// Simple API handler for syncing data
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['api']) && $_GET['api'] === 'save') {
+    $json = file_get_contents('php://input');
+    update_option('intern_manager_sync_data_v1', $json);
+    echo json_encode(['success' => true]);
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['api']) && $_GET['api'] === 'load') {
+    $data = get_option('intern_manager_sync_data_v1');
+    header('Content-Type: application/json');
+    echo $data ? $data : '{}';
+    exit;
+}
+
 get_header(); ?>
 
 <div id="intern-manager-root"></div>
@@ -72,25 +88,13 @@ function App() {
   const [loginCode, setLoginCode] = useState('');
   const [loginError, setLoginError] = useState('');
 
-  // --- TRẠNG THÁI ỨNG DỤNG (APP STATE LƯU STORAGE) ---
-  const [staffs, setStaffs] = useState(() => {
-    const saved = localStorage.getItem('internManager_staffs');
-    return saved ? JSON.parse(saved) : INITIAL_STAFF;
-  });
+  // --- TRẠNG THÁI ỨNG DỤNG (APP STATE LƯU SERVER) ---
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [staffs, setStaffs] = useState(INITIAL_STAFF);
+  const [interns, setInterns] = useState(INITIAL_INTERNS);
+  const [attendanceData, setAttendanceData] = useState({});
 
-  const [interns, setInterns] = useState(() => {
-    const saved = localStorage.getItem('internManager_interns');
-    return saved ? JSON.parse(saved) : INITIAL_INTERNS;
-  });
-  
-  const [attendanceData, setAttendanceData] = useState(() => {
-    const saved = localStorage.getItem('internManager_attendance');
-    return saved ? JSON.parse(saved) : {};
-  });
-
-  const [currentInternId, setCurrentInternId] = useState(() => {
-    return interns.length > 0 ? interns[0].id : null;
-  });
+  const [currentInternId, setCurrentInternId] = useState(null);
   
   const [viewDate, setViewDate] = useState(new Date());
 
@@ -110,19 +114,39 @@ function App() {
     }
   }, [currentUser, staffs, interns]);
 
-  // Lưu lại vào localStorage mỗi khi có thay đổi
+  // Load dữ liệu từ Server khi khởi tạo
   useEffect(() => {
-    localStorage.setItem('internManager_staffs', JSON.stringify(staffs));
-  }, [staffs]);
+    fetch('?api=load')
+      .then(res => res.json())
+      .then(data => {
+        if (data.staffs) setStaffs(data.staffs);
+        if (data.interns) {
+          setInterns(data.interns);
+          if(data.interns.length > 0) {
+            // Cập nhật người được xem đầu tiên
+            setCurrentInternId(prev => prev || data.interns[0].id);
+          }
+        }
+        if (data.attendanceData) setAttendanceData(data.attendanceData);
+      })
+      .catch(err => console.error("Lỗi tải dữ liệu", err))
+      .finally(() => setIsDataLoaded(true));
+  }, []);
 
+  // Lưu lại lên Server mỗi khi có thay đổi (Debounce ngầm tạo async save)
   useEffect(() => {
-    localStorage.setItem('internManager_interns', JSON.stringify(interns));
-  }, [interns]);
+    if (!isDataLoaded) return;
+    const timer = setTimeout(() => {
+      fetch('?api=save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ staffs, interns, attendanceData })
+      }).catch(err => console.error("Lỗi lưu dữ liệu", err));
+    }, 500); // Debounce 500ms để tránh spam API liên tục
+    return () => clearTimeout(timer);
+  }, [staffs, interns, attendanceData, isDataLoaded]);
 
-  useEffect(() => {
-    localStorage.setItem('internManager_attendance', JSON.stringify(attendanceData));
-  }, [attendanceData]);
-
+  // Vẫn lưu currentUser vào LocalStorage riêng biệt từng máy
   useEffect(() => {
     localStorage.setItem('internManager_currentUser', JSON.stringify(currentUser));
   }, [currentUser]);
@@ -380,6 +404,16 @@ function App() {
     navigator.clipboard.writeText(urlObj.toString());
     alert('Đã copy đường dẫn dành riêng cho Kế Toán: ' + urlObj.toString());
   };
+
+  // --- RENDER MÀN HÌNH CHỜ ĐỒNG BỘ ---
+  if (!isDataLoaded) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex flex-col justify-center items-center p-4">
+         <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+         <p className="mt-4 text-slate-500 font-medium tracking-wide">Đang đồng bộ dữ liệu hệ thống...</p>
+      </div>
+    );
+  }
 
   // --- RENDER MÀN HÌNH ĐĂNG NHẬP ---
   if (!currentUser) {
