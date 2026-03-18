@@ -6,15 +6,18 @@
 // Simple API handler for syncing data
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['api']) && $_GET['api'] === 'save') {
     $json = file_get_contents('php://input');
-    update_option('intern_manager_sync_data_v1', $json);
+    $parsed_data = json_decode($json, true);
+    if ($parsed_data !== null) {
+        update_option('intern_manager_sync_data_v2', $parsed_data);
+    }
     echo json_encode(['success' => true]);
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['api']) && $_GET['api'] === 'load') {
-    $data = get_option('intern_manager_sync_data_v1');
+    $data = get_option('intern_manager_sync_data_v2');
     header('Content-Type: application/json');
-    echo $data ? $data : '{}';
+    echo $data ? json_encode($data) : '{}';
     exit;
 }
 
@@ -337,19 +340,23 @@ function App() {
     if (currentUser?.role === 'accountant') return;
 
     setAttendanceData(prev => {
-      const newData = { ...prev };
-      if (!newData[internId]) newData[internId] = {};
-      if (!newData[internId][monthKey]) newData[internId][monthKey] = {};
+      const updatedIntern = { ...(prev[internId] || {}) };
+      const updatedMonth = { ...(updatedIntern[monthKey] || {}) };
       
       const dayStr = String(day).padStart(2, '0');
-      const currentDayData = newData[internId][monthKey][dayStr] || { morning: false, afternoon: false };
+      const currentDayData = updatedMonth[dayStr] || { morning: false, afternoon: false };
       
-      newData[internId][monthKey][dayStr] = {
+      updatedMonth[dayStr] = {
         ...currentDayData,
         [shiftType]: !currentDayData[shiftType]
       };
       
-      return newData;
+      updatedIntern[monthKey] = updatedMonth;
+      
+      return {
+        ...prev,
+        [internId]: updatedIntern
+      };
     });
   };
 
