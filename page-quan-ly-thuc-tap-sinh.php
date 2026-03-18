@@ -131,9 +131,13 @@ function App() {
           }
         }
         if (data.attendanceData) setAttendanceData(data.attendanceData);
+        setIsDataLoaded(true);
       })
-      .catch(err => console.error("Lỗi tải dữ liệu", err))
-      .finally(() => setIsDataLoaded(true));
+      .catch(err => {
+         console.error("Lỗi tải dữ liệu", err);
+         // Prevent overwrite by not setting isDataLoaded to true if network fails
+         alert("Lỗi mạng khi tải dữ liệu. Vui lòng thử tải lại trang.");
+      });
   }, []);
 
   // Lưu lại lên Server mỗi khi có thay đổi (Debounce ngầm tạo async save)
