@@ -2,14 +2,25 @@
 
 <div class="font-sans text-gray-800 bg-[#F9FAFB] selection:bg-primary selection:text-white min-h-screen">
     <!-- Hero / Breadcrumb Section -->
-    <section class="relative bg-gradient-to-r from-[#184241] to-[#2a5e5d] text-white py-12 lg:py-20 overflow-hidden">
-        <!-- Background Decoration -->
-        <div class="absolute inset-0 opacity-[0.05] pointer-events-none">
-            <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-white">
-                <circle cx="10" cy="10" r="30" />
-                <circle cx="80" cy="90" r="40" />
-            </svg>
-        </div>
+    <section class="relative bg-gradient-to-r from-[#184241] to-[#2a5e5d] text-white py-12 lg:py-24 overflow-hidden">
+        <?php if ( has_post_thumbnail() ) : ?>
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <?php the_post_thumbnail( 'full', [
+                    'class' => 'w-full h-full object-cover object-center absolute inset-0'
+                ] ); ?>
+                <!-- Dark Gradient Overlay for optimal readability -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#184241]/95 to-[#2a5e5d]/85"></div>
+            </div>
+        <?php else : ?>
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 opacity-[0.05] pointer-events-none z-0">
+                <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-white">
+                    <circle cx="10" cy="10" r="30" />
+                    <circle cx="80" cy="90" r="40" />
+                </svg>
+            </div>
+        <?php endif; ?>
         
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <!-- Breadcrumbs -->
@@ -54,14 +65,6 @@
                     while ( have_posts() ) :
                         the_post();
                 ?>
-                        <!-- Featured Image -->
-                        <?php if ( has_post_thumbnail() ) : ?>
-                            <div class="mb-10 rounded-xl overflow-hidden shadow-md group">
-                                <?php the_post_thumbnail( 'full', [
-                                    'class' => 'w-full h-auto max-h-[500px] object-cover transform group-hover:scale-[1.02] transition-transform duration-500'
-                                ] ); ?>
-                            </div>
-                        <?php endif; ?>
 
                         <!-- Post Meta Info (Author, Reading Time) -->
                         <div class="flex items-center gap-4 pb-6 mb-8 border-b border-gray-100 text-sm text-gray-500">
@@ -255,10 +258,73 @@
         margin-bottom: 0.5rem;
         line-height: 1.6;
     }
+    /* Hình ảnh & căn lề chuẩn chỉ */
     .entry-content img {
+        max-width: 100%;
+        height: auto;
         border-radius: 0.75rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        margin: 2rem 0;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        margin: 2rem auto;
+        display: block;
+    }
+    .entry-content .aligncenter,
+    .entry-content .alignnone,
+    .entry-content figure.aligncenter,
+    .entry-content figure.alignnone {
+        margin: 2rem auto;
+        display: block;
+        text-align: center;
+    }
+    .entry-content .aligncenter img,
+    .entry-content .alignnone img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .entry-content .alignleft,
+    .entry-content figure.alignleft {
+        float: left;
+        margin: 0.5rem 1.5rem 1.5rem 0;
+        max-width: 50%;
+    }
+    .entry-content .alignright,
+    .entry-content figure.alignright {
+        float: right;
+        margin: 0.5rem 0 1.5rem 1.5rem;
+        max-width: 50%;
+    }
+    .entry-content::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .entry-content .wp-block-image {
+        margin: 2rem auto;
+    }
+    .entry-content .wp-block-image.aligncenter,
+    .entry-content .wp-block-image.alignnone {
+        text-align: center;
+    }
+    .entry-content .wp-block-image.alignleft {
+        float: left;
+        margin-right: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .entry-content .wp-block-image.alignright {
+        float: right;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .entry-content .wp-block-image img {
+        display: inline-block;
+        margin: 0;
+    }
+    .entry-content figcaption,
+    .entry-content .wp-element-caption {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin-top: 0.5rem;
+        text-align: center;
+        font-style: italic;
     }
 </style>
 
