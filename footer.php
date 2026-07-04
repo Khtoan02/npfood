@@ -72,7 +72,7 @@
                 'Tin Tức & Sự Kiện'
               ];
               foreach ($footer_links as $link) : ?>
-                <a href="#" class="group relative flex items-center justify-between pb-2 border-b border-white/5 hover:border-secondary/30 transition-all duration-500 no-underline">
+                <a href="<?php echo $link === 'Tin Tức & Sự Kiện' ? esc_url( home_url( '/bai-viet' ) ) : '#'; ?>" class="group relative flex items-center justify-between pb-2 border-b border-white/5 hover:border-secondary/30 transition-all duration-500 no-underline">
                   <div class="flex items-center gap-3">
                     <!-- Tiny decorative dot that lights up -->
                     <div class="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-secondary group-hover:scale-150 transition-all duration-300"></div>

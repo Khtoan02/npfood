@@ -93,7 +93,7 @@
                 <span class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-secondary"></i> npnutri1908@gmail.com</span>
             </div>
             <div class="flex items-center gap-4">
-                <a href="#" class="opacity-80 hover:opacity-100 cursor-pointer transition-opacity text-white no-underline hover:text-secondary">Tin tức</a>
+                <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="opacity-80 hover:opacity-100 cursor-pointer transition-opacity text-white no-underline hover:text-secondary">Tin tức</a>
                 <a href="/tuyen-dung" class="opacity-80 hover:opacity-100 cursor-pointer transition-opacity text-white no-underline hover:text-secondary">Tuyển dụng</a>
                 <div class="flex items-center gap-2 ml-4 border-l border-white/20 pl-4 cursor-pointer group/lang relative">
                      <div class="flex items-center gap-1 hover:text-secondary transition-colors">
@@ -265,7 +265,7 @@
                 <a href="#" class="text-sm font-bold uppercase tracking-wide text-gray-600 hover:text-primary transition-colors no-underline">Hệ Thống Phân Phối</a>
                 
                 <!-- Menu Item 5 -->
-                <a href="#" class="text-sm font-bold uppercase tracking-wide text-gray-600 hover:text-primary transition-colors no-underline">Tin Tức</a>
+                <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="text-sm font-bold uppercase tracking-wide text-gray-600 hover:text-primary transition-colors no-underline">Tin Tức</a>
 
             </nav>
 
@@ -326,7 +326,7 @@
                 </div>
 
                 <a href="#" class="block py-3 px-4 font-medium text-gray-700 hover:text-primary no-underline">Hệ Thống Phân Phối</a>
-                <a href="#" class="block py-3 px-4 font-medium text-gray-700 hover:text-primary no-underline">Tin Tức & Sự Kiện</a>
+                <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="block py-3 px-4 font-medium text-gray-700 hover:text-primary no-underline">Tin Tức & Sự Kiện</a>
             </div>
 
             <!-- Mobile Footer -->

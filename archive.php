@@ -33,7 +33,7 @@
             <nav class="flex items-center space-x-2 text-xs lg:text-sm text-gray-300 mb-6 font-medium">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Trang chủ</a>
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
-                <a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Tin tức</a>
+                <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Tin tức</a>
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
                 <span class="text-white font-semibold"><?php single_term_title(); ?></span>
             </nav>

@@ -27,7 +27,7 @@
             <nav class="flex items-center space-x-2 text-xs lg:text-sm text-gray-300 mb-6 font-medium">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Trang chủ</a>
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
-                <a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Tin tức</a>
+                <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="hover:text-secondary transition-colors no-underline">Tin tức</a>
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
                 <span class="text-white truncate max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg font-semibold"><?php the_title(); ?></span>
             </nav>
@@ -67,12 +67,19 @@
                 ?>
 
                         <!-- Post Meta Info (Author, Reading Time) -->
+                        <?php
+                        $author_name = get_the_author();
+                        if ( empty( $author_name ) ) {
+                            $author_name = 'NP Food';
+                        }
+                        $first_letter = mb_strtoupper( mb_substr( $author_name, 0, 1, 'UTF-8' ), 'UTF-8' );
+                        ?>
                         <div class="flex items-center gap-4 pb-6 mb-8 border-b border-gray-100 text-sm text-gray-500">
                             <div class="flex items-center gap-2">
                                 <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold uppercase text-xs">
-                                    <?php echo esc_html( get_the_author_meta( 'display_name' )[0] ); ?>
+                                    <?php echo esc_html( $first_letter ); ?>
                                 </div>
-                                <span class="font-medium text-gray-700"><?php the_author(); ?></span>
+                                <span class="font-medium text-gray-700"><?php echo esc_html( $author_name ); ?></span>
                             </div>
                             <span class="text-gray-300">|</span>
                             <div class="flex items-center gap-1.5">
@@ -93,23 +100,76 @@
                             <?php the_content(); ?>
                         </article>
 
-                        <!-- Share Button & Tags -->
-                        <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <!-- Share Button & Tags Section -->
+                        <div class="mt-12 pt-8 border-t border-gray-100 space-y-6">
                             <?php if ( has_tag() ) : ?>
                                 <div class="flex flex-wrap items-center gap-2">
-                                    <span class="text-sm font-semibold text-gray-500">Tags:</span>
-                                    <?php the_tags( '<span class="text-xs bg-gray-100 hover:bg-primary hover:text-white px-3 py-1 rounded transition-colors text-gray-600">', '</span> <span class="text-xs bg-gray-100 hover:bg-primary hover:text-white px-3 py-1 rounded transition-colors text-gray-600">', '</span>' ); ?>
+                                    <span class="text-sm font-semibold text-gray-500 mr-1 flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        Từ khóa:
+                                    </span>
+                                    <?php
+                                    $tags = get_the_tags();
+                                    if ( $tags ) {
+                                        foreach ( $tags as $tag ) {
+                                            echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" class="text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 hover:bg-primary hover:text-white hover:border-primary px-3.5 py-1.5 rounded-full transition-all duration-300 no-underline">' . esc_html( $tag->name ) . '</a>';
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             <?php endif; ?>
                             
-                            <!-- Share to Facebook Mini-Widget -->
-                            <div class="flex items-center gap-3">
-                                <span class="text-sm font-semibold text-gray-500">Chia sẻ:</span>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors">
-                                    <i data-lucide="facebook" class="w-4 h-4"></i>
-                                </a>
+                            <div class="flex flex-wrap items-center justify-between gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                                <span class="text-sm font-bold text-gray-700 flex items-center gap-1.5">
+                                    <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l4.636-2.318m0 5.152l-4.636-2.318m10.909-3.636a3 3 0 11-6 0 3 3 0 016 0zm-11 5.454a3 3 0 11-6 0 3 3 0 016 0zm11 5.455a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    Bạn thấy bài viết này hữu ích? Chia sẻ ngay:
+                                </span>
+                                
+                                <div class="flex items-center gap-3">
+                                    <!-- Facebook Share -->
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       class="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow-sm transition-all duration-300 no-underline hover:scale-102">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                        </svg>
+                                        Facebook
+                                    </a>
+                                    
+                                    <!-- Copy Link Button -->
+                                    <button onclick="copyToClipboard()" 
+                                            class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 text-xs font-bold px-4 py-2.5 rounded-lg shadow-sm transition-all duration-300 cursor-pointer hover:scale-102">
+                                        <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                                        </svg>
+                                        <span id="copy-text">Sao chép link</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Copy to Clipboard Script -->
+                        <script>
+                        function copyToClipboard() {
+                            const url = window.location.href;
+                            navigator.clipboard.writeText(url).then(() => {
+                                const btnText = document.getElementById('copy-text');
+                                btnText.innerText = 'Đã sao chép!';
+                                btnText.classList.add('text-primary');
+                                setTimeout(() => {
+                                    btnText.innerText = 'Sao chép link';
+                                    btnText.classList.remove('text-primary');
+                                }, 2000);
+                            }).catch(err => {
+                                console.error('Lỗi sao chép liên kết: ', err);
+                            });
+                        }
+                        </script>
 
                         <!-- Next & Previous Posts -->
                         <div class="mt-12 pt-8 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -216,47 +276,71 @@
 <style>
     /* Styling for WordPress inner rich content elements in .entry-content */
     .entry-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.8;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.8 !important;
+    }
+    .entry-content h2,
+    .entry-content h3,
+    .entry-content h4 {
+        color: #1f2937 !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        margin-top: 2.25rem !important;
+        margin-bottom: 1.25rem !important;
     }
     .entry-content h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1f2937;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+        font-size: 1.625rem !important;
     }
     .entry-content h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #374151;
-        margin-top: 1.75rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.375rem !important;
+    }
+    .entry-content h4 {
+        font-size: 1.125rem !important;
     }
     .entry-content blockquote {
-        border-left: 4px solid #54b259;
-        padding-left: 1.25rem;
-        font-style: italic;
-        color: #4b5563;
-        margin: 2rem 0;
-        background-color: #f9fafb;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-radius: 0 0.5rem 0.5rem 0;
+        border-left: 4px solid #54b259 !important;
+        padding-left: 1.25rem !important;
+        font-style: italic !important;
+        color: #4b5563 !important;
+        margin: 2rem 0 !important;
+        background-color: #f9fafb !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        border-radius: 0 0.5rem 0.5rem 0 !important;
     }
-    .entry-content ul, .entry-content ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
+    /* Khôi phục bullet points & numbering bị Tailwind Preflight ẩn */
+    .entry-content ul,
+    .entry-content ol {
+        padding-left: 2rem !important;
+        margin-bottom: 1.5rem !important;
     }
     .entry-content ul {
-        list-style-type: disc;
+        list-style-type: disc !important;
+        list-style-position: outside !important;
     }
     .entry-content ol {
-        list-style-type: decimal;
+        list-style-type: decimal !important;
+        list-style-position: outside !important;
     }
     .entry-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
+        display: list-item !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.8 !important;
+    }
+    /* Kiểu dáng danh sách lồng nhau */
+    .entry-content ul ul,
+    .entry-content ol ul {
+        list-style-type: circle !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        padding-left: 1.5rem !important;
+    }
+    .entry-content ul ol,
+    .entry-content ol ol {
+        list-style-type: lower-alpha !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        padding-left: 1.5rem !important;
     }
     /* Hình ảnh & căn lề chuẩn chỉ */
     .entry-content figure,
@@ -273,6 +357,12 @@
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         margin: 2rem auto;
         display: block;
+    }
+    /* Đảm bảo hình ảnh lấp đầy khung chứa (figure/wp-block-image) */
+    .entry-content .wp-block-image img,
+    .entry-content figure img {
+        width: 100% !important;
+        height: auto !important;
     }
     .entry-content .aligncenter,
     .entry-content .alignnone,
