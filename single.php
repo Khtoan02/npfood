@@ -59,7 +59,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             <!-- Left: Article Content (8 Cols) -->
-            <main class="lg:col-span-8 bg-white rounded-2xl shadow-sm p-6 lg:p-10 border border-gray-100">
+            <main class="lg:col-span-8 bg-white rounded-2xl shadow-sm p-6 lg:p-10 border border-gray-100 min-w-0">
                 <?php
                 if ( have_posts() ) :
                     while ( have_posts() ) :
@@ -259,9 +259,16 @@
         line-height: 1.6;
     }
     /* Hình ảnh & căn lề chuẩn chỉ */
+    .entry-content figure,
+    .entry-content .wp-block-image {
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 2rem auto;
+        box-sizing: border-box;
+    }
     .entry-content img {
-        max-width: 100%;
-        height: auto;
+        max-width: 100% !important;
+        height: auto !important;
         border-radius: 0.75rem;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         margin: 2rem auto;
@@ -274,6 +281,7 @@
         margin: 2rem auto;
         display: block;
         text-align: center;
+        max-width: 100% !important;
     }
     .entry-content .aligncenter img,
     .entry-content .alignnone img {
@@ -284,21 +292,18 @@
     .entry-content figure.alignleft {
         float: left;
         margin: 0.5rem 1.5rem 1.5rem 0;
-        max-width: 50%;
+        max-width: 50% !important;
     }
     .entry-content .alignright,
     .entry-content figure.alignright {
         float: right;
         margin: 0.5rem 0 1.5rem 1.5rem;
-        max-width: 50%;
+        max-width: 50% !important;
     }
     .entry-content::after {
         content: "";
         display: table;
         clear: both;
-    }
-    .entry-content .wp-block-image {
-        margin: 2rem auto;
     }
     .entry-content .wp-block-image.aligncenter,
     .entry-content .wp-block-image.alignnone {
@@ -308,11 +313,13 @@
         float: left;
         margin-right: 1.5rem;
         margin-bottom: 1.5rem;
+        max-width: 50% !important;
     }
     .entry-content .wp-block-image.alignright {
         float: right;
         margin-left: 1.5rem;
         margin-bottom: 1.5rem;
+        max-width: 50% !important;
     }
     .entry-content .wp-block-image img {
         display: inline-block;
