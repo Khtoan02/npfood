@@ -19,6 +19,7 @@
                     },
                     fontFamily: {
                         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        dom: ['"Fz Dom Casual"', 'cursive', 'sans-serif'],
                     }
                 }
             }
@@ -30,6 +31,17 @@
 
 	<?php wp_head(); ?>
     <style>
+        @font-face {
+            font-family: 'Fz Dom Casual';
+            src: url('<?php echo esc_url( get_template_directory_uri() . '/fonts/fz-dom-casual.otf' ); ?>') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .font-dom {
+            font-family: 'Fz Dom Casual', cursive, sans-serif;
+        }
+
         /* Premium Dropdown Animation */
         .nav-dropdown {
             opacity: 0;
@@ -148,19 +160,19 @@
                         <div class="nav-arrow left-6"></div>
                         
                         <div class="relative bg-white rounded-lg overflow-hidden">
-                            <a href="#" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
+                            <a href="<?php echo esc_url( home_url( '/tong-quan-doanh-nghiep' ) ); ?>" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
                                 <span class="text-gray-400 group-hover/item:text-secondary transition-colors"><i data-lucide="briefcase" class="w-4 h-4"></i></span>
                                 <span class="text-sm font-medium">Tổng Quan Doanh Nghiệp</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
+                            <a href="<?php echo esc_url( home_url( '/su-menh-tam-nhin' ) ); ?>" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
                                 <span class="text-gray-400 group-hover/item:text-secondary transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></span>
                                 <span class="text-sm font-medium">Sứ Mệnh & Tầm Nhìn</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
+                            <a href="<?php echo esc_url( home_url( '/gia-tri-cot-loi' ) ); ?>" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
                                 <span class="text-gray-400 group-hover/item:text-secondary transition-colors"><i data-lucide="award" class="w-4 h-4"></i></span>
                                 <span class="text-sm font-medium">Giá Trị Cốt Lõi</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
+                            <a href="<?php echo esc_url( home_url( '/nguyen-tac-kinh-doanh' ) ); ?>" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 text-gray-600 hover:text-primary transition-all group/item no-underline border-b border-dashed border-gray-50 last:border-0">
                                 <span class="text-gray-400 group-hover/item:text-secondary transition-colors"><i data-lucide="sprout" class="w-4 h-4"></i></span>
                                 <span class="text-sm font-medium">Nguyên Tắc Kinh Doanh</span>
                             </a>
@@ -182,27 +194,31 @@
                             <div class="w-2/3 p-8 grid grid-cols-2 gap-8 border-r border-gray-100">
                                 <!-- Product 1: Miwako -->
                                 <div class="flex flex-col group/prod">
-                                    <div class="h-40 bg-white border border-gray-100 rounded-lg overflow-hidden mb-4 relative p-2">
+                                    <a href="<?php echo esc_url( home_url( '/miwako' ) ); ?>" class="h-40 bg-white border border-gray-100 rounded-lg overflow-hidden mb-4 relative p-2 block">
                                         <!-- Real Image for Miwako -->
-                                        <img src="https://npfood.vn/wp-content/uploads/2023/05/npfood-products-3.png" alt="Miwako" class="w-full h-full object-contain transform group-hover/prod:scale-105 transition-transform duration-500">
-                                    </div>
-                                    <h4 class="font-bold text-lg text-primary mb-2 group-hover/prod:text-secondary transition-colors">Miwako</h4>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/products/miwako.png' ); ?>" alt="Miwako" class="w-full h-full object-contain transform group-hover/prod:scale-105 transition-transform duration-500">
+                                    </a>
+                                    <h4 class="font-bold text-lg text-primary mb-2 group-hover/prod:text-secondary transition-colors">
+                                        <a href="<?php echo esc_url( home_url( '/miwako' ) ); ?>" class="text-inherit no-underline">Miwako</a>
+                                    </h4>
                                     <p class="text-sm text-gray-500 mb-4 line-clamp-3">Nhập khẩu chính hãng từ Malaysia. Thương hiệu uy tín Dale & Cecil, sản xuất bởi nhà máy Omega Health Products.</p>
-                                    <a href="https://miwakovn.com/" class="mt-auto inline-flex items-center text-xs font-bold text-white bg-primary py-2 px-4 rounded hover:bg-secondary hover:text-primary transition-colors w-fit">
-                                        XEM NGAY
+                                    <a href="<?php echo esc_url( home_url( '/miwako' ) ); ?>" class="mt-auto inline-flex items-center text-xs font-bold text-white bg-primary py-2 px-4 rounded hover:bg-secondary hover:text-primary transition-colors w-fit no-underline">
+                                        Tìm hiểu sản phẩm
                                     </a>
                                 </div>
 
                                 <!-- Product 2: Miwako A+ -->
                                 <div class="flex flex-col group/prod">
-                                    <div class="h-40 bg-white border border-gray-100 rounded-lg overflow-hidden mb-4 relative p-2">
+                                    <a href="<?php echo esc_url( home_url( '/miwako-a-plus' ) ); ?>" class="h-40 bg-white border border-gray-100 rounded-lg overflow-hidden mb-4 relative p-2 block">
                                         <!-- Real Image for Miwako A+ -->
-                                        <img src="https://npfood.vn/wp-content/uploads/2023/05/npfood-products-1.png" alt="Miwako A+" class="w-full h-full object-contain transform group-hover/prod:scale-105 transition-transform duration-500">
-                                    </div>
-                                    <h4 class="font-bold text-lg text-primary mb-2 group-hover/prod:text-secondary transition-colors">Miwako A+</h4>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/products/miwako-a-plus.png' ); ?>" alt="Miwako A+" class="w-full h-full object-contain transform group-hover/prod:scale-105 transition-transform duration-500">
+                                    </a>
+                                    <h4 class="font-bold text-lg text-primary mb-2 group-hover/prod:text-secondary transition-colors">
+                                        <a href="<?php echo esc_url( home_url( '/miwako-a-plus' ) ); ?>" class="text-inherit no-underline">Miwako A+</a>
+                                    </h4>
                                     <p class="text-sm text-gray-500 mb-4 line-clamp-3">Sản phẩm cao cấp nhập khẩu Malaysia. Thuộc Dale & Cecil, được sản xuất tại nhà máy chuẩn quốc tế Omega Health Products.</p>
-                                    <a href="https://miwakovn.com/" class="mt-auto inline-flex items-center text-xs font-bold text-white bg-primary py-2 px-4 rounded hover:bg-secondary hover:text-primary transition-colors w-fit">
-                                        XEM NGAY
+                                    <a href="<?php echo esc_url( home_url( '/miwako-a-plus' ) ); ?>" class="mt-auto inline-flex items-center text-xs font-bold text-white bg-primary py-2 px-4 rounded hover:bg-secondary hover:text-primary transition-colors w-fit no-underline">
+                                        Tìm hiểu sản phẩm
                                     </a>
                                 </div>
                             </div>
@@ -313,8 +329,22 @@
 
                 <!-- Mobile Dropdown 1 -->
                 <div class="border border-gray-100 rounded-lg overflow-hidden">
-                    <div class="bg-gray-50 px-4 py-3 font-bold text-gray-700 flex justify-between items-center">
+                    <div class="bg-gray-50 px-4 py-3 font-bold text-gray-700 flex justify-between items-center cursor-pointer" onclick="document.getElementById('mobile-about-submenu').classList.toggle('hidden')">
                         Về NP Food <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                    <div id="mobile-about-submenu" class="p-2 space-y-1 bg-white">
+                        <a href="<?php echo esc_url( home_url( '/tong-quan-doanh-nghiep' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="briefcase" class="w-3.5 h-3.5 text-secondary"></i> Tổng Quan Doanh Nghiệp
+                        </a>
+                        <a href="<?php echo esc_url( home_url( '/su-menh-tam-nhin' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-secondary"></i> Sứ Mệnh & Tầm Nhìn
+                        </a>
+                        <a href="<?php echo esc_url( home_url( '/gia-tri-cot-loi' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-secondary"></i> Giá Trị Cốt Lõi
+                        </a>
+                        <a href="<?php echo esc_url( home_url( '/nguyen-tac-kinh-doanh' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="sprout" class="w-3.5 h-3.5 text-secondary"></i> Nguyên Tắc Kinh Doanh
+                        </a>
                     </div>
                 </div>
 
@@ -322,6 +352,14 @@
                 <div class="border border-gray-100 rounded-lg overflow-hidden">
                     <div class="bg-gray-50 px-4 py-3 font-bold text-gray-700 flex justify-between items-center">
                         Thương Hiệu <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                    <div class="p-2 space-y-1 bg-white">
+                        <a href="<?php echo esc_url( home_url( '/miwako' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="package" class="w-3.5 h-3.5 text-secondary"></i> Miwako
+                        </a>
+                        <a href="<?php echo esc_url( home_url( '/miwako-a-plus' ) ); ?>" class="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-primary rounded hover:bg-gray-50 no-underline">
+                            <i data-lucide="package" class="w-3.5 h-3.5 text-secondary"></i> Miwako A+
+                        </a>
                     </div>
                 </div>
 

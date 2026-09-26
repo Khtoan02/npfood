@@ -51,7 +51,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
             <div class="max-w-3xl animate-fadeInUp">
                 <div class="inline-flex items-center gap-3 px-4 py-2 border border-white/30 bg-white/10 backdrop-blur-md rounded-full text-sm font-bold uppercase tracking-widest mb-6">
                     <span class="w-2 h-2 rounded-full bg-[#f8c03f]"></span>
-                    Nhà Phân Phối Thực Phẩm Hàng Đầu
+                    Phân Phối Thực Phẩm & Dinh Dưỡng
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
                     Trân Quý Thiên Nhiên <br/>
@@ -70,7 +70,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
     </section>
 
     <!-- 2. TỔNG QUAN DOANH NGHIỆP -->
-    <section class="py-24 bg-white">
+    <section id="tong-quan" class="py-24 bg-white scroll-mt-20">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <div class="lg:w-1/2 relative">
@@ -82,36 +82,42 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
                     />
                     <div class="absolute bottom-[-20px] right-[-20px] w-24 h-24 border-b-4 border-r-4 border-[#f8c03f]"></div>
                     
-                    <div class="absolute bottom-10 -left-10 bg-white p-8 rounded shadow-xl max-w-xs z-20 hidden md:block border-l-4 border-[#54b259]">
-                        <p class="text-4xl font-bold text-[#54b259] mb-2 m-0">10+</p>
-                        <p class="text-sm font-bold uppercase tracking-wider text-gray-500 m-0">Năm Kinh Nghiệm</p>
-                        <p class="text-xs text-gray-400 mt-2 m-0">Trong lĩnh vực nhập khẩu & phân phối</p>
+                    <div class="absolute bottom-10 -left-10 bg-white p-6 rounded shadow-xl max-w-xs z-20 hidden md:block border-l-4 border-[#54b259]">
+                        <p class="text-3xl font-bold text-[#54b259] mb-1 m-0">2020</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-700 m-0">Năm Thành Lập</p>
+                        <p class="text-xs text-gray-400 mt-1 m-0">Đồng hành cùng gia đình Việt</p>
                     </div>
                 </div>
 
                 <div class="lg:w-1/2">
                     <h4 class="text-[#54b259] font-bold uppercase tracking-widest text-sm mb-4">Tổng Quan Doanh Nghiệp</h4>
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6 leading-snug">
-                        Vị Thế Tiên Phong <br/> Kiến Tạo Giá Trị Bền Vững
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-snug">
+                        Đồng Hành Cùng Sức Khỏe Gia Đình
                     </h2>
                     <p class="text-gray-600 mb-6 leading-relaxed text-justify">
-                        Công ty TNHH NP FOOD được thành lập với định hướng trở thành cầu nối uy tín giữa các nhà sản xuất thực phẩm hàng đầu thế giới và người tiêu dùng Việt Nam. Chúng tôi chuyên sâu trong lĩnh vực nhập khẩu và phân phối các dòng sản phẩm: Thực phẩm hữu cơ (Organic), Thực phẩm tự nhiên (Natural) và Thực phẩm chức năng cao cấp.
+                        Công ty TNHH NP FOOD hoạt động trong lĩnh vực phân phối các dòng sản phẩm thực phẩm tự nhiên, thực phẩm hữu cơ và dinh dưỡng thực vật lành tính tại thị trường Việt Nam.
                     </p>
                     <p class="text-gray-600 mb-8 leading-relaxed text-justify">
-                        Với hệ thống kho bãi đạt chuẩn GSP, mạng lưới logistics hiện đại và đội ngũ nhân sự chuyên môn cao, NP FOOD cam kết đảm bảo chất lượng sản phẩm nguyên bản từ nhà máy đến tay khách hàng.
+                        NP FOOD chú trọng tuyển chọn các sản phẩm an toàn, có nguồn gốc xuất xứ minh bạch và luôn nỗ lực phục vụ khách hàng với tinh thần tận tâm, chu đáo.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-6">
                         <div class="border border-gray-200 p-4 rounded hover:border-[#54b259] transition-colors group cursor-pointer">
-                            <i data-lucide="globe" class="w-8 h-8 text-[#f8c03f] mb-3 group-hover:scale-110 transition-transform block"></i>
-                            <h5 class="font-bold text-[#54b259] m-0">Mạng Lưới Quốc Tế</h5>
-                            <p class="text-xs text-gray-500 mt-1 m-0">Đối tác của 25+ thương hiệu toàn cầu</p>
+                            <i data-lucide="shield-check" class="w-8 h-8 text-[#f8c03f] mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <h5 class="font-bold text-[#54b259] m-0">Xuất Xứ Rõ Ràng</h5>
+                            <p class="text-xs text-gray-500 mt-1 m-0">Hồ sơ công bố và nguồn gốc minh bạch</p>
                         </div>
                         <div class="border border-gray-200 p-4 rounded hover:border-[#54b259] transition-colors group cursor-pointer">
-                            <i data-lucide="trending-up" class="w-8 h-8 text-[#f8c03f] mb-3 group-hover:scale-110 transition-transform block"></i>
-                            <h5 class="font-bold text-[#54b259] m-0">Tăng Trưởng Bền Vững</h5>
-                            <p class="text-xs text-gray-500 mt-1 m-0">Mở rộng thị phần liên tục qua các năm</p>
+                            <i data-lucide="leaf" class="w-8 h-8 text-[#f8c03f] mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <h5 class="font-bold text-[#54b259] m-0">Sản Phẩm Lành Tính</h5>
+                            <p class="text-xs text-gray-500 mt-1 m-0">Ưu tiên nguồn gốc thực vật tự nhiên</p>
                         </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <a href="<?php echo esc_url( home_url( '/tong-quan-doanh-nghiep' ) ); ?>" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#54b259] hover:text-[#d4a017] transition-colors no-underline">
+                            Xem Hồ Sơ Doanh Nghiệp Chi Tiết <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -127,7 +133,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
     ); ?>
 
     <!-- 3. SỨ MỆNH & TẦM NHÌN -->
-    <section class="relative py-20 lg:py-32 bg-white overflow-hidden">
+    <section id="su-menh" class="relative py-20 lg:py-32 bg-white overflow-hidden scroll-mt-20">
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl rounded-[3rem] overflow-hidden min-h-[600px]">
             
@@ -174,9 +180,9 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
                             Giúp khách hàng tiếp cận và sử dụng hiệu quả thực phẩm hữu cơ, nguồn gốc thiên nhiên, phục vụ cho cuộc sống khỏe mạnh và cân bằng. Chúng tôi không chỉ bán sản phẩm, chúng tôi trao giải pháp sức khỏe toàn diện.
                         </p>
 
-                        <div class="flex items-center gap-2 text-[#f8c03f] font-bold uppercase tracking-widest text-xs cursor-pointer hover:gap-4 transition-all">
+                        <a href="<?php echo esc_url( home_url( '/su-menh-tam-nhin' ) ); ?>" class="inline-flex items-center gap-2 text-[#f8c03f] font-bold uppercase tracking-widest text-xs cursor-pointer hover:gap-4 transition-all no-underline">
                             Tìm Hiểu Thêm <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -207,7 +213,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
     ); ?>
 
     <!-- 4. GIÁ TRỊ CỐT LÕI -->
-    <section class="py-24 bg-[#54b259] text-white bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+    <section id="gia-tri-cot-loi" class="py-24 bg-[#54b259] text-white bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] scroll-mt-20">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div class="md:w-1/2">
@@ -218,6 +224,9 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
                     <p class="text-gray-100 max-w-md ml-auto m-0">
                         Bốn trụ cột vững chắc định hình mọi hành động và quyết định của NP FOOD trong hành trình phụng sự khách hàng.
                     </p>
+                    <a href="<?php echo esc_url( home_url( '/gia-tri-cot-loi' ) ); ?>" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#f8c03f] hover:text-white transition-colors no-underline mt-2">
+                        Xem Chi Tiết 4 Trụ Cột <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
             </div>
 
@@ -243,7 +252,7 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
     </section>
 
     <!-- 5. NGUYÊN TẮC KINH DOANH & TRIẾT LÝ -->
-    <section class="py-24 bg-white">
+    <section id="nguyen-tac" class="py-24 bg-white scroll-mt-20">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 
@@ -266,6 +275,11 @@ function np_render_quote_section($quote, $author, $role, $bgColor = "bg-[#14532d
                                 <p class="text-gray-700 font-medium pt-1 m-0"><?php echo $item; ?></p>
                             </div>
                         <?php endforeach; ?>
+                    </div>
+                    <div class="pt-6">
+                        <a href="<?php echo esc_url( home_url( '/nguyen-tac-kinh-doanh' ) ); ?>" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#54b259] hover:text-[#d4a017] transition-colors no-underline">
+                            Xem Chi Tiết Nguyên Tắc & Chính Sách <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
                 </div>
 

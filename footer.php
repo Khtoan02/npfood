@@ -62,22 +62,22 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
               <?php
               $footer_links = [
-                'Tổng Quan Doanh Nghiệp',
-                'Sứ Mệnh & Tầm Nhìn',
-                'Giá Trị Cốt Lõi',
-                'Nguyên Tắc Kinh Doanh',
-                'Triết Lý Doanh Nghiệp',
-                'Trách Nhiệm Xã Hội',
-                'Công Bố Thông Tin',
-                'Tin Tức & Sự Kiện'
+                'Tổng Quan Doanh Nghiệp' => home_url( '/tong-quan-doanh-nghiep' ),
+                'Sứ Mệnh & Tầm Nhìn'     => home_url( '/su-menh-tam-nhin' ),
+                'Giá Trị Cốt Lõi'        => home_url( '/gia-tri-cot-loi' ),
+                'Nguyên Tắc Kinh Doanh'  => home_url( '/nguyen-tac-kinh-doanh' ),
+                'Triết Lý Doanh Nghiệp'  => home_url( '/su-menh-tam-nhin' ),
+                'Trách Nhiệm Xã Hội'     => home_url( '/gia-tri-cot-loi' ),
+                'Công Bố Thông Tin'      => home_url( '/tong-quan-doanh-nghiep' ),
+                'Tin Tức & Sự Kiện'      => home_url( '/bai-viet' )
               ];
-              foreach ($footer_links as $link) : ?>
-                <a href="<?php echo $link === 'Tin Tức & Sự Kiện' ? esc_url( home_url( '/bai-viet' ) ) : '#'; ?>" class="group relative flex items-center justify-between pb-2 border-b border-white/5 hover:border-secondary/30 transition-all duration-500 no-underline">
+              foreach ($footer_links as $title => $url) : ?>
+                <a href="<?php echo esc_url( $url ); ?>" class="group relative flex items-center justify-between pb-2 border-b border-white/5 hover:border-secondary/30 transition-all duration-500 no-underline">
                   <div class="flex items-center gap-3">
                     <!-- Tiny decorative dot that lights up -->
                     <div class="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-secondary group-hover:scale-150 transition-all duration-300"></div>
                     <span class="text-sm text-gray-400 font-light group-hover:text-white group-hover:tracking-wide transition-all duration-300">
-                      <?php echo $link; ?>
+                      <?php echo esc_html( $title ); ?>
                     </span>
                   </div>
                   <!-- Sliding Arrow -->
