@@ -556,8 +556,15 @@ get_header(); ?>
         ],
     ];
     ?>
-    <section id="nutrition-facts" class="py-20 lg:py-28 bg-[#F8FAFD] border-y border-slate-200/60 relative scroll-mt-12 overflow-hidden">
-        <div class="container mx-auto px-4 lg:px-8">
+    <section id="nutrition-facts" class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-900/10 bg-[#EFE4D2]">
+        <!-- Authentic Kraft Paper Texture Background Layer -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-85 mix-blend-multiply pointer-events-none -z-0"
+            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-kraft-paper.webp'); ?>');">
+        </div>
+        <!-- Ambient Warm Tint Overlay for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#F5EADB]/40 via-transparent to-[#F5EADB]/40 pointer-events-none -z-0"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
@@ -575,7 +582,7 @@ get_header(); ?>
 
             <!-- 4 Quick Key Metric Cards -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Năng lượng</span>
                         <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
@@ -588,7 +595,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Đạm thực vật cao</span>
                         <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
@@ -601,7 +608,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Chất xơ hòa tan FOS</span>
                         <div class="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-[#1a4e4d]">
@@ -614,7 +621,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Omega-3 (ALA)</span>
                         <div class="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-600">
@@ -629,7 +636,7 @@ get_header(); ?>
             </div>
 
             <!-- Natural Ingredients Showcase Banner -->
-            <div class="p-6 sm:p-8 rounded-[2rem] bg-white border border-slate-200/80 shadow-sm mb-12">
+            <div class="p-6 sm:p-8 rounded-[2rem] bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm mb-12">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center">
                         <i data-lucide="leaf" class="w-5 h-5"></i>
@@ -659,7 +666,7 @@ get_header(); ?>
                 <div class="lg:col-span-8 space-y-6">
 
                     <!-- Table Card -->
-                    <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 shadow-sm bg-white">
+                    <div class="overflow-hidden rounded-[2rem] border border-amber-900/10 shadow-sm bg-white/95 backdrop-blur-sm">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse text-sm min-w-[560px]">
                                 <thead>
@@ -731,7 +738,7 @@ get_header(); ?>
                 <!-- Right Column (4 cols): Sticky Visual Presentation Card -->
                 <div class="lg:col-span-4 sticky top-28 space-y-6">
 
-                    <div class="bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                    <div class="bg-white/95 backdrop-blur-sm rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-amber-900/10 flex flex-col items-center text-center">
                         
                         <!-- Editorial Heading -->
                         <div class="mb-4">
