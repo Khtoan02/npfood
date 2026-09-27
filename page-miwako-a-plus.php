@@ -559,6 +559,350 @@ get_header(); ?>
         </div>
     </section>
 
+    <!-- 4. SECTION: BẢNG GIÁ TRỊ DINH DƯỠNG (NUTRITION FACTS) -->
+    <?php
+    $nutrition_groups = [
+        [
+            'id'       => 'macro',
+            'title'    => 'Giá Trị Dinh Dưỡng Năng Lượng & Đại Lượng',
+            'badge'    => 'Năng lượng & Đại lượng',
+            'icon'     => 'zap',
+            'items'    => [
+                ['name' => 'Năng lượng', 'per_100g' => '422 Kcal (1770kJ)', 'per_serving' => '126 Kcal (531kJ)', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Năng lượng sạch'],
+                ['name' => 'Carbonhydrate', 'per_100g' => '68 g', 'per_serving' => '20.4 g', 'is_bold' => true, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Chất xơ', 'per_100g' => '5.8 g', 'per_serving' => '1.7 g', 'is_bold' => false, 'is_sub' => true, 'tag' => ''],
+                ['name' => 'Chất xơ hòa tan FOS', 'per_100g' => '1.5 g', 'per_serving' => '0.5 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'Prebiotic'],
+                ['name' => 'Inulin', 'per_100g' => '4.2 g', 'per_serving' => '1.3 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'Prebiotic'],
+                ['name' => 'Protein', 'per_100g' => '16 g', 'per_serving' => '4.8 g', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Đạm thực vật'],
+                ['name' => 'Tổng số chất béo', 'per_100g' => '9.5 g', 'per_serving' => '2.9 g', 'is_bold' => true, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Axit béo không bão hòa đơn', 'per_100g' => '0.2 g', 'per_serving' => '0.1 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'MUFA'],
+                ['name' => 'Axit béo không bão hòa đa', 'per_100g' => '2.3 g', 'per_serving' => '0.7 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'PUFA'],
+                ['name' => 'Axit alpha-linolenic (ALA)', 'per_100g' => '450 mg', 'per_serving' => '135 mg', 'is_bold' => false, 'is_sub' => true, 'tag' => 'Omega-3'],
+                ['name' => 'Axit Linoleic (LA)', 'per_100g' => '1920 mg', 'per_serving' => '576 mg', 'is_bold' => false, 'is_sub' => true, 'tag' => 'Omega-6'],
+                ['name' => 'Axit béo bão hòa', 'per_100g' => '7 g', 'per_serving' => '2.1 g', 'is_bold' => false, 'is_sub' => true, 'tag' => ''],
+                ['name' => 'Axit béo chuyển hóa', 'per_100g' => '0 g', 'per_serving' => '0 g', 'is_bold' => true, 'is_sub' => true, 'tag' => '0g Trans Fat'],
+                ['name' => 'Cholesterol', 'per_100g' => '0 mg', 'per_serving' => '0 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => '0mg Cholesterol'],
+            ],
+        ],
+        [
+            'id'       => 'minerals',
+            'title'    => 'Các Khoáng Chất Thiết Yếu',
+            'badge'    => 'Khoáng chất',
+            'icon'     => 'shield-check',
+            'items'    => [
+                ['name' => 'Natri', 'per_100g' => '350 mg', 'per_serving' => '105 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Canxi', 'per_100g' => '750 mg', 'per_serving' => '225 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => '750mg Canxi'],
+                ['name' => 'I-ốt', 'per_100g' => '75 mcg', 'per_serving' => '22.5 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Sắt', 'per_100g' => '6.6 mg', 'per_serving' => '2 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Magie', 'per_100g' => '72 mg', 'per_serving' => '21.6 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Kẽm', 'per_100g' => '5 mg', 'per_serving' => '1.5 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Selen', 'per_100g' => '10 mcg', 'per_serving' => '3 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Choline', 'per_100g' => '159 mg', 'per_serving' => '47.7 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Phát triển trí não'],
+                ['name' => 'Kali', 'per_100g' => '364 mg', 'per_serving' => '109.2 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+            ],
+        ],
+        [
+            'id'       => 'vitamins',
+            'title'    => 'Các Vitamin Toàn Diện',
+            'badge'    => '13 Loại Vitamin',
+            'icon'     => 'sparkles',
+            'items'    => [
+                ['name' => 'Vitamin A', 'per_100g' => '350 mcg', 'per_serving' => '105 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin D3', 'per_100g' => '4.4 mcg', 'per_serving' => '1.3 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => 'Hấp thu Canxi'],
+                ['name' => 'Vitamin E', 'per_100g' => '6.2 mg', 'per_serving' => '1.9 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin K1', 'per_100g' => '39 mcg', 'per_serving' => '11.7 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin C', 'per_100g' => '54.1 mg', 'per_serving' => '16.2 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => 'Tăng đề kháng'],
+                ['name' => 'Axit Folic', 'per_100g' => '442 mcg', 'per_serving' => '132.6 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Biotin', 'per_100g' => '25 mcg', 'per_serving' => '7.5 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin B1', 'per_100g' => '0.7 mg', 'per_serving' => '0.2 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin B2', 'per_100g' => '1.1 mg', 'per_serving' => '0.3 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin B3', 'per_100g' => '6.7 mg', 'per_serving' => '2 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Axit Pantothenic', 'per_100g' => '3.7 mg', 'per_serving' => '1.1 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => 'Vitamin B5'],
+                ['name' => 'Vitamin B6', 'per_100g' => '0.8 mg', 'per_serving' => '0.3 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Vitamin B12', 'per_100g' => '2.7 mcg', 'per_serving' => '0.8 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+            ],
+        ],
+    ];
+    ?>
+    <section id="nutrition-facts" class="py-20 lg:py-28 bg-[#FFFDF7] border-y border-amber-100/60 relative scroll-mt-12 overflow-hidden">
+        <div class="container mx-auto px-4 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
+                    <i data-lucide="clipboard-check" class="w-4 h-4 text-[#D97706]"></i>
+                    HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
+                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO A+
+                </h2>
+                <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
+                    Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g theo chứng nhận kiểm nghiệm chính thức từ Dale &amp; Cecil Malaysia.
+                </p>
+            </div>
+
+            <!-- 4 Quick Key Metric Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Năng lượng</span>
+                        <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-[#D97706]">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-slate-900 leading-none">422 <span class="text-sm font-sans font-semibold text-slate-500">Kcal</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">126 Kcal / khẩu phần 30g dinh dưỡng thực vật lành tính</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Đạm thực vật</span>
+                        <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                            <i data-lucide="sprout" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-emerald-800 leading-none">16 <span class="text-sm font-sans font-semibold text-slate-500">g</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Protein từ mầm gạo nâu &amp; hạt kê hữu cơ, êm dịu hệ tiêu hóa</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Canxi hữu cơ</span>
+                        <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-[#D97706] leading-none">750 <span class="text-sm font-sans font-semibold text-slate-500">mg</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Hỗ trợ phát triển hệ xương và răng vững chắc cho bé từ 1 - 6 tuổi</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Omega-3 (ALA)</span>
+                        <div class="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-[#1a4e4d]">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-[#1a4e4d] leading-none">450 <span class="text-sm font-sans font-semibold text-slate-500">mg</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Cùng 1920mg LA hỗ trợ nuôi dưỡng trí não và thị lực vượt trội</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Layout: Table (8 cols) + Sticky Side Showcase (4 cols) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+                <!-- Left Column (8 cols): Interactive Nutrition Table -->
+                <div class="lg:col-span-8 space-y-6">
+
+                    <!-- Filter Tabs -->
+                    <div class="flex flex-wrap items-center gap-2 p-1.5 bg-slate-200/70 rounded-2xl w-fit" id="nutrition-tabs">
+                        <button type="button" onclick="filterNutritionGroup('all', this)"
+                            class="nutrition-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-dom uppercase tracking-wider font-bold transition-all bg-[#1a4e4d] text-white shadow-sm border-none cursor-pointer">
+                            Tất Cả (36 Chỉ Tiêu)
+                        </button>
+                        <button type="button" onclick="filterNutritionGroup('macro', this)"
+                            class="nutrition-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-dom uppercase tracking-wider font-bold transition-all bg-transparent text-slate-700 hover:text-slate-900 border-none cursor-pointer">
+                            Đại Lượng &amp; Năng Lượng
+                        </button>
+                        <button type="button" onclick="filterNutritionGroup('minerals', this)"
+                            class="nutrition-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-dom uppercase tracking-wider font-bold transition-all bg-transparent text-slate-700 hover:text-slate-900 border-none cursor-pointer">
+                            Khoáng Chất
+                        </button>
+                        <button type="button" onclick="filterNutritionGroup('vitamins', this)"
+                            class="nutrition-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-dom uppercase tracking-wider font-bold transition-all bg-transparent text-slate-700 hover:text-slate-900 border-none cursor-pointer">
+                            Hệ Vitamin
+                        </button>
+                    </div>
+
+                    <!-- Table Card -->
+                    <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 shadow-sm bg-white">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-sm min-w-[560px]">
+                                <thead>
+                                    <tr class="bg-[#1a4e4d] text-white font-dom text-xs sm:text-sm uppercase tracking-wider">
+                                        <th class="py-4 px-5 sm:px-7 font-bold">Giá Trị Dinh Dưỡng</th>
+                                        <th class="py-4 px-4 sm:px-6 font-bold text-right whitespace-nowrap">Trong 100g bột</th>
+                                        <th class="py-4 px-5 sm:px-7 font-bold text-right whitespace-nowrap">Trong khẩu phần (30g)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($nutrition_groups as $group): ?>
+                                        <!-- Group Header Row -->
+                                        <tr class="nutrition-group-block bg-teal-900/[0.04] border-y border-teal-800/10" data-group="<?php echo esc_attr($group['id']); ?>">
+                                            <td colspan="3" class="py-3 px-5 sm:px-7 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                <span class="inline-flex items-center gap-2">
+                                                    <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 text-emerald-600"></i>
+                                                    <span><?php echo esc_html($group['title']); ?></span>
+                                                    <span class="text-[10px] font-sans font-normal text-slate-500 lowercase">(<?php echo count($group['items']); ?> chỉ tiêu)</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Group Items Rows -->
+                                        <?php foreach ($group['items'] as $item): ?>
+                                            <tr class="nutrition-group-block border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-slate-50/40' : ''; ?>"
+                                                data-group="<?php echo esc_attr($group['id']); ?>">
+                                                
+                                                <!-- Nutrient Name -->
+                                                <td class="py-3 <?php echo $item['is_sub'] ? 'pl-9 sm:pl-12 pr-4 text-slate-600 text-xs sm:text-sm' : 'px-5 sm:px-7 text-xs sm:text-sm'; ?> <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?>">
+                                                    <div class="inline-flex items-center gap-2 flex-wrap">
+                                                        <?php if ($item['is_sub']): ?>
+                                                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
+                                                        <?php endif; ?>
+                                                        <span><?php echo esc_html($item['name']); ?></span>
+                                                        <?php if (!empty($item['tag'])): ?>
+                                                            <span class="text-[10px] font-dom uppercase px-2 py-0.5 rounded-full <?php echo strpos($item['tag'], '0') !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'; ?> font-bold tracking-tight">
+                                                                <?php echo esc_html($item['tag']); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </td>
+
+                                                <!-- Per 100g -->
+                                                <td class="py-3 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'font-medium text-slate-700'; ?> whitespace-nowrap">
+                                                    <?php echo esc_html($item['per_100g']); ?>
+                                                </td>
+
+                                                <!-- Per Serving (30g) -->
+                                                <td class="py-3 px-5 sm:px-7 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'font-semibold text-slate-800'; ?> whitespace-nowrap">
+                                                    <?php echo esc_html($item['per_serving']); ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Table Footer Note -->
+                        <div class="p-4 sm:p-5 bg-slate-50 border-t border-slate-100 flex items-start gap-3 text-xs text-slate-500">
+                            <i data-lucide="info" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">
+                                <strong>Lưu ý:</strong> Bảng thành phần dinh dưỡng được công bố chính thức theo nhãn phụ sản phẩm của tập đoàn <strong>Dale &amp; Cecil Malaysia</strong>. Miwako A+ là thực phẩm bổ sung dinh dưỡng hàng ngày cho trẻ từ 1 - 6 tuổi, không thay thế sữa mẹ hoặc bữa ăn chính hoàn chỉnh.
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (4 cols): Sticky Visual Presentation Card -->
+                <div class="lg:col-span-4 sticky top-28 space-y-6">
+
+                    <div class="bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                        
+                        <!-- Editorial Heading -->
+                        <div class="mb-4">
+                            <span class="text-xs font-dom uppercase tracking-widest text-[#D97706] font-bold block mb-1">
+                                CÔNG THỨC DINH DƯỠNG
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-dom text-slate-900 uppercase tracking-wide leading-tight m-0">
+                                GIÁ TRỊ DINH DƯỠNG CỦA MIWAKO A+
+                            </h3>
+                        </div>
+
+                        <!-- Product Can Photo -->
+                        <div class="relative py-2 w-full flex justify-center">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/products/miwako-a-plus-hero.webp'); ?>"
+                                alt="Lon thực phẩm dinh dưỡng Miwako A+ Dale & Cecil"
+                                class="w-full max-w-[260px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] hover:scale-105 transition-transform duration-500 ease-out" />
+                        </div>
+
+                        <!-- Super Health Brand Award Banner -->
+                        <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/60 text-left w-full mt-4">
+                            <div class="w-14 h-14 shrink-0 flex items-center justify-center">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
+                                    alt="Asia Pacific Super Health Brand 2022 &amp; 2023" class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-dom uppercase tracking-wider text-amber-900 block font-bold">CHỨNG NHẬN QUỐC TẾ</span>
+                                <p class="text-xs text-amber-950 font-medium m-0 leading-snug">
+                                    Asia Pacific Super Health Brand — Giải thưởng thương hiệu sức khỏe uy tín khu vực Châu Á - Thái Bình Dương.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Standard Serving Guide Box -->
+                        <div class="p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200/60 space-y-3 text-left w-full mt-5">
+                            <div class="flex items-center gap-2 text-slate-900 font-dom text-sm uppercase">
+                                <i data-lucide="cup-soda" class="w-4 h-4 text-emerald-600"></i>
+                                <span>Quy Chuẩn 1 Khẩu Phần Chuẩn</span>
+                            </div>
+                            <ul class="text-xs text-slate-600 space-y-2 m-0 p-0 list-none">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span><strong>3 muỗng gạt bột</strong> (tương đương khoảng <strong>30g</strong>).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Pha cùng <strong>150ml nước ấm</strong> (45°C - 50°C), khuấy đều.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Cung cấp <strong>126 Kcal</strong> năng lượng thực vật lành tính.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 3 Safety Commitments (0 Trans fat, 0 Cholesterol, 0 Lactose) -->
+                        <div class="grid grid-cols-3 gap-2 w-full mt-4 text-center">
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0g</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Trans Fat</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0mg</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Cholesterol</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0%</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Lactose</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Jump Button -->
+                        <a href="#usage-guidelines"
+                            class="block w-full py-3.5 px-5 bg-[#D97706] hover:bg-amber-600 text-white text-center rounded-xl font-dom text-xs uppercase tracking-wider font-bold transition-colors shadow-sm no-underline mt-5">
+                            Xem Cách Pha Chi Tiết
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    function filterNutritionGroup(groupId, btn) {
+        const tabs = document.querySelectorAll('.nutrition-tab-btn');
+        tabs.forEach(t => {
+            t.classList.remove('bg-[#1a4e4d]', 'text-white', 'shadow-sm');
+            t.classList.add('bg-transparent', 'text-slate-700');
+        });
+        btn.classList.add('bg-[#1a4e4d]', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-transparent', 'text-slate-700');
+
+        const rows = document.querySelectorAll('.nutrition-group-block');
+        rows.forEach(r => {
+            if (groupId === 'all' || r.getAttribute('data-group') === groupId) {
+                r.style.display = '';
+            } else {
+                r.style.display = 'none';
+            }
+        });
+    }
+    </script>
+
     <!-- 5. SECTION: HƯỚNG DẪN SỬ DỤNG VÀ BẢO QUẢN (USAGE & STORAGE GUIDELINES) -->
     <section id="usage-guidelines" class="py-20 lg:py-28 bg-[#F8FAFD] relative">
         <div class="container mx-auto px-4 lg:px-8">
