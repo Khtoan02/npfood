@@ -756,17 +756,6 @@ get_header(); ?>
                                     <?php endforeach; ?>
                                 </table>
                             </div>
-
-                            <!-- Table Footer Note -->
-                            <div
-                                class="p-3.5 sm:p-4 bg-amber-50/70 border-t border-amber-900/10 flex items-start gap-2.5 text-xs text-slate-600">
-                                <i data-lucide="info" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5"></i>
-                                <span class="leading-relaxed">
-                                    <strong>Lưu ý:</strong> Bảng thành phần công bố chính thức theo hồ sơ sản phẩm từ
-                                    <strong>Dale &amp; Cecil Malaysia</strong>. Miwako A+ là thực phẩm bổ sung dinh
-                                    dưỡng thực vật cho trẻ từ 1 - 6 tuổi.
-                                </span>
-                            </div>
                         </div>
 
                         <!-- Lock / Blur Overlay with View Button -->
