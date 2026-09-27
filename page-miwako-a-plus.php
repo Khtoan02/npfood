@@ -147,7 +147,8 @@ get_header(); ?>
         <a href="#brand-origin"
             class="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/80 hover:text-white transition-all duration-300 no-underline group z-20"
             aria-label="Cuộn xuống khám phá">
-            <span class="text-[10px] font-dom tracking-widest uppercase opacity-80 group-hover:opacity-100">CUỘN XUỐNG</span>
+            <span class="text-[10px] font-dom tracking-widest uppercase opacity-80 group-hover:opacity-100">CUỘN
+                XUỐNG</span>
             <div
                 class="w-5 h-8 rounded-full border border-white/60 flex items-start justify-center p-1 group-hover:border-white transition-colors">
                 <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
@@ -174,7 +175,8 @@ get_header(); ?>
                                 <span>Dale &amp; Cecil • Malaysia</span>
                             </span>
                             <p class="text-white/95 text-sm lg:text-base font-medium m-0 leading-snug">
-                                Thực phẩm dinh dưỡng Miwako A+ được nghiên cứu và phát triển bởi tập đoàn Dale &amp; Cecil.
+                                Thực phẩm dinh dưỡng Miwako A+ được nghiên cứu và phát triển bởi tập đoàn Dale &amp;
+                                Cecil.
                             </p>
                         </div>
                     </div>
@@ -188,7 +190,8 @@ get_header(); ?>
                         <span class="text-sm font-dom text-[#D97706] uppercase tracking-widest block mb-2">
                             XUẤT XỨ THƯƠNG HIỆU
                         </span>
-                        <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
+                        <h2
+                            class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
                             NGUỒN GỐC &amp; SẢN XUẤT
                         </h2>
                     </div>
@@ -197,12 +200,15 @@ get_header(); ?>
                     <div class="space-y-4 text-base lg:text-lg text-slate-700 leading-relaxed font-normal">
                         <p class="m-0">
                             Thực phẩm dinh dưỡng Miwako A+ được nghiên cứu và sản xuất bởi Dale &amp; Cecil Sdn. Bhd.
-                            tại Malaysia – thương hiệu chuyên sâu trong lĩnh vực phát triển các giải pháp dinh dưỡng thực vật
+                            tại Malaysia – thương hiệu chuyên sâu trong lĩnh vực phát triển các giải pháp dinh dưỡng
+                            thực vật
                             dành cho trẻ nhỏ và các thành viên trong gia đình.
                         </p>
                         <p class="m-0">
-                            Tại Việt Nam, sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền bởi Công ty TNHH
-                            Thực Phẩm NP. Toàn bộ thông tin thành phần, định lượng và khuyến nghị sử dụng đều tuân thủ chặt chẽ
+                            Tại Việt Nam, sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền bởi Công
+                            ty TNHH
+                            Thực Phẩm NP. Toàn bộ thông tin thành phần, định lượng và khuyến nghị sử dụng đều tuân thủ
+                            chặt chẽ
                             theo hồ sơ tự công bố và tài liệu kỹ thuật từ nhà sản xuất.
                         </p>
                     </div>
@@ -210,30 +216,36 @@ get_header(); ?>
                     <!-- 3 Feature Highlight Strips -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                         <div class="p-5 rounded-2xl bg-[#F8FAFD] border-none shadow-none space-y-2">
-                            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-[#D97706]">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-[#D97706]">
                                 <i data-lucide="sprout" class="w-5 h-5"></i>
                             </div>
-                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Công thức thực vật</h3>
+                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Công thức thực vật
+                            </h3>
                             <p class="text-xs lg:text-sm text-slate-600 m-0 leading-relaxed">
                                 Kết hợp đạm đậu Hà Lan, hạt kê, hạt diêm mạch và mầm gạo lứt tự nhiên.
                             </p>
                         </div>
 
                         <div class="p-5 rounded-2xl bg-[#F8FAFD] border-none shadow-none space-y-2">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
                                 <i data-lucide="sparkles" class="w-5 h-5"></i>
                             </div>
-                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Vị vani thanh nhẹ</h3>
+                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Vị vani thanh nhẹ
+                            </h3>
                             <p class="text-xs lg:text-sm text-slate-600 m-0 leading-relaxed">
                                 Vị ngọt dịu tự nhiên, không bổ sung đường tinh luyện hay hương liệu nhân tạo.
                             </p>
                         </div>
 
                         <div class="p-5 rounded-2xl bg-[#F8FAFD] border-none shadow-none space-y-2">
-                            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600">
                                 <i data-lucide="shield-check" class="w-5 h-5"></i>
                             </div>
-                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Nhập khẩu chính ngạch</h3>
+                            <h3 class="font-dom text-base lg:text-lg text-slate-900 m-0 uppercase">Nhập khẩu chính ngạch
+                            </h3>
                             <p class="text-xs lg:text-sm text-slate-600 m-0 leading-relaxed">
                                 Nhãn phụ tiếng Việt, thông tin nhà nhập khẩu và hạn sử dụng rõ ràng.
                             </p>
@@ -258,33 +270,40 @@ get_header(); ?>
                         <span class="text-sm font-dom text-[#D97706] uppercase tracking-widest block mb-2">
                             ĐƠN VỊ NHẬP KHẨU VÀ PHÂN PHỐI
                         </span>
-                        <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
+                        <h2
+                            class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
                             CÔNG TY TNHH THỰC PHẨM NP
                         </h2>
                     </div>
 
                     <div class="space-y-4 text-base lg:text-lg text-slate-700 leading-relaxed font-normal">
                         <p class="m-0">
-                            Sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công ty TNHH
-                            Thực Phẩm NP. Đơn vị cam kết cung cấp sản phẩm với đầy đủ nhãn phụ tiếng Việt và thông tin minh bạch
+                            Sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công
+                            ty TNHH
+                            Thực Phẩm NP. Đơn vị cam kết cung cấp sản phẩm với đầy đủ nhãn phụ tiếng Việt và thông tin
+                            minh bạch
                             theo hồ sơ tự công bố.
                         </p>
                     </div>
 
                     <!-- Direct Action Card: Dossier Reference Document -->
-                    <div class="p-6 rounded-[2rem] bg-white shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div
+                        class="p-6 rounded-[2rem] bg-white shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div class="flex items-center gap-3.5">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
                                 <i data-lucide="file-check-2" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <span class="font-dom text-slate-900 text-lg uppercase block">BẢN CÔNG BỐ CHẤT LƯỢNG SẢN PHẨM</span>
-                                <span class="text-xs lg:text-sm text-slate-500">Tài liệu tham chiếu hồ sơ tự công bố Miwako A+ (Định dạng PDF)</span>
+                                <span class="font-dom text-slate-900 text-lg uppercase block">BẢN CÔNG BỐ CHẤT LƯỢNG SẢN
+                                    PHẨM</span>
+                                <span class="text-xs lg:text-sm text-slate-500">Tài liệu tham chiếu hồ sơ tự công bố
+                                    Miwako A+ (Định dạng PDF)</span>
                             </div>
                         </div>
 
-                        <a href="https://drive.google.com/file/d/1IiShj06_KwHANPHp41j4aC8J0YSSTDN3/view"
-                            target="_blank" rel="noopener noreferrer"
+                        <a href="https://drive.google.com/file/d/1IiShj06_KwHANPHp41j4aC8J0YSSTDN3/view" target="_blank"
+                            rel="noopener noreferrer"
                             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#D97706] hover:bg-[#b45309] text-white font-dom text-sm uppercase tracking-wide transition-all shadow-sm hover:shadow-md no-underline shrink-0">
                             <span>XEM TÀI LIỆU CÔNG BỐ</span>
                             <i data-lucide="external-link" class="w-4 h-4"></i>
@@ -340,7 +359,8 @@ get_header(); ?>
                                 <span>Phân Phối Chính Ngạch</span>
                             </span>
                             <p class="text-white/95 text-sm lg:text-base font-medium m-0 leading-snug">
-                                NP Food đồng hành cùng các gia đình Việt trong việc tiếp cận nguồn dinh dưỡng thực vật lành tính.
+                                NP Food đồng hành cùng các gia đình Việt trong việc tiếp cận nguồn dinh dưỡng thực vật
+                                lành tính.
                             </p>
                         </div>
                     </div>
@@ -363,7 +383,8 @@ get_header(); ?>
                     TIÊU CHUẨN CHẤT LƯỢNG &amp; CHỨNG NHẬN
                 </h2>
                 <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
-                    Thông tin xác thực theo tài liệu kiểm nghiệm, chứng nhận quốc tế và hồ sơ tự công bố của sản phẩm Miwako A+.
+                    Thông tin xác thực theo tài liệu kiểm nghiệm, chứng nhận quốc tế và hồ sơ tự công bố của sản phẩm
+                    Miwako A+.
                 </p>
             </div>
 
@@ -377,8 +398,8 @@ get_header(); ?>
                         <div
                             class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 mb-5">
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-usda-organic.webp'); ?>"
-                                alt="Chứng nhận hữu cơ USDA Organic (Hoa Kỳ)" class="max-h-full max-w-full object-contain"
-                                loading="lazy" />
+                                alt="Chứng nhận hữu cơ USDA Organic (Hoa Kỳ)"
+                                class="max-h-full max-w-full object-contain" loading="lazy" />
                         </div>
                         <span
                             class="text-xs font-dom uppercase tracking-wider text-emerald-800 bg-emerald-100/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
@@ -418,8 +439,10 @@ get_header(); ?>
                             ASIA PACIFIC SUPER HEALTH BRAND
                         </h3>
                         <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-                            Theo chứng nhận giải thưởng uy tín khu vực Châu Á - Thái Bình Dương (Asia Pacific Super Health Brand
-                            2022 &amp; 2023), ghi nhận tiêu chuẩn chất lượng và sự tin cậy của thương hiệu Dale &amp; Cecil
+                            Theo chứng nhận giải thưởng uy tín khu vực Châu Á - Thái Bình Dương (Asia Pacific Super
+                            Health Brand
+                            2022 &amp; 2023), ghi nhận tiêu chuẩn chất lượng và sự tin cậy của thương hiệu Dale &amp;
+                            Cecil
                             đối với các giải pháp dinh dưỡng thực vật lành tính.
                         </p>
                     </div>
@@ -469,7 +492,8 @@ get_header(); ?>
                         TIÊU CHUẨN NGUYÊN LIỆU &amp; AN TOÀN DỊ ỨNG TRÊN NHÃN LON
                     </h4>
                     <p class="text-sm lg:text-base text-slate-600 mt-2 m-0">
-                        Các tiêu chuẩn được ghi nhận và in minh bạch trên bao bì theo hồ sơ công bố của sản phẩm Miwako A+
+                        Các tiêu chuẩn được ghi nhận và in minh bạch trên bao bì theo hồ sơ công bố của sản phẩm Miwako
+                        A+
                     </p>
                 </div>
 
@@ -563,11 +587,11 @@ get_header(); ?>
     <?php
     $nutrition_groups = [
         [
-            'id'       => 'macro',
-            'title'    => 'Giá Trị Dinh Dưỡng Năng Lượng & Đại Lượng',
-            'badge'    => 'Năng lượng & Đại lượng',
-            'icon'     => 'zap',
-            'items'    => [
+            'id' => 'macro',
+            'title' => 'Giá Trị Dinh Dưỡng Năng Lượng & Đại Lượng',
+            'badge' => 'Năng lượng & Đại lượng',
+            'icon' => 'zap',
+            'items' => [
                 ['name' => 'Năng lượng', 'per_100g' => '422 Kcal (1770kJ)', 'per_serving' => '126 Kcal (531kJ)', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Năng lượng sạch'],
                 ['name' => 'Carbonhydrate', 'per_100g' => '68 g', 'per_serving' => '20.4 g', 'is_bold' => true, 'is_sub' => false, 'tag' => ''],
                 ['name' => 'Chất xơ', 'per_100g' => '5.8 g', 'per_serving' => '1.7 g', 'is_bold' => false, 'is_sub' => true, 'tag' => ''],
@@ -585,11 +609,11 @@ get_header(); ?>
             ],
         ],
         [
-            'id'       => 'minerals',
-            'title'    => 'Các Khoáng Chất Thiết Yếu',
-            'badge'    => 'Khoáng chất',
-            'icon'     => 'shield-check',
-            'items'    => [
+            'id' => 'minerals',
+            'title' => 'Các Khoáng Chất Thiết Yếu',
+            'badge' => 'Khoáng chất',
+            'icon' => 'shield-check',
+            'items' => [
                 ['name' => 'Natri', 'per_100g' => '350 mg', 'per_serving' => '105 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
                 ['name' => 'Canxi', 'per_100g' => '750 mg', 'per_serving' => '225 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => '750mg Canxi'],
                 ['name' => 'I-ốt', 'per_100g' => '75 mcg', 'per_serving' => '22.5 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
@@ -602,11 +626,11 @@ get_header(); ?>
             ],
         ],
         [
-            'id'       => 'vitamins',
-            'title'    => 'Các Vitamin Toàn Diện',
-            'badge'    => '13 Loại Vitamin',
-            'icon'     => 'sparkles',
-            'items'    => [
+            'id' => 'vitamins',
+            'title' => 'Các Vitamin Toàn Diện',
+            'badge' => '13 Loại Vitamin',
+            'icon' => 'sparkles',
+            'items' => [
                 ['name' => 'Vitamin A', 'per_100g' => '350 mcg', 'per_serving' => '105 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
                 ['name' => 'Vitamin D3', 'per_100g' => '4.4 mcg', 'per_serving' => '1.3 mcg', 'is_bold' => false, 'is_sub' => false, 'tag' => 'Hấp thu Canxi'],
                 ['name' => 'Vitamin E', 'per_100g' => '6.2 mg', 'per_serving' => '1.9 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
@@ -624,7 +648,8 @@ get_header(); ?>
         ],
     ];
     ?>
-    <section id="nutrition-facts" class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
+    <section id="nutrition-facts"
+        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -634,15 +659,18 @@ get_header(); ?>
 
                     <!-- Section Header -->
                     <div class="mb-6 lg:mb-8">
-                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
+                        <span
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
                             <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#D97706]"></i>
                             HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
                         </span>
-                        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
                             BẢNG GIÁ TRỊ DINH DƯỠNG
                         </h2>
                         <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
-                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g theo chứng nhận kiểm nghiệm chính thức từ Dale &amp; Cecil Malaysia.
+                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g theo chứng nhận kiểm nghiệm
+                            chính thức từ Dale &amp; Cecil Malaysia.
                         </p>
                     </div>
 
@@ -650,13 +678,14 @@ get_header(); ?>
                     <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5">
                         <?php foreach ($nutrition_groups as $index => $group): ?>
                             <?php $isActive = ($index === 0); ?>
-                            <button type="button"
-                                onclick="switchNutritionTab('<?php echo esc_attr($group['id']); ?>')"
+                            <button type="button" onclick="switchNutritionTab('<?php echo esc_attr($group['id']); ?>')"
                                 data-nutrition-tab="<?php echo esc_attr($group['id']); ?>"
                                 class="nutrition-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider transition-all duration-200 cursor-pointer border <?php echo $isActive ? 'active bg-[#1a4e4d] text-white border-[#1a4e4d] shadow-md shadow-[#1a4e4d]/20 font-bold' : 'bg-white/95 text-slate-700 hover:text-[#1a4e4d] hover:bg-amber-50/80 border-amber-900/15 shadow-sm font-semibold'; ?>">
-                                <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-3.5 h-3.5 shrink-0 <?php echo $isActive ? 'text-amber-400' : 'text-[#D97706]'; ?>"></i>
+                                <i data-lucide="<?php echo esc_attr($group['icon']); ?>"
+                                    class="w-3.5 h-3.5 shrink-0 <?php echo $isActive ? 'text-amber-400' : 'text-[#D97706]'; ?>"></i>
                                 <span><?php echo esc_html($group['badge']); ?></span>
-                                <span class="tab-badge text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-mono font-bold <?php echo $isActive ? 'bg-white/20 text-white' : 'bg-amber-100/70 text-amber-900'; ?>">
+                                <span
+                                    class="tab-badge text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-mono font-bold <?php echo $isActive ? 'bg-white/20 text-white' : 'bg-amber-100/70 text-amber-900'; ?>">
                                     <?php echo count($group['items']); ?>
                                 </span>
                             </button>
@@ -664,45 +693,61 @@ get_header(); ?>
                     </div>
 
                     <!-- Nutrition Facts Table Box -->
-                    <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]" id="nutrition-table-box">
-                        
+                    <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]"
+                        id="nutrition-table-box">
+
                         <!-- Luminous Subtle Paper Texture Layer -->
                         <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-multiply pointer-events-none z-0"
                             style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
                         </div>
                         <!-- Soft Ambient White Glow Layer -->
-                        <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/60 pointer-events-none z-0"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/60 pointer-events-none z-0">
+                        </div>
 
                         <!-- Table Content -->
-                        <div id="nutrition-table-content" class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
+                        <div id="nutrition-table-content"
+                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
                             <div class="overflow-x-auto">
                                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                     <thead>
-                                        <tr class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm">
+                                        <tr
+                                            class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm">
                                             <th class="py-2.5 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
-                                            <th class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">Trong 100g Bột</th>
-                                            <th class="py-2.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">Khẩu Phần (30g)</th>
+                                            <th
+                                                class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
+                                                Trong 100g Bột</th>
+                                            <th
+                                                class="py-2.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
+                                                Khẩu Phần (30g)</th>
                                         </tr>
                                     </thead>
                                     <?php foreach ($nutrition_groups as $index => $group): ?>
                                         <tbody id="nutrition-panel-<?php echo esc_attr($group['id']); ?>"
-                                               class="nutrition-tab-panel <?php echo ($index === 0) ? 'table-row-group' : 'hidden'; ?>">
+                                            class="nutrition-tab-panel <?php echo ($index === 0) ? 'table-row-group' : 'hidden'; ?>">
                                             <?php foreach ($group['items'] as $item): ?>
-                                                <tr class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
+                                                <tr
+                                                    class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
                                                     <td class="py-2 px-3.5 sm:px-5">
                                                         <?php if ($item['is_sub']): ?>
-                                                            <div class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
-                                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 inline-block"></span>
-                                                                <span class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                            <div
+                                                                class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
+                                                                <span
+                                                                    class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 inline-block"></span>
+                                                                <span
+                                                                    class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                             </div>
                                                         <?php else: ?>
-                                                            <span class="font-bold text-slate-900 text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                            <span
+                                                                class="font-bold text-slate-900 text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                         <?php endif; ?>
                                                     </td>
-                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                    <td
+                                                        class="py-2 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
-                                                    <td class="py-2 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                    <td
+                                                        class="py-2 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -713,24 +758,30 @@ get_header(); ?>
                             </div>
 
                             <!-- Table Footer Note -->
-                            <div class="p-3.5 sm:p-4 bg-amber-50/70 border-t border-amber-900/10 flex items-start gap-2.5 text-xs text-slate-600">
+                            <div
+                                class="p-3.5 sm:p-4 bg-amber-50/70 border-t border-amber-900/10 flex items-start gap-2.5 text-xs text-slate-600">
                                 <i data-lucide="info" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5"></i>
                                 <span class="leading-relaxed">
-                                    <strong>Lưu ý:</strong> Bảng thành phần công bố chính thức theo hồ sơ sản phẩm từ <strong>Dale &amp; Cecil Malaysia</strong>. Miwako A+ là thực phẩm bổ sung dinh dưỡng thực vật cho trẻ từ 1 - 6 tuổi.
+                                    <strong>Lưu ý:</strong> Bảng thành phần công bố chính thức theo hồ sơ sản phẩm từ
+                                    <strong>Dale &amp; Cecil Malaysia</strong>. Miwako A+ là thực phẩm bổ sung dinh
+                                    dưỡng thực vật cho trẻ từ 1 - 6 tuổi.
                                 </span>
                             </div>
                         </div>
 
                         <!-- Lock / Blur Overlay with View Button -->
-                        <div id="nutrition-lock-overlay" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-white/85 backdrop-blur-md transition-all duration-500">
-                            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-[#D97706] flex items-center justify-center mb-3 shadow-sm border border-amber-200">
+                        <div id="nutrition-lock-overlay"
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-white/85 backdrop-blur-md transition-all duration-500">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-amber-100 text-[#D97706] flex items-center justify-center mb-3 shadow-sm border border-amber-200">
                                 <i data-lucide="file-text" class="w-7 h-7"></i>
                             </div>
                             <h3 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide mb-2">
                                 BẢNG THÀNH PHẦN &amp; GIÁ TRỊ DINH DƯỠNG
                             </h3>
                             <p class="text-xs sm:text-sm text-slate-600 max-w-sm mb-5 leading-relaxed">
-                                Vui lòng đọc kỹ thông tin lưu ý y tế và xác nhận để hiển thị bảng dữ liệu dinh dưỡng chi tiết của sản phẩm.
+                                Vui lòng đọc kỹ thông tin lưu ý y tế và xác nhận để hiển thị bảng dữ liệu dinh dưỡng chi
+                                tiết của sản phẩm.
                             </p>
                             <button type="button" onclick="openNutritionDisclaimer()"
                                 class="inline-flex items-center gap-2 px-5 py-3 bg-[#D97706] hover:bg-amber-600 text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
@@ -745,17 +796,21 @@ get_header(); ?>
 
                 <!-- Right Column (5 cols): Immersive Nutritional Photography -->
                 <div class="lg:col-span-5 lg:sticky lg:top-24">
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
+                    <div
+                        class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-04.webp'); ?>"
                             alt="Cận cảnh lon Miwako A+ và các loại hạt ngũ cốc hữu cơ tự nhiên"
                             class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
-                            <span class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
                                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-                                <span>Dinh Dưỡng Thực Vật Chuẩn Y Khoa</span>
+                                <span>Dinh dưỡng công thức thực vật hữu cơ cho trẻ</span>
                             </span>
                             <p class="text-white/95 text-sm font-medium m-0 leading-relaxed">
-                                Công thức chuyên biệt từ Dale &amp; Cecil Malaysia với 36 chỉ tiêu dinh dưỡng cân bằng, nuôi dưỡng thể chất và hệ vi sinh đường ruột cho trẻ.
+                                Công thức chuyên biệt từ Dale &amp; Cecil Malaysia với 36 chỉ tiêu dinh dưỡng cân bằng,
+                                nuôi dưỡng thể chất và hệ vi sinh đường ruột cho trẻ.
                             </p>
                         </div>
                     </div>
@@ -766,153 +821,228 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- Pop-up Disclaimer Modal -->
-    <div id="nutrition-disclaimer-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative transform transition-all max-h-[90vh] overflow-y-auto">
+    <!-- Pop-up Disclaimer Modal (Role Selection for Medical / Nutritional Reference) -->
+    <div id="nutrition-disclaimer-modal"
+        class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+        <div
+            class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative transform transition-all">
             <!-- Close button -->
-            <button type="button" onclick="closeNutritionDisclaimer()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors border-none cursor-pointer" aria-label="Đóng">
+            <button type="button" onclick="closeNutritionDisclaimer()"
+                class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors border-none cursor-pointer"
+                aria-label="Đóng">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
             <!-- Modal Header -->
             <div class="flex items-center gap-3.5 mb-5 pr-8">
-                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200">
-                    <i data-lucide="shield-alert" class="w-6 h-6 text-[#D97706]"></i>
+                <div
+                    class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-[#D97706]"></i>
                 </div>
                 <div>
-                    <span class="text-xs font-dom uppercase tracking-wider text-[#D97706] font-bold block">THÔNG TIN QUAN TRỌNG</span>
-                    <h4 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide m-0">LƯU Ý &amp; KHUYẾN NGHỊ Y TẾ</h4>
+                    <span class="text-xs font-dom uppercase tracking-wider text-[#D97706] font-bold block">XÁC NHẬN TRUY
+                        CẬP</span>
+                    <h4 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide m-0">THÔNG TIN DINH
+                        DƯỠNG</h4>
                 </div>
             </div>
 
-            <!-- Modal Content -->
-            <div class="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-b border-slate-100 py-4 my-4">
-                <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/70 text-slate-700">
-                    <p class="m-0 leading-relaxed">
-                        <strong class="text-amber-900 font-bold">1. Khuyến nghị của Tổ chức Y tế Thế giới (WHO) &amp; Bộ Y tế:</strong><br>
-                        Sữa mẹ là thức ăn tốt nhất cho sức khỏe và sự phát triển toàn diện của trẻ nhỏ. Các yếu tố chống nhiễm khuẩn, đặc biệt là kháng thể chỉ có trong sữa mẹ có tác dụng giúp trẻ phòng, chống bệnh tiêu chảy, nhiễm khuẩn đường hô hấp và một số bệnh nhiễm khuẩn khác.
-                    </p>
-                </div>
-                <div class="space-y-2.5">
-                    <p class="m-0 leading-relaxed">
-                        <strong>2. Mục đích cung cấp thông tin:</strong><br>
-                        Thông tin bảng thành phần dinh dưỡng được trích dẫn trung thực theo hồ sơ công bố chất lượng và nhãn sản phẩm của nhà sản xuất <strong>Dale &amp; Cecil</strong>, nhằm phục vụ mục đích tìm hiểu khoa học và đối soát dinh dưỡng của người tiêu dùng và chuyên gia.
-                    </p>
-                    <p class="m-0 leading-relaxed">
-                        <strong>3. Bản chất sản phẩm:</strong><br>
-                        Sản phẩm là thực phẩm dinh dưỡng bổ sung nguồn gốc thực vật cho trẻ, không thay thế bữa ăn chính hoàn chỉnh và không có tác dụng thay thế thuốc chữa bệnh.
-                    </p>
+            <!-- Notice Message -->
+            <div
+                class="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
+                Thông tin bảng thành phần dinh dưỡng nhằm phục vụ mục đích tìm hiểu khoa học và đối soát dinh dưỡng.
+            </div>
+
+            <!-- Role Selector -->
+            <div class="space-y-3 mb-6">
+                <span class="text-xs font-dom uppercase tracking-wider text-slate-500 font-bold block">
+                    Vui lòng xác nhận đối tượng truy cập:
+                </span>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="nutrition-role-container">
+                    <!-- Option 1: Chuyên gia -->
+                    <label
+                        class="role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all">
+                        <input type="radio" name="nutrition_role" value="expert" checked class="sr-only"
+                            onchange="handleRoleChange(this)">
+                        <div class="flex items-center gap-3 w-full">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-teal-100 text-[#1a4e4d] flex items-center justify-center shrink-0">
+                                <i data-lucide="stethoscope" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="font-dom text-sm font-bold text-slate-900 block leading-tight">Chuyên
+                                    gia</span>
+                                <span class="text-[11px] text-slate-500 leading-tight">Y tế &amp; Dinh dưỡng</span>
+                            </div>
+                            <div
+                                class="role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Option 2: Trợ lý y tế -->
+                    <label
+                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all">
+                        <input type="radio" name="nutrition_role" value="assistant" class="sr-only"
+                            onchange="handleRoleChange(this)">
+                        <div class="flex items-center gap-3 w-full">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-amber-100 text-[#D97706] flex items-center justify-center shrink-0">
+                                <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="font-dom text-sm font-bold text-slate-900 block leading-tight">Trợ lý y
+                                    tế</span>
+                                <span class="text-[11px] text-slate-500 leading-tight">Hỗ trợ chăm sóc</span>
+                            </div>
+                            <div
+                                class="role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
 
             <!-- Modal Action Buttons -->
-            <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2">
-                <button type="button" onclick="closeNutritionDisclaimer()" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-dom text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer bg-white">
+            <div
+                class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-3 border-t border-slate-100">
+                <button type="button" onclick="closeNutritionDisclaimer()"
+                    class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-dom text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer bg-white">
                     Đóng / Hủy
                 </button>
-                <button type="button" onclick="acceptNutritionDisclaimer()" class="w-full sm:w-auto px-6 py-3 bg-[#1a4e4d] hover:bg-[#133b3a] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border-none flex items-center justify-center gap-2">
+                <button type="button" onclick="acceptNutritionDisclaimer()"
+                    class="w-full sm:w-auto px-6 py-3 bg-[#1a4e4d] hover:bg-[#133b3a] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border-none flex items-center justify-center gap-2">
                     <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-                    <span>Tôi Đã Hiểu &amp; Chấp Nhận</span>
+                    <span>Xác Nhận &amp; Xem Bảng Dinh Dưỡng</span>
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-    function switchNutritionTab(tabId) {
-        var buttons = document.querySelectorAll('[data-nutrition-tab]');
-        buttons.forEach(function(btn) {
-            var isCurrent = btn.getAttribute('data-nutrition-tab') === tabId;
-            var badge = btn.querySelector('.tab-badge');
-            var icon = btn.querySelector('svg') || btn.querySelector('i');
-            if (isCurrent) {
-                btn.className = "nutrition-tab-btn active inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-bold bg-[#1a4e4d] text-white border border-[#1a4e4d] shadow-md shadow-[#1a4e4d]/20 transition-all cursor-pointer";
-                if (icon) {
-                    icon.classList.remove('text-[#D97706]');
-                    icon.classList.add('text-amber-400');
+        function switchNutritionTab(tabId) {
+            var buttons = document.querySelectorAll('[data-nutrition-tab]');
+            buttons.forEach(function (btn) {
+                var isCurrent = btn.getAttribute('data-nutrition-tab') === tabId;
+                var badge = btn.querySelector('.tab-badge');
+                var icon = btn.querySelector('svg') || btn.querySelector('i');
+                if (isCurrent) {
+                    btn.className = "nutrition-tab-btn active inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-bold bg-[#1a4e4d] text-white border border-[#1a4e4d] shadow-md shadow-[#1a4e4d]/20 transition-all cursor-pointer";
+                    if (icon) {
+                        icon.classList.remove('text-[#D97706]');
+                        icon.classList.add('text-amber-400');
+                    }
+                    if (badge) {
+                        badge.className = "tab-badge text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-white/20 text-white";
+                    }
+                } else {
+                    btn.className = "nutrition-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-semibold bg-white/95 text-slate-700 hover:text-[#1a4e4d] hover:bg-amber-50/80 border border-amber-900/15 shadow-sm transition-all cursor-pointer";
+                    if (icon) {
+                        icon.classList.remove('text-amber-400');
+                        icon.classList.add('text-[#D97706]');
+                    }
+                    if (badge) {
+                        badge.className = "tab-badge text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-amber-100/70 text-amber-900";
+                    }
                 }
-                if (badge) {
-                    badge.className = "tab-badge text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-white/20 text-white";
+            });
+
+            var panels = document.querySelectorAll('.nutrition-tab-panel');
+            panels.forEach(function (panel) {
+                if (panel.id === 'nutrition-panel-' + tabId) {
+                    panel.classList.remove('hidden');
+                    panel.classList.add('table-row-group');
+                } else {
+                    panel.classList.add('hidden');
+                    panel.classList.remove('table-row-group');
                 }
-            } else {
-                btn.className = "nutrition-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-semibold bg-white/95 text-slate-700 hover:text-[#1a4e4d] hover:bg-amber-50/80 border border-amber-900/15 shadow-sm transition-all cursor-pointer";
-                if (icon) {
-                    icon.classList.remove('text-amber-400');
-                    icon.classList.add('text-[#D97706]');
-                }
-                if (badge) {
-                    badge.className = "tab-badge text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-amber-100/70 text-amber-900";
-                }
+            });
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
-        });
-
-        var panels = document.querySelectorAll('.nutrition-tab-panel');
-        panels.forEach(function(panel) {
-            if (panel.id === 'nutrition-panel-' + tabId) {
-                panel.classList.remove('hidden');
-                panel.classList.add('table-row-group');
-            } else {
-                panel.classList.add('hidden');
-                panel.classList.remove('table-row-group');
-            }
-        });
-
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
         }
-    }
 
-    function openNutritionDisclaimer() {
-        var modal = document.getElementById('nutrition-disclaimer-modal');
-        if (modal) {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
-    }
-
-    function closeNutritionDisclaimer() {
-        var modal = document.getElementById('nutrition-disclaimer-modal');
-        if (modal) {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
-        }
-    }
-
-    function acceptNutritionDisclaimer() {
-        closeNutritionDisclaimer();
-        var tableContent = document.getElementById('nutrition-table-content');
-        var overlay = document.getElementById('nutrition-lock-overlay');
-        if (tableContent) {
-            tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
-        }
-        if (overlay) {
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(function() {
-                overlay.style.display = 'none';
-            }, 500);
-        }
-        try {
-            sessionStorage.setItem('nutrition_disclaimer_accepted', 'true');
-        } catch(e) {}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        try {
-            if (sessionStorage.getItem('nutrition_disclaimer_accepted') === 'true') {
-                var tableContent = document.getElementById('nutrition-table-content');
-                var overlay = document.getElementById('nutrition-lock-overlay');
-                if (tableContent) {
-                    tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
+        function handleRoleChange(input) {
+            var options = document.querySelectorAll('.role-option');
+            options.forEach(function (opt) {
+                var radio = opt.querySelector('input[type="radio"]');
+                var check = opt.querySelector('.role-check');
+                if (radio && radio.checked) {
+                    opt.className = "role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all";
+                    if (check) {
+                        check.className = "role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0";
+                    }
+                } else {
+                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all";
+                    if (check) {
+                        check.className = "role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0";
+                    }
                 }
-                if (overlay) {
+            });
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function openNutritionDisclaimer() {
+            var modal = document.getElementById('nutrition-disclaimer-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        function closeNutritionDisclaimer() {
+            var modal = document.getElementById('nutrition-disclaimer-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function acceptNutritionDisclaimer() {
+            closeNutritionDisclaimer();
+            var selectedRole = document.querySelector('input[name="nutrition_role"]:checked');
+            var roleValue = selectedRole ? selectedRole.value : 'expert';
+
+            var tableContent = document.getElementById('nutrition-table-content');
+            var overlay = document.getElementById('nutrition-lock-overlay');
+            if (tableContent) {
+                tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
+            }
+            if (overlay) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(function () {
                     overlay.style.display = 'none';
-                }
+                }, 500);
             }
-        } catch(e) {}
-    });
+            try {
+                sessionStorage.setItem('nutrition_disclaimer_accepted', 'true');
+                sessionStorage.setItem('nutrition_user_role', roleValue);
+            } catch (e) { }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (sessionStorage.getItem('nutrition_disclaimer_accepted') === 'true') {
+                    var tableContent = document.getElementById('nutrition-table-content');
+                    var overlay = document.getElementById('nutrition-lock-overlay');
+                    if (tableContent) {
+                        tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
+                    }
+                    if (overlay) {
+                        overlay.style.display = 'none';
+                    }
+                }
+            } catch (e) { }
+        });
     </script>
 
     <!-- 5. SECTION: HƯỚNG DẪN SỬ DỤNG VÀ BẢO QUẢN (USAGE & STORAGE GUIDELINES) -->
@@ -932,13 +1062,16 @@ get_header(); ?>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
                 <!-- LEFT COLUMN (5 cols): Feature Image matched to content height -->
-                <div class="lg:col-span-5 relative rounded-[2.5rem] overflow-hidden shadow-sm min-h-[420px] lg:min-h-full group bg-slate-100">
+                <div
+                    class="lg:col-span-5 relative rounded-[2.5rem] overflow-hidden shadow-sm min-h-[420px] lg:min-h-full group bg-slate-100">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-01.webp'); ?>"
                         alt="Thực phẩm dinh dưỡng Miwako A+ cho bữa ăn phụ của bé"
                         class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                         loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 lg:p-8">
-                        <span class="px-3.5 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2 inline-flex items-center gap-1.5 w-fit">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 lg:p-8">
+                        <span
+                            class="px-3.5 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2 inline-flex items-center gap-1.5 w-fit">
                             <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
                             <span>Khẩu phần bữa ăn phụ</span>
                         </span>
@@ -949,12 +1082,14 @@ get_header(); ?>
                 </div>
 
                 <!-- RIGHT COLUMN (7 cols): Generous, balanced content -->
-                <div class="lg:col-span-7 bg-white rounded-[2.5rem] p-8 lg:p-12 shadow-sm flex flex-col justify-between gap-8">
+                <div
+                    class="lg:col-span-7 bg-white rounded-[2.5rem] p-8 lg:p-12 shadow-sm flex flex-col justify-between gap-8">
 
                     <!-- BLOCK 1: HƯỚNG DẪN SỬ DỤNG -->
                     <div>
                         <div class="flex items-center gap-3 mb-5">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
                                 <i data-lucide="cup-soda" class="w-6 h-6"></i>
                             </div>
                             <h3 class="text-2xl lg:text-3xl font-dom text-slate-900 m-0 uppercase tracking-wide">
@@ -965,32 +1100,48 @@ get_header(); ?>
                         <!-- 3 Key Metric Pills -->
                         <div class="grid grid-cols-3 gap-3 text-center bg-[#F8FAFD] py-4 px-3 sm:px-6 rounded-2xl mb-5">
                             <div>
-                                <span class="text-xs sm:text-sm text-slate-500 block mb-1 font-medium">Nước ấm (40-50°C)</span>
-                                <strong class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-[#D97706] block">150ml</strong>
+                                <span class="text-xs sm:text-sm text-slate-500 block mb-1 font-medium">Nước ấm
+                                    (40-50°C)</span>
+                                <strong
+                                    class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-[#D97706] block">150ml</strong>
                             </div>
                             <div class="border-x border-slate-200/80 px-2 sm:px-4">
-                                <span class="text-xs sm:text-sm text-slate-500 block mb-1 font-medium">Muỗng gạt (~30g)</span>
-                                <strong class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-[#D97706] block">3 muỗng</strong>
+                                <span class="text-xs sm:text-sm text-slate-500 block mb-1 font-medium">Muỗng gạt
+                                    (~30g)</span>
+                                <strong
+                                    class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-[#D97706] block">3
+                                    muỗng</strong>
                             </div>
                             <div>
                                 <span class="text-xs sm:text-sm text-slate-500 block mb-1 font-medium">Khẩu phần</span>
-                                <strong class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-slate-800 block">1 - 2 lần/ngày</strong>
+                                <strong
+                                    class="text-slate-900 font-dom text-xl sm:text-2xl lg:text-3xl text-slate-800 block">1
+                                    - 2 lần/ngày</strong>
                             </div>
                         </div>
 
                         <!-- 3 Step Cards in Row -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-slate-700">
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] flex items-start gap-3">
-                                <span class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">1</span>
-                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong class="text-slate-900 font-medium">Vệ sinh:</strong> Rửa sạch và lau khô dụng cụ trước khi pha.</p>
+                                <span
+                                    class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">1</span>
+                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong
+                                        class="text-slate-900 font-medium">Vệ sinh:</strong> Rửa sạch và lau khô dụng cụ
+                                    trước khi pha.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] flex items-start gap-3">
-                                <span class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">2</span>
-                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong class="text-slate-900 font-medium">Nước ấm:</strong> Rót 150ml nước 40-50°C vào ly.</p>
+                                <span
+                                    class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">2</span>
+                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong
+                                        class="text-slate-900 font-medium">Nước ấm:</strong> Rót 150ml nước 40-50°C vào
+                                    ly.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] flex items-start gap-3">
-                                <span class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">3</span>
-                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong class="text-slate-900 font-medium">Khuấy tan:</strong> Thêm 3 muỗng gạt, khuấy đều và dùng ngay.</p>
+                                <span
+                                    class="w-7 h-7 rounded-xl bg-amber-100 text-[#D97706] font-dom text-sm flex items-center justify-center font-bold shrink-0 mt-0.5">3</span>
+                                <p class="m-0 leading-relaxed text-xs sm:text-sm"><strong
+                                        class="text-slate-900 font-medium">Khuấy tan:</strong> Thêm 3 muỗng gạt, khuấy
+                                    đều và dùng ngay.</p>
                             </div>
                         </div>
                     </div>
@@ -1001,7 +1152,8 @@ get_header(); ?>
                     <!-- BLOCK 2: HƯỚNG DẪN BẢO QUẢN -->
                     <div>
                         <div class="flex items-center gap-3 mb-5">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
                                 <i data-lucide="shield-check" class="w-6 h-6"></i>
                             </div>
                             <h3 class="text-2xl lg:text-3xl font-dom text-slate-900 m-0 uppercase tracking-wide">
@@ -1012,30 +1164,37 @@ get_header(); ?>
                         <!-- 3 Storage Rules in 3 Columns -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-slate-700 mb-5">
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] space-y-1.5">
-                                <div class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
+                                <div
+                                    class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
                                     <i data-lucide="lock" class="w-4 h-4 text-[#D97706]"></i>
                                     <span>Đậy kín nắp</span>
                                 </div>
-                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Đóng chặt nắp nhựa sau mỗi lần lấy sản phẩm sử dụng.</p>
+                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Đóng chặt nắp nhựa sau
+                                    mỗi lần lấy sản phẩm sử dụng.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] space-y-1.5">
-                                <div class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
+                                <div
+                                    class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
                                     <i data-lucide="sun-off" class="w-4 h-4 text-amber-500"></i>
                                     <span>Khô thoáng</span>
                                 </div>
-                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Bảo quản nơi khô ráo, tránh ẩm ướt và ánh nắng trực tiếp.</p>
+                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Bảo quản nơi khô ráo,
+                                    tránh ẩm ướt và ánh nắng trực tiếp.</p>
                             </div>
                             <div class="p-4 rounded-2xl bg-[#F8FAFD] space-y-1.5">
-                                <div class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
+                                <div
+                                    class="flex items-center gap-2 text-slate-900 font-dom text-sm sm:text-base uppercase">
                                     <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i>
                                     <span>Thời hạn dùng</span>
                                 </div>
-                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Nên dùng hết trong vòng 3 - 4 tuần sau khi mở nắp.</p>
+                                <p class="m-0 leading-relaxed text-slate-600 text-xs sm:text-sm">Nên dùng hết trong vòng
+                                    3 - 4 tuần sau khi mở nắp.</p>
                             </div>
                         </div>
 
                         <!-- Expiry Note -->
-                        <div class="py-3.5 px-5 rounded-2xl bg-amber-50/80 flex items-center gap-3 text-xs sm:text-sm text-amber-950 font-medium">
+                        <div
+                            class="py-3.5 px-5 rounded-2xl bg-amber-50/80 flex items-center gap-3 text-xs sm:text-sm text-amber-950 font-medium">
                             <i data-lucide="info" class="w-4 h-4 sm:w-5 sm:h-5 text-[#D97706] shrink-0"></i>
                             <span class="leading-relaxed">
                                 Hạn sử dụng (EXP) và số lô sản xuất (LOT) được in dập rõ ràng dưới đáy lon.
@@ -1251,7 +1410,8 @@ get_header(); ?>
                     <div id="faq-ans-1"
                         class="px-7 pb-7 pt-2 text-base lg:text-lg text-slate-700 leading-relaxed border-t border-slate-100 hidden">
                         <p class="m-0">
-                            Miwako A+ được sản xuất bởi Dale &amp; Cecil Sdn. Bhd. tại Malaysia. Tại Việt Nam, sản phẩm được Công ty TNHH Thực Phẩm NP nhập khẩu và phân phối chính ngạch.
+                            Miwako A+ được sản xuất bởi Dale &amp; Cecil Sdn. Bhd. tại Malaysia. Tại Việt Nam, sản phẩm
+                            được Công ty TNHH Thực Phẩm NP nhập khẩu và phân phối chính ngạch.
                         </p>
                     </div>
                 </div>
@@ -1273,7 +1433,9 @@ get_header(); ?>
                     <div id="faq-ans-2"
                         class="px-7 pb-7 pt-2 text-base lg:text-lg text-slate-700 leading-relaxed border-t border-slate-100 hidden">
                         <p class="m-0">
-                            Sản phẩm được nhập khẩu và phân phối chính ngạch, có nhãn phụ tiếng Việt, thông tin nhà nhập khẩu, hạn sử dụng và các hồ sơ công bố theo quy định hiện hành. Người tiêu dùng có thể tham chiếu các tài liệu được đăng tải trên trang này.
+                            Sản phẩm được nhập khẩu và phân phối chính ngạch, có nhãn phụ tiếng Việt, thông tin nhà nhập
+                            khẩu, hạn sử dụng và các hồ sơ công bố theo quy định hiện hành. Người tiêu dùng có thể tham
+                            chiếu các tài liệu được đăng tải trên trang này.
                         </p>
                     </div>
                 </div>
@@ -1295,7 +1457,9 @@ get_header(); ?>
                     <div id="faq-ans-3"
                         class="px-7 pb-7 pt-2 text-base lg:text-lg text-slate-700 leading-relaxed border-t border-slate-100 hidden">
                         <p class="m-0">
-                            Thông tin về thành phần được trình bày trên nhãn sản phẩm và hồ sơ công bố. Người có tiền sử dị ứng thực phẩm hoặc nhu cầu ăn uống đặc biệt nên kiểm tra kỹ danh mục thành phần và tham khảo ý kiến chuyên gia y tế trước khi sử dụng.
+                            Thông tin về thành phần được trình bày trên nhãn sản phẩm và hồ sơ công bố. Người có tiền sử
+                            dị ứng thực phẩm hoặc nhu cầu ăn uống đặc biệt nên kiểm tra kỹ danh mục thành phần và tham
+                            khảo ý kiến chuyên gia y tế trước khi sử dụng.
                         </p>
                     </div>
                 </div>
@@ -1317,7 +1481,8 @@ get_header(); ?>
                     <div id="faq-ans-4"
                         class="px-7 pb-7 pt-2 text-base lg:text-lg text-slate-700 leading-relaxed border-t border-slate-100 hidden">
                         <p class="m-0">
-                            Sản phẩm nên được bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp. Sau khi mở bao bì, cần đóng kín lại và sử dụng trước hạn sử dụng ghi trên bao bì.
+                            Sản phẩm nên được bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp. Sau khi mở bao
+                            bì, cần đóng kín lại và sử dụng trước hạn sử dụng ghi trên bao bì.
                         </p>
                     </div>
                 </div>
@@ -1339,7 +1504,9 @@ get_header(); ?>
                     <div id="faq-ans-5"
                         class="px-7 pb-7 pt-2 text-base lg:text-lg text-slate-700 leading-relaxed border-t border-slate-100 hidden">
                         <p class="m-0">
-                            Miwako A+ có thể được sử dụng theo hướng dẫn ghi trên bao bì. Tùy nhu cầu và tình trạng sức khỏe của từng người, nên điều chỉnh lượng sử dụng phù hợp; trường hợp đặc biệt nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.
+                            Miwako A+ có thể được sử dụng theo hướng dẫn ghi trên bao bì. Tùy nhu cầu và tình trạng sức
+                            khỏe của từng người, nên điều chỉnh lượng sử dụng phù hợp; trường hợp đặc biệt nên tham khảo
+                            ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.
                         </p>
                     </div>
                 </div>
@@ -1350,22 +1517,29 @@ get_header(); ?>
     </section>
 
     <!-- Legal Disclaimer Bar -->
-    <div id="legal-disclaimer-bar" class="w-full bg-[#F4F6F9] border-t border-slate-200/80 py-5 sm:py-6 text-xs text-slate-500 leading-relaxed">
+    <div id="legal-disclaimer-bar"
+        class="w-full bg-[#F4F6F9] border-t border-slate-200/80 py-5 sm:py-6 text-xs text-slate-500 leading-relaxed">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6">
-                <div class="inline-flex items-center gap-2 text-slate-700 font-dom uppercase tracking-wider shrink-0 text-xs">
+                <div
+                    class="inline-flex items-center gap-2 text-slate-700 font-dom uppercase tracking-wider shrink-0 text-xs">
                     <i data-lucide="shield-alert" class="w-4 h-4 text-amber-600"></i>
                     <span>LƯU Ý PHÁP LÝ &amp; Y TẾ</span>
                 </div>
-                <div class="space-y-1 text-slate-500 text-xs sm:text-[13px] leading-relaxed md:border-l md:border-slate-300/70 md:pl-6">
+                <div
+                    class="space-y-1 text-slate-500 text-xs sm:text-[13px] leading-relaxed md:border-l md:border-slate-300/70 md:pl-6">
                     <p class="m-0">
-                        • <strong>Khuyến nghị y tế:</strong> Miwako A+ không thay thế sữa mẹ hoặc bữa ăn chính. Sữa mẹ là nguồn dinh dưỡng tốt nhất cho trẻ sơ sinh và trẻ nhỏ.
+                        • <strong>Khuyến nghị y tế:</strong> Miwako A+ không thay thế sữa mẹ hoặc bữa ăn chính. Sữa mẹ
+                        là nguồn dinh dưỡng tốt nhất cho trẻ sơ sinh và trẻ nhỏ.
                     </p>
                     <p class="m-0">
-                        • <strong>Bản chất sản phẩm:</strong> Sản phẩm này là thực phẩm dinh dưỡng bổ sung nguồn gốc thực vật, không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.
+                        • <strong>Bản chất sản phẩm:</strong> Sản phẩm này là thực phẩm dinh dưỡng bổ sung nguồn gốc
+                        thực vật, không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.
                     </p>
                     <p class="m-0">
-                        • <strong>Lưu ý sử dụng &amp; thông tin:</strong> Không dùng khi quá hạn in dưới đáy lon hoặc bao bì bị hở, hỏng. Toàn bộ thông tin được cung cấp theo hồ sơ tự công bố và tài liệu của nhà sản xuất, không mang tính chất chỉ định y khoa.
+                        • <strong>Lưu ý sử dụng &amp; thông tin:</strong> Không dùng khi quá hạn in dưới đáy lon hoặc
+                        bao bì bị hở, hỏng. Toàn bộ thông tin được cung cấp theo hồ sơ tự công bố và tài liệu của nhà
+                        sản xuất, không mang tính chất chỉ định y khoa.
                     </p>
                 </div>
             </div>
