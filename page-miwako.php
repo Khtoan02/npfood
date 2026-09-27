@@ -512,16 +512,6 @@ get_header(); ?>
 
     <!-- 4. SECTION: BẢNG GIÁ TRỊ DINH DƯỠNG (NUTRITION FACTS) -->
     <?php
-    $miwako_ingredients = [
-        ['name' => 'Quinoa (Diêm mạch) hữu cơ', 'desc' => 'Giàu 9 axit amin thiết yếu', 'icon' => 'sprout'],
-        ['name' => 'Hạt Kê (Millet) hữu cơ', 'desc' => 'Giàu khoáng chất tự nhiên & kiềm tính', 'icon' => 'wheat'],
-        ['name' => 'Protein đậu Hà Lan phân lập', 'desc' => 'Đạm thực vật tinh khiết Pisane™', 'icon' => 'sparkles'],
-        ['name' => 'Gạo lứt nảy mầm hữu cơ', 'desc' => 'Giàu dưỡng chất GABA & vitamin nhóm B', 'icon' => 'leaf'],
-        ['name' => 'Gạo lứt tự nhiên', 'desc' => 'Carbohydrate phức hợp hấp thu chậm', 'icon' => 'sun'],
-        ['name' => 'Chất xơ hòa tan FOS', 'desc' => 'Prebiotic nuôi dưỡng lợi khuẩn đường ruột', 'icon' => 'shield-check'],
-        ['name' => 'Dầu hướng dương & dầu hạt lanh', 'desc' => 'Nguồn giàu Omega-3 (ALA) và Omega-6 (LA)', 'icon' => 'droplet'],
-    ];
-
     $nutrition_groups_miwako = [
         [
             'id'       => 'macro',
@@ -556,273 +546,341 @@ get_header(); ?>
         ],
     ];
     ?>
-    <section id="nutrition-facts" class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-900/10 bg-[#EFE4D2]">
-        <!-- Authentic Kraft Paper Texture Background Layer -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-85 mix-blend-multiply pointer-events-none -z-0"
-            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-kraft-paper.webp'); ?>');">
-        </div>
-        <!-- Ambient Warm Tint Overlay for Readability -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#F5EADB]/40 via-transparent to-[#F5EADB]/40 pointer-events-none -z-0"></div>
-
+    <section id="nutrition-facts"
+        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100 text-[#1a4e4d] text-xs font-dom uppercase tracking-wider mb-3 font-bold">
-                    <i data-lucide="clipboard-check" class="w-4 h-4 text-[#1a4e4d]"></i>
-                    HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
-                </span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO
-                </h2>
-                <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
-                    Thành phần nguyên liệu tự nhiên cùng hàm lượng dinh dưỡng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g từ Dale &amp; Cecil Malaysia.
-                </p>
-            </div>
-
-            <!-- 4 Quick Key Metric Cards -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
-                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Năng lượng</span>
-                        <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
-                            <i data-lucide="zap" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-dom text-slate-900 leading-none">405 <span class="text-sm font-sans font-semibold text-slate-500">Kcal</span></div>
-                        <p class="text-xs text-slate-500 mt-1.5 m-0">122 Kcal / khẩu phần 30g năng lượng từ các loại hạt lành tính</p>
-                    </div>
-                </div>
-
-                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Đạm thực vật cao</span>
-                        <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
-                            <i data-lucide="sprout" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-dom text-emerald-800 leading-none">20.0 <span class="text-sm font-sans font-semibold text-slate-500">g</span></div>
-                        <p class="text-xs text-slate-500 mt-1.5 m-0">Chiếm 20% tỉ trọng từ mầm gạo nâu &amp; đạm đậu Hà Lan Pisane™</p>
-                    </div>
-                </div>
-
-                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Chất xơ hòa tan FOS</span>
-                        <div class="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-[#1a4e4d]">
-                            <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-dom text-[#1a4e4d] leading-none">4.8 <span class="text-sm font-sans font-semibold text-slate-500">g</span></div>
-                        <p class="text-xs text-slate-500 mt-1.5 m-0">Nguồn Prebiotic dồi dào, hỗ trợ tiêu hóa vượt trội &amp; êm dịu đường ruột</p>
-                    </div>
-                </div>
-
-                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Omega-3 (ALA)</span>
-                        <div class="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-600">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-dom text-sky-800 leading-none">450 <span class="text-sm font-sans font-semibold text-slate-500">mg</span></div>
-                        <p class="text-xs text-slate-500 mt-1.5 m-0">Cùng 550mg LA từ dầu hạt lanh &amp; hướng dương nuôi dưỡng trí não</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Natural Ingredients Showcase Banner -->
-            <div class="p-6 sm:p-8 rounded-[2rem] bg-white/95 backdrop-blur-sm border border-amber-900/10 shadow-sm mb-12">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center">
-                        <i data-lucide="leaf" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-dom uppercase tracking-wider text-[#1a4e4d] block font-bold">NGUỒN NGUYÊN LIỆU HỮU CƠ TỰ NHIÊN</span>
-                        <h4 class="text-lg sm:text-xl font-dom text-slate-900 m-0 uppercase">THÀNH PHẦN NGUYÊN BẢN</h4>
-                    </div>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                    Miwako được bào chế từ 100% nguồn hạt và ngũ cốc hữu cơ lành tính, không chứa chất bảo quản, không phẩm màu nhân tạo, không đường lactose và không đậu nành:
-                </p>
-                <div class="flex flex-wrap gap-2.5">
-                    <?php foreach ($miwako_ingredients as $ing): ?>
-                        <div class="inline-flex items-center gap-2 py-2 px-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs sm:text-sm text-slate-800">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                            <span class="font-medium"><?php echo esc_html($ing['name']); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
-            <!-- Main Layout: Table (8 cols) + Sticky Side Showcase (4 cols) -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-                <!-- Left Column (8 cols): Nutrition Facts Table -->
-                <div class="lg:col-span-8 space-y-6">
+                <!-- Left Column (7 cols): Header & Single Nutrition Facts Table -->
+                <div class="lg:col-span-7 flex flex-col">
 
-                    <!-- Table Card -->
-                    <div class="overflow-hidden rounded-[2rem] border border-amber-900/10 shadow-sm bg-white/95 backdrop-blur-sm">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-sm min-w-[560px]">
-                                <thead>
-                                    <tr class="bg-[#1a4e4d] text-white font-dom text-xs sm:text-sm uppercase tracking-wider">
-                                        <th class="py-4 px-5 sm:px-7 font-bold">Giá Trị Dinh Dưỡng</th>
-                                        <th class="py-4 px-4 sm:px-6 font-bold text-right whitespace-nowrap">Trong 100g bột</th>
-                                        <th class="py-4 px-5 sm:px-7 font-bold text-right whitespace-nowrap">Trong khẩu phần (30g)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($nutrition_groups_miwako as $group): ?>
-                                        <!-- Group Header Row -->
-                                        <tr class="bg-teal-900/[0.04] border-y border-teal-800/10">
-                                            <td colspan="3" class="py-3.5 px-5 sm:px-7 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
-                                                <span class="inline-flex items-center gap-2">
-                                                    <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 text-emerald-600"></i>
-                                                    <span><?php echo esc_html($group['title']); ?></span>
-                                                    <span class="text-[10px] font-sans font-normal text-slate-500 lowercase">(<?php echo count($group['items']); ?> chỉ tiêu)</span>
-                                                </span>
-                                            </td>
+                    <!-- Section Header -->
+                    <div class="mb-6 lg:mb-8">
+                        <span
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
+                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#D97706]"></i>
+                            HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
+                        </span>
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                            BẢNG GIÁ TRỊ DINH DƯỠNG
+                        </h2>
+                        <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
+                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
+                        </p>
+                    </div>
+
+                    <!-- Nutrition Facts Table Box (Single Table) -->
+                    <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]"
+                        id="nutrition-table-box">
+
+                        <!-- Luminous Subtle Paper Texture Layer -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-multiply pointer-events-none z-0"
+                            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
+                        </div>
+                        <!-- Soft Ambient White Glow Layer -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/60 pointer-events-none z-0">
+                        </div>
+
+                        <!-- Table Content -->
+                        <div id="nutrition-table-content"
+                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                                    <thead>
+                                        <tr
+                                            class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm">
+                                            <th class="py-2.5 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                            <th
+                                                class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
+                                                Trong 100g Bột</th>
+                                            <th
+                                                class="py-2.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
+                                                Khẩu Phần (30g)</th>
                                         </tr>
-
-                                        <!-- Group Items Rows -->
-                                        <?php foreach ($group['items'] as $item): ?>
-                                            <tr class="border-b border-slate-100 hover:bg-teal-50/40 transition-colors <?php echo $item['is_bold'] ? 'bg-slate-50/40' : ''; ?>">
-                                                
-                                                <!-- Nutrient Name -->
-                                                <td class="py-3.5 <?php echo $item['is_sub'] ? 'pl-9 sm:pl-12 pr-4 text-slate-600 text-xs sm:text-sm' : 'px-5 sm:px-7 text-xs sm:text-sm'; ?> <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?>">
-                                                    <div class="inline-flex items-center gap-2 flex-wrap">
-                                                        <?php if ($item['is_sub']): ?>
-                                                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
-                                                        <?php endif; ?>
-                                                        <span><?php echo esc_html($item['name']); ?></span>
-                                                        <?php if (!empty($item['tag'])): ?>
-                                                            <span class="text-[10px] font-dom uppercase px-2 py-0.5 rounded-full <?php echo strpos($item['tag'], '0') !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-teal-100 text-[#1a4e4d]'; ?> font-bold tracking-tight">
-                                                                <?php echo esc_html($item['tag']); ?>
-                                                            </span>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </td>
-
-                                                <!-- Per 100g -->
-                                                <td class="py-3.5 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'font-medium text-slate-700'; ?> whitespace-nowrap">
-                                                    <?php echo esc_html($item['per_100g']); ?>
-                                                </td>
-
-                                                <!-- Per Serving (30g) -->
-                                                <td class="py-3.5 px-5 sm:px-7 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'font-semibold text-slate-800'; ?> whitespace-nowrap">
-                                                    <?php echo esc_html($item['per_serving']); ?>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($nutrition_groups_miwako as $group): ?>
+                                            <!-- Group Header Row inside Table -->
+                                            <tr class="bg-amber-100/40 border-y border-amber-900/10">
+                                                <td colspan="3"
+                                                    class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                    <span class="inline-flex items-center gap-2">
+                                                        <i data-lucide="<?php echo esc_attr($group['icon']); ?>"
+                                                            class="w-3.5 h-3.5 text-[#D97706]"></i>
+                                                        <span><?php echo esc_html($group['title']); ?></span>
+                                                        <span
+                                                            class="text-[10px] font-sans font-normal text-slate-500 lowercase">(<?php echo count($group['items']); ?>
+                                                            chỉ tiêu)</span>
+                                                    </span>
                                                 </td>
                                             </tr>
+                                            <?php foreach ($group['items'] as $item): ?>
+                                                <tr
+                                                    class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
+                                                    <td class="py-2 px-3.5 sm:px-5">
+                                                        <?php if ($item['is_sub']): ?>
+                                                            <div
+                                                                class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
+                                                                <span
+                                                                    class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 inline-block"></span>
+                                                                <span
+                                                                    class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                            </div>
+                                                        <?php else: ?>
+                                                            <span
+                                                                class="font-bold text-slate-900 text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td
+                                                        class="py-2 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_100g']); ?>
+                                                    </td>
+                                                    <td
+                                                        class="py-2 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_serving']); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         <?php endforeach; ?>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
-                        <!-- Table Footer Note -->
-                        <div class="p-4 sm:p-5 bg-slate-50 border-t border-slate-100 flex items-start gap-3 text-xs text-slate-500">
-                            <i data-lucide="info" class="w-4 h-4 text-teal-700 shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">
-                                <strong>Lưu ý:</strong> Bảng thành phần dinh dưỡng được công bố chính thức theo nhãn phụ sản phẩm của tập đoàn <strong>Dale &amp; Cecil Malaysia</strong>. Miwako là thực phẩm bổ sung dinh dưỡng thực vật từ các loại hạt, thích hợp cho trẻ từ 12 tháng tuổi trở lên và cả gia đình.
-                            </span>
+                        <!-- Lock / Blur Overlay with View Button -->
+                        <div id="nutrition-lock-overlay"
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-white/85 backdrop-blur-md transition-all duration-500">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-amber-100 text-[#D97706] flex items-center justify-center mb-3 shadow-sm border border-amber-200">
+                                <i data-lucide="file-text" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide mb-2">
+                                BẢNG THÀNH PHẦN &amp; GIÁ TRỊ DINH DƯỠNG
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-600 max-w-sm mb-5 leading-relaxed">
+                                Vui lòng đọc kỹ thông tin lưu ý y tế và xác nhận để hiển thị bảng dữ liệu dinh dưỡng chi
+                                tiết của sản phẩm.
+                            </p>
+                            <button type="button" onclick="openNutritionDisclaimer()"
+                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#D97706] hover:bg-amber-600 text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
+                                <i data-lucide="eye" class="w-4 h-4"></i>
+                                <span>Xem Bảng Dinh Dưỡng Chi Tiết</span>
+                            </button>
                         </div>
+
                     </div>
 
                 </div>
 
-                <!-- Right Column (4 cols): Sticky Visual Presentation Card -->
-                <div class="lg:col-span-4 sticky top-28 space-y-6">
-
-                    <div class="bg-white/95 backdrop-blur-sm rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-amber-900/10 flex flex-col items-center text-center">
-                        
-                        <!-- Editorial Heading -->
-                        <div class="mb-4">
-                            <span class="text-xs font-dom uppercase tracking-widest text-[#1a4e4d] font-bold block mb-1">
-                                CÔNG THỨC DINH DƯỠNG
+                <!-- Right Column (5 cols): Immersive Nutritional Photography -->
+                <div class="lg:col-span-5 lg:sticky lg:top-24">
+                    <div
+                        class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-01.jpg'); ?>"
+                            alt="Lon thực phẩm dinh dưỡng Miwako từ các loại hạt tự nhiên"
+                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
+                            <span
+                                class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
+                                <i data-lucide="sprout" class="w-3.5 h-3.5 text-amber-400"></i>
+                                <span>Dinh Dưỡng Thực Vật Nguyên Bản</span>
                             </span>
-                            <h3 class="text-2xl sm:text-3xl font-dom text-slate-900 uppercase tracking-wide leading-tight m-0">
-                                GIÁ TRỊ DINH DƯỠNG CỦA MIWAKO
-                            </h3>
+                            <p class="text-white/95 text-sm font-medium m-0 leading-relaxed">
+                                Công thức dinh dưỡng từ các loại hạt hữu cơ, cung cấp nguồn đạm thực vật và năng lượng lành tính cho cả gia đình.
+                            </p>
                         </div>
-
-                        <!-- Product Can Photo -->
-                        <div class="relative py-2 w-full flex justify-center">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/products/miwako.webp'); ?>"
-                                alt="Lon thực phẩm dinh dưỡng Miwako Dale & Cecil"
-                                class="w-full max-w-[260px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] hover:scale-105 transition-transform duration-500 ease-out" />
-                        </div>
-
-                        <!-- Super Health Brand Award Banner -->
-                        <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-teal-50/80 border border-teal-200/60 text-left w-full mt-4">
-                            <div class="w-14 h-14 shrink-0 flex items-center justify-center">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
-                                    alt="Asia Pacific Super Health Brand 2022 &amp; 2023" class="max-h-full max-w-full object-contain" />
-                            </div>
-                            <div>
-                                <span class="text-[11px] font-dom uppercase tracking-wider text-[#1a4e4d] block font-bold">CHỨNG NHẬN QUỐC TẾ</span>
-                                <p class="text-xs text-slate-700 font-medium m-0 leading-snug">
-                                    Asia Pacific Super Health Brand — Giải thưởng thương hiệu sức khỏe uy tín khu vực Châu Á - Thái Bình Dương.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Standard Serving Guide Box -->
-                        <div class="p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200/60 space-y-3 text-left w-full mt-5">
-                            <div class="flex items-center gap-2 text-slate-900 font-dom text-sm uppercase">
-                                <i data-lucide="cup-soda" class="w-4 h-4 text-emerald-600"></i>
-                                <span>Quy Chuẩn 1 Khẩu Phần Chuẩn</span>
-                            </div>
-                            <ul class="text-xs text-slate-600 space-y-2 m-0 p-0 list-none">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span><strong>3 muỗng gạt bột</strong> (tương đương khoảng <strong>30g</strong>).</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span>Pha cùng <strong>150ml nước ấm</strong> (45°C - 50°C), khuấy đều.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span>Cung cấp <strong>122 Kcal</strong> năng lượng từ hạt tự nhiên.</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- 3 Safety Commitments (0 Trans fat, 0 Cholesterol, 0 Lactose) -->
-                        <div class="grid grid-cols-3 gap-2 w-full mt-4 text-center">
-                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
-                                <span class="text-base font-bold text-emerald-700 block font-dom">0g</span>
-                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Trans Fat</span>
-                            </div>
-                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
-                                <span class="text-base font-bold text-emerald-700 block font-dom">0mg</span>
-                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Cholesterol</span>
-                            </div>
-                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
-                                <span class="text-base font-bold text-emerald-700 block font-dom">0%</span>
-                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Lactose</span>
-                            </div>
-                        </div>
-
-                        <!-- CTA Jump Button -->
-                        <a href="#usage-guidelines"
-                            class="block w-full py-3.5 px-5 bg-[#1a4e4d] hover:bg-[#133e3d] text-white text-center rounded-xl font-dom text-xs uppercase tracking-wider font-bold transition-colors shadow-sm no-underline mt-5">
-                            Xem Cách Pha Chi Tiết
-                        </a>
-
                     </div>
-
                 </div>
 
             </div>
 
         </div>
     </section>
+
+    <!-- Pop-up Disclaimer Modal (Role Selection for Medical / Nutritional Reference) -->
+    <div id="nutrition-disclaimer-modal"
+        class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+        <div
+            class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative transform transition-all">
+            <!-- Close button -->
+            <button type="button" onclick="closeNutritionDisclaimer()"
+                class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors border-none cursor-pointer"
+                aria-label="Đóng">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-3.5 mb-5 pr-8">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-[#D97706]"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-dom uppercase tracking-wider text-[#D97706] font-bold block">XÁC NHẬN TRUY
+                        CẬP</span>
+                    <h4 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide m-0">THÔNG TIN DINH
+                        DƯỠNG</h4>
+                </div>
+            </div>
+
+            <!-- Notice Message -->
+            <div
+                class="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
+                Thông tin bảng thành phần dinh dưỡng nhằm phục vụ mục đích tìm hiểu khoa học và đối soát dinh dưỡng.
+            </div>
+
+            <!-- Role Selector -->
+            <div class="space-y-3 mb-6">
+                <span class="text-xs font-dom uppercase tracking-wider text-slate-500 font-bold block">
+                    Vui lòng xác nhận đối tượng truy cập:
+                </span>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="nutrition-role-container">
+                    <!-- Option 1: Chuyên gia -->
+                    <label
+                        class="role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all">
+                        <input type="radio" name="nutrition_role" value="expert" checked class="sr-only"
+                            onchange="handleRoleChange(this)">
+                        <div class="flex items-center gap-3 w-full">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-teal-100 text-[#1a4e4d] flex items-center justify-center shrink-0">
+                                <i data-lucide="stethoscope" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="font-dom text-sm font-bold text-slate-900 block leading-tight">Chuyên
+                                    gia</span>
+                                <span class="text-[11px] text-slate-500 leading-tight">Y tế &amp; Dinh dưỡng</span>
+                            </div>
+                            <div
+                                class="role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Option 2: Trợ lý y tế -->
+                    <label
+                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all">
+                        <input type="radio" name="nutrition_role" value="assistant" class="sr-only"
+                            onchange="handleRoleChange(this)">
+                        <div class="flex items-center gap-3 w-full">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-amber-100 text-[#D97706] flex items-center justify-center shrink-0">
+                                <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="font-dom text-sm font-bold text-slate-900 block leading-tight">Trợ lý y
+                                    tế</span>
+                                <span class="text-[11px] text-slate-500 leading-tight">Hỗ trợ chăm sóc</span>
+                            </div>
+                            <div
+                                class="role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div
+                class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-3 border-t border-slate-100">
+                <button type="button" onclick="closeNutritionDisclaimer()"
+                    class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-dom text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer bg-white">
+                    Đóng / Hủy
+                </button>
+                <button type="button" onclick="acceptNutritionDisclaimer()"
+                    class="w-full sm:w-auto px-6 py-3 bg-[#1a4e4d] hover:bg-[#133b3a] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border-none flex items-center justify-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                    <span>Xác Nhận &amp; Xem Bảng Dinh Dưỡng</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleRoleChange(input) {
+            var options = document.querySelectorAll('.role-option');
+            options.forEach(function (opt) {
+                var radio = opt.querySelector('input[type="radio"]');
+                var check = opt.querySelector('.role-check');
+                if (radio && radio.checked) {
+                    opt.className = "role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all";
+                    if (check) {
+                        check.className = "role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0";
+                    }
+                } else {
+                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all";
+                    if (check) {
+                        check.className = "role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0";
+                    }
+                }
+            });
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function openNutritionDisclaimer() {
+            var modal = document.getElementById('nutrition-disclaimer-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        function closeNutritionDisclaimer() {
+            var modal = document.getElementById('nutrition-disclaimer-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function acceptNutritionDisclaimer() {
+            closeNutritionDisclaimer();
+            var selectedRole = document.querySelector('input[name="nutrition_role"]:checked');
+            var roleValue = selectedRole ? selectedRole.value : 'expert';
+
+            var tableContent = document.getElementById('nutrition-table-content');
+            var overlay = document.getElementById('nutrition-lock-overlay');
+            if (tableContent) {
+                tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
+            }
+            if (overlay) {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(function () {
+                    overlay.style.display = 'none';
+                }, 500);
+            }
+            try {
+                sessionStorage.setItem('nutrition_disclaimer_accepted', 'true');
+                sessionStorage.setItem('nutrition_user_role', roleValue);
+            } catch (e) { }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (sessionStorage.getItem('nutrition_disclaimer_accepted') === 'true') {
+                    var tableContent = document.getElementById('nutrition-table-content');
+                    var overlay = document.getElementById('nutrition-lock-overlay');
+                    if (tableContent) {
+                        tableContent.classList.remove('blur-md', 'select-none', 'pointer-events-none');
+                    }
+                    if (overlay) {
+                        overlay.style.display = 'none';
+                    }
+                }
+            } catch (e) { }
+        });
+    </script>
 
     <!-- 5. SECTION: HƯỚNG DẪN SỬ DỤNG VÀ BẢO QUẢN (USAGE & STORAGE GUIDELINES) -->
     <section id="usage-guidelines" class="py-20 lg:py-28 bg-[#F8FAFD] relative">
