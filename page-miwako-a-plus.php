@@ -669,8 +669,7 @@ get_header(); ?>
                             BẢNG GIÁ TRỊ DINH DƯỠNG
                         </h2>
                         <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
-                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g theo chứng nhận kiểm nghiệm
-                            chính thức từ Dale &amp; Cecil Malaysia.
+                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
                         </p>
                     </div>
 
@@ -787,19 +786,18 @@ get_header(); ?>
                 <div class="lg:col-span-5 lg:sticky lg:top-24">
                     <div
                         class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-04.webp'); ?>"
-                            alt="Cận cảnh lon Miwako A+ và các loại hạt ngũ cốc hữu cơ tự nhiên"
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-02.webp'); ?>"
+                            alt="Lon thực phẩm dinh dưỡng Miwako A+ trong khay gỗ cùng các loại hạt ngũ cốc tự nhiên"
                             class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
                             <span
                                 class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
                                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-                                <span>Dinh dưỡng công thức thực vật hữu cơ cho trẻ</span>
+                                <span>36 Chỉ Tiêu Dinh Dưỡng Vàng</span>
                             </span>
                             <p class="text-white/95 text-sm font-medium m-0 leading-relaxed">
-                                Công thức chuyên biệt từ Dale &amp; Cecil Malaysia với 36 chỉ tiêu dinh dưỡng cân bằng,
-                                nuôi dưỡng thể chất và hệ vi sinh đường ruột cho trẻ.
+                                36 chỉ tiêu dinh dưỡng cân bằng, hỗ trợ phát triển thể chất và hệ tiêu hóa khỏe mạnh cho trẻ.
                             </p>
                         </div>
                     </div>
