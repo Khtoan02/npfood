@@ -552,11 +552,6 @@ get_header(); ?>
 
             <!-- Section Header (Balanced Centered/Top Layout) -->
             <div class="max-w-3xl mb-8 lg:mb-12">
-                <span
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-dom uppercase tracking-wider mb-3 border border-blue-200/80 font-bold">
-                    <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-blue-600"></i>
-                    HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
-                </span>
                 <h2
                     class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
                     BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO

@@ -652,29 +652,25 @@ get_header(); ?>
         class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <!-- Section Header (Balanced Centered/Top Layout) -->
+            <div class="max-w-3xl mb-8 lg:mb-12">
+                <h2
+                    class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO A+
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
+                    Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
+                </p>
+            </div>
 
-                <!-- Left Column (7 cols): Header, 3 Tabs & Nutrition Facts Table -->
+            <!-- Balanced 2-Column Grid (Equal Heights) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+                <!-- Left Column (7 cols): 3 Tabs & Nutrition Facts Table -->
                 <div class="lg:col-span-7 flex flex-col">
 
-                    <!-- Section Header -->
-                    <div class="mb-6 lg:mb-8">
-                        <span
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
-                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#D97706]"></i>
-                            HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
-                        </span>
-                        <h2
-                            class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
-                            BẢNG GIÁ TRỊ DINH DƯỠNG
-                        </h2>
-                        <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
-                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
-                        </p>
-                    </div>
-
                     <!-- 3 Tabs Navigation Bar -->
-                    <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5">
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4">
                         <?php foreach ($nutrition_groups as $index => $group): ?>
                             <?php $isActive = ($index === 0); ?>
                             <button type="button" onclick="switchNutritionTab('<?php echo esc_attr($group['id']); ?>')"
@@ -692,7 +688,7 @@ get_header(); ?>
                     </div>
 
                     <!-- Nutrition Facts Table Box -->
-                    <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]"
+                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-amber-900/15 shadow-2xl shadow-amber-950/8 bg-[#FFFDF9] flex-1 flex flex-col"
                         id="nutrition-table-box">
 
                         <!-- Luminous Subtle Paper Texture Layer -->
@@ -706,18 +702,18 @@ get_header(); ?>
 
                         <!-- Table Content -->
                         <div id="nutrition-table-content"
-                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
-                            <div class="overflow-x-auto">
+                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700 flex-1 flex flex-col">
+                            <div class="overflow-x-auto flex-1">
                                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                     <thead>
                                         <tr
-                                            class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm">
-                                            <th class="py-2.5 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                            class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm">
+                                            <th class="py-3 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
                                             <th
-                                                class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Trong 100g Bột</th>
                                             <th
-                                                class="py-2.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Khẩu Phần (30g)</th>
                                         </tr>
                                     </thead>
@@ -727,7 +723,7 @@ get_header(); ?>
                                             <?php foreach ($group['items'] as $item): ?>
                                                 <tr
                                                     class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
-                                                    <td class="py-2 px-3.5 sm:px-5">
+                                                    <td class="py-2.5 px-3.5 sm:px-5">
                                                         <?php if ($item['is_sub']): ?>
                                                             <div
                                                                 class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
@@ -742,11 +738,11 @@ get_header(); ?>
                                                         <?php endif; ?>
                                                     </td>
                                                     <td
-                                                        class="py-2 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
                                                     <td
-                                                        class="py-2 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -782,23 +778,25 @@ get_header(); ?>
 
                 </div>
 
-                <!-- Right Column (5 cols): Immersive Nutritional Photography -->
-                <div class="lg:col-span-5 lg:sticky lg:top-24">
+                <!-- Right Column (5 cols): Balanced Product Showcase Matching Table Height -->
+                <div class="lg:col-span-5 flex flex-col">
                     <div
-                        class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-02.webp'); ?>"
-                            alt="Lon thực phẩm dinh dưỡng Miwako A+ trong khay gỗ cùng các loại hạt ngũ cốc tự nhiên"
-                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                        class="relative rounded-[2rem] overflow-hidden shadow-2xl border-2 border-amber-900/15 group bg-amber-50/60 flex-1 flex flex-col min-h-[500px] lg:min-h-[580px]">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-nutrition-showcase.webp'); ?>"
+                            alt="Lon thực phẩm dinh dưỡng Miwako A+ cùng các loại hạt tự nhiên"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out flex-1" />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
-                            <span
-                                class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-                                <span>36 Chỉ Tiêu Dinh Dưỡng Vàng</span>
-                            </span>
-                            <p class="text-white/95 text-sm font-medium m-0 leading-relaxed">
-                                36 chỉ tiêu dinh dưỡng cân bằng, hỗ trợ phát triển thể chất và hệ tiêu hóa khỏe mạnh cho trẻ.
-                            </p>
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-5 pointer-events-none">
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#1a4e4d]/90 backdrop-blur-md border border-white/20 shadow-xl">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-amber-400/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-amber-200 mb-1.5 inline-flex items-center gap-1.5 w-fit border border-amber-400/40 font-bold">
+                                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+                                    <span>36 Chỉ Tiêu Dinh Dưỡng Vàng</span>
+                                </span>
+                                <p class="text-white/95 text-xs sm:text-sm font-medium m-0 leading-relaxed">
+                                    36 chỉ tiêu dinh dưỡng cân bằng, hỗ trợ phát triển thể chất và hệ tiêu hóa khỏe mạnh cho trẻ.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
