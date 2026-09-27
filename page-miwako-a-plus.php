@@ -112,7 +112,7 @@ get_header(); ?>
                     <!-- Official Certification Badges Icon Strip -->
                     <div class="pt-2 lg:pt-3">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/products/miwako-certifications.webp'); ?>"
-                            alt="Chứng nhận tiêu chuẩn quốc tế sản phẩm Miwako A+ - No Added Gluten, Lactose, Dairy, Soy, Vegan, Non GMO, USDA Organic, GMP Certified"
+                            alt="Chứng nhận tiêu chuẩn quốc tế sản phẩm Miwako A+ - No Added Gluten, Lactose, Dairy, Soy, Vegan, Non GMO, Super Health Brand, GMP Certified"
                             class="h-20 sm:h-28 md:h-36 lg:h-[11rem] xl:h-[13rem] w-auto max-w-full object-contain drop-shadow-sm" />
                     </div>
 
@@ -388,98 +388,70 @@ get_header(); ?>
                 </p>
             </div>
 
-            <!-- 1. PRIMARY SPOTLIGHT: USDA ORGANIC, SUPER HEALTH BRAND & GMP CERTIFIED (TRỌNG TÂM CỐT LÕI) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+            <!-- 1. PRIMARY SPOTLIGHT: SUPER HEALTH BRAND & GMP CERTIFIED (TRỌNG TÂM CỐT LÕI) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mb-12">
 
-                <!-- Focus 1: USDA Organic -->
+                <!-- Focus 1: Asia Pacific Super Health Brand -->
                 <div
-                    class="p-7 lg:p-9 rounded-[2.5rem] bg-[#F8FAFD] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
-                    <div>
-                        <div
-                            class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 mb-5">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-usda-organic.webp'); ?>"
-                                alt="Chứng nhận hữu cơ USDA Organic (Hoa Kỳ)"
-                                class="max-h-full max-w-full object-contain" loading="lazy" />
-                        </div>
-                        <span
-                            class="text-xs font-dom uppercase tracking-wider text-emerald-800 bg-emerald-100/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
-                            THEO CHỨNG NHẬN USDA ORGANIC
-                        </span>
-                        <h3 class="text-xl sm:text-2xl font-dom text-slate-900 mb-2.5 uppercase">
-                            CHỨNG NHẬN NGUYÊN LIỆU HỮU CƠ USDA
-                        </h3>
-                        <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-                            Theo chứng nhận từ Bộ Nông nghiệp Hoa Kỳ cấp cho nguồn nguyên liệu, các thành phần nông
-                            sản được canh tác hữu cơ tự nhiên, không biến đổi gen (Non-GMO), không phân bón hóa học
-                            hay thuốc trừ sâu tổng hợp.
-                        </p>
-                    </div>
+                    class="p-8 lg:p-10 rounded-[2.5rem] bg-[#F8FAFD] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 lg:gap-8 items-center sm:items-start group">
                     <div
-                        class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
-                        <span class="text-emerald-700 uppercase">USDA ORGANIC CERTIFIED</span>
-                        <span class="text-slate-500 font-sans text-xs">Theo hồ sơ nguyên liệu</span>
+                        class="w-28 h-28 sm:w-32 sm:h-32 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
+                            alt="Chứng nhận Asia Pacific Super Health Brand 2022 &amp; 2023"
+                            class="max-h-full max-w-full object-contain" loading="lazy" />
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between h-full text-center sm:text-left">
+                        <div>
+                            <span
+                                class="text-xs font-dom uppercase tracking-wider text-amber-900 bg-amber-100/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                THEO GIẢI THƯỞNG HEALTH BRAND
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-dom text-slate-900 mb-2.5 uppercase">
+                                ASIA PACIFIC SUPER HEALTH BRAND
+                            </h3>
+                            <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+                                Theo chứng nhận giải thưởng uy tín khu vực Châu Á - Thái Bình Dương (Asia Pacific Super
+                                Health Brand 2022 &amp; 2023), ghi nhận tiêu chuẩn chất lượng và sự tin cậy của thương
+                                hiệu Dale &amp; Cecil đối với các giải pháp dinh dưỡng thực vật lành tính.
+                            </p>
+                        </div>
+                        <div
+                            class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
+                            <span class="text-amber-800 uppercase">SUPER HEALTH BRAND 2022 &amp; 2023</span>
+                            <span class="text-slate-500 font-sans text-xs">Chứng nhận khu vực</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Focus 2: Asia Pacific Super Health Brand (Cạnh USDA) -->
+                <!-- Focus 2: GMP Certified -->
                 <div
-                    class="p-7 lg:p-9 rounded-[2.5rem] bg-[#F8FAFD] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
-                    <div>
-                        <div
-                            class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 mb-5">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
-                                alt="Chứng nhận Asia Pacific Super Health Brand 2022 &amp; 2023"
-                                class="max-h-full max-w-full object-contain" loading="lazy" />
-                        </div>
-                        <span
-                            class="text-xs font-dom uppercase tracking-wider text-amber-900 bg-amber-100/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
-                            THEO GIẢI THƯỞNG HEALTH BRAND
-                        </span>
-                        <h3 class="text-xl sm:text-2xl font-dom text-slate-900 mb-2.5 uppercase">
-                            ASIA PACIFIC SUPER HEALTH BRAND
-                        </h3>
-                        <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-                            Theo chứng nhận giải thưởng uy tín khu vực Châu Á - Thái Bình Dương (Asia Pacific Super
-                            Health Brand
-                            2022 &amp; 2023), ghi nhận tiêu chuẩn chất lượng và sự tin cậy của thương hiệu Dale &amp;
-                            Cecil
-                            đối với các giải pháp dinh dưỡng thực vật lành tính.
-                        </p>
-                    </div>
+                    class="p-8 lg:p-10 rounded-[2.5rem] bg-[#F8FAFD] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 lg:gap-8 items-center sm:items-start group">
                     <div
-                        class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
-                        <span class="text-amber-800 uppercase">SUPER HEALTH BRAND 2022 &amp; 2023</span>
-                        <span class="text-slate-500 font-sans text-xs">Chứng nhận khu vực</span>
+                        class="w-28 h-28 sm:w-32 sm:h-32 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-gmp-certified.webp'); ?>"
+                            alt="Chứng nhận tiêu chuẩn thực hành sản xuất tốt GMP Certified"
+                            class="max-h-full max-w-full object-contain" loading="lazy" />
                     </div>
-                </div>
-
-                <!-- Focus 3: GMP Certified -->
-                <div
-                    class="p-7 lg:p-9 rounded-[2.5rem] bg-[#F8FAFD] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
-                    <div>
-                        <div
-                            class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 mb-5">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-gmp-certified.webp'); ?>"
-                                alt="Chứng nhận tiêu chuẩn thực hành sản xuất tốt GMP Certified"
-                                class="max-h-full max-w-full object-contain" loading="lazy" />
+                    <div class="flex-1 flex flex-col justify-between h-full text-center sm:text-left">
+                        <div>
+                            <span
+                                class="text-xs font-dom uppercase tracking-wider text-slate-800 bg-slate-200/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                THEO CHỨNG NHẬN GMP NHÀ MÁY
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-dom text-slate-900 mb-2.5 uppercase">
+                                TIÊU CHUẨN SẢN XUẤT GMP
+                            </h3>
+                            <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+                                Theo tài liệu kiểm định của nhà máy sản xuất tại Malaysia, quy trình sản xuất và đóng
+                                lon đạt chứng nhận Thực hành Sản xuất Tốt (GMP), kiểm soát vô trùng và chất lượng đồng
+                                nhất.
+                            </p>
                         </div>
-                        <span
-                            class="text-xs font-dom uppercase tracking-wider text-slate-800 bg-slate-200/90 px-3.5 py-1.5 rounded-full inline-block mb-3">
-                            THEO CHỨNG NHẬN GMP NHÀ MÁY
-                        </span>
-                        <h3 class="text-xl sm:text-2xl font-dom text-slate-900 mb-2.5 uppercase">
-                            TIÊU CHUẨN SẢN XUẤT GMP
-                        </h3>
-                        <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-                            Theo tài liệu kiểm định của nhà máy sản xuất tại Malaysia, quy trình sản xuất và đóng
-                            lon đạt chứng nhận Thực hành Sản xuất Tốt (GMP), kiểm soát vô trùng và chất lượng đồng
-                            nhất.
-                        </p>
-                    </div>
-                    <div
-                        class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
-                        <span class="text-slate-700 uppercase">GMP CERTIFIED FACILITY</span>
-                        <span class="text-slate-500 font-sans text-xs">Kiểm định định kỳ</span>
+                        <div
+                            class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
+                            <span class="text-slate-700 uppercase">GMP CERTIFIED FACILITY</span>
+                            <span class="text-slate-500 font-sans text-xs">Kiểm định định kỳ</span>
+                        </div>
                     </div>
                 </div>
 
