@@ -74,7 +74,7 @@ get_header(); ?>
                         <!-- Slogan -->
                         <h2
                             class="font-dom text-2xl sm:text-3xl md:text-4xl lg:text-[3.3rem] text-white tracking-normal leading-snug m-0 drop-shadow-md">
-                            Một lựa chọn tuyệt vời cho gia đình bạn
+                            Một lựa chọn tuyệt vời cho gia&nbsp;đình&nbsp;bạn
                         </h2>
                     </div>
 
@@ -153,8 +153,9 @@ get_header(); ?>
                 <!-- Right: Brand Origin Core Facts (7 cols) -->
                 <div class="lg:col-span-7 space-y-8">
                     <div>
-                        <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                            NGUỒN GỐC & SẢN XUẤT
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
+                            NGUỒN GỐC &amp; SẢN&nbsp;XUẤT
                         </h2>
                         <p class="text-lg text-slate-600 mt-3 leading-relaxed">
                             Thông tin chính thức về đơn vị nghiên cứu và nhà máy sản xuất tại Malaysia.
@@ -226,8 +227,9 @@ get_header(); ?>
                 <!-- Left: NP Food Information & Self-Declaration (7 cols) -->
                 <div class="lg:col-span-7 space-y-8">
                     <div>
-                        <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                            ĐƠN VỊ NHẬP KHẨU NP FOOD
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
+                            ĐƠN VỊ NHẬP KHẨU NP&nbsp;FOOD
                         </h2>
                         <p class="text-lg text-slate-600 mt-3 leading-relaxed">
                             Nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công ty TNHH Thực Phẩm NP.
@@ -334,9 +336,9 @@ get_header(); ?>
     <section id="certifications" class="py-20 lg:py-28 bg-white relative">
         <div class="container mx-auto px-4 lg:px-8">
 
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                    CÁC TIÊU CHUẨN VÀ CHỨNG NHẬN GHI NHẬN
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                    TIÊU CHUẨN CHẤT LƯỢNG &amp; CHỨNG&nbsp;NHẬN
                 </h2>
                 <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
                     Thông tin ghi nhận theo tài liệu chứng nhận độc lập của tổ chức cấp phép và tài liệu công bố của nhà
@@ -415,9 +417,9 @@ get_header(); ?>
 
             <!-- 2. SECONDARY TIER: 6 EQUAL STANDARD BADGES (CÁC ICON CÒN LẠI NGANG NHAU) -->
             <div class="p-8 lg:p-12 rounded-[2.5rem] bg-[#F8FAFD]">
-                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-                    <h4 class="font-dom text-xl lg:text-2xl text-slate-900 uppercase m-0">
-                        TIÊU CHUẨN NGUYÊN LIỆU &amp; AN TOÀN DỊ ỨNG TRÊN NHÃN LON
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                    <h4 class="font-dom text-xl lg:text-2xl text-slate-900 uppercase m-0 leading-snug">
+                        TIÊU CHUẨN NGUYÊN LIỆU &amp; AN TOÀN DỊ&nbsp;ỨNG TRÊN NHÃN&nbsp;LON
                     </h4>
                     <p class="text-sm lg:text-base text-slate-600 mt-2 m-0">
                         Các tiêu chuẩn được ghi nhận và in minh bạch trên bao bì theo hồ sơ công bố của sản phẩm
@@ -551,10 +553,10 @@ get_header(); ?>
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
             <!-- Section Header (Balanced Centered/Top Layout) -->
-            <div class="max-w-3xl mb-8 lg:mb-12">
+            <div class="max-w-4xl mb-8 lg:mb-12">
                 <h2
                     class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
-                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO
+                    BẢNG GIÁ TRỊ DINH DƯỠNG&nbsp;MIWAKO
                 </h2>
                 <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
                     Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
@@ -882,9 +884,9 @@ get_header(); ?>
     <section id="usage-guidelines" class="py-20 lg:py-28 bg-[#F8FAFD] relative">
         <div class="container mx-auto px-4 lg:px-8">
 
-            <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-                <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                    HƯỚNG DẪN SỬ DỤNG VÀ BẢO QUẢN
+            <div class="text-center max-w-4xl mx-auto mb-14 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                    HƯỚNG DẪN SỬ DỤNG VÀ BẢO&nbsp;QUẢN
                 </h2>
                 <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
                     Định lượng chuẩn, cách pha và quy tắc bảo quản theo hướng dẫn công bố của nhà sản xuất.
@@ -1215,9 +1217,9 @@ get_header(); ?>
     <!-- 6. SECTION: KHOẢNH KHẮC CÙNG MIWAKO (GALLERY MARQUEE) -->
     <section id="gallery-moments" class="py-20 lg:py-28 bg-white overflow-hidden w-full relative">
         <!-- Section Header (In Container) -->
-        <div class="container mx-auto px-4 lg:px-8 mb-12 lg:mb-16 text-center max-w-3xl">
-            <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                KHOẢNH KHẮC CÙNG MIWAKO
+        <div class="container mx-auto px-4 lg:px-8 mb-12 lg:mb-16 text-center max-w-4xl">
+            <h2 class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                KHOẢNH KHẮC CÙNG&nbsp;MIWAKO
             </h2>
             <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
                 Hình ảnh thực tế về sản phẩm và trải nghiệm sử dụng thực phẩm dinh dưỡng trong bữa ăn phụ hàng ngày.
@@ -1253,9 +1255,9 @@ get_header(); ?>
     <section id="faq-section" class="py-20 lg:py-28 bg-[#F8FAFD] relative">
         <div class="container mx-auto px-4 lg:px-8">
 
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
-                    NHỮNG ĐIỀU BA MẸ BĂN KHOĂN
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                    NHỮNG ĐIỀU BA MẸ BĂN&nbsp;KHOĂN
                 </h2>
                 <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
                     Thông tin giải thích khách quan dựa trên hồ sơ tự công bố, tài liệu kỹ thuật và nhãn sản phẩm.
