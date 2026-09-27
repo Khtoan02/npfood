@@ -277,9 +277,7 @@
                     </div>
                 </div>
 
-                <!-- Menu Item 4 -->
-                <a href="#" class="text-sm font-bold uppercase tracking-wide text-gray-600 hover:text-primary transition-colors no-underline">Hệ Thống Phân Phối</a>
-                
+
                 <!-- Menu Item 5 -->
                 <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="text-sm font-bold uppercase tracking-wide text-gray-600 hover:text-primary transition-colors no-underline">Tin Tức</a>
 
@@ -363,7 +361,6 @@
                     </div>
                 </div>
 
-                <a href="#" class="block py-3 px-4 font-medium text-gray-700 hover:text-primary no-underline">Hệ Thống Phân Phối</a>
                 <a href="<?php echo esc_url( home_url( '/bai-viet' ) ); ?>" class="block py-3 px-4 font-medium text-gray-700 hover:text-primary no-underline">Tin Tức & Sự Kiện</a>
             </div>
 
