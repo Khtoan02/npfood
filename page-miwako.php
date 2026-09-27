@@ -679,19 +679,21 @@ get_header(); ?>
                 <div class="lg:col-span-5 lg:sticky lg:top-24">
                     <div
                         class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-01.jpg'); ?>"
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-20.jpg'); ?>"
                             alt="Lon thực phẩm dinh dưỡng Miwako từ các loại hạt tự nhiên"
-                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-6 lg:p-8">
-                            <span
-                                class="px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-white mb-2.5 inline-flex items-center gap-1.5 w-fit border border-white/10">
-                                <i data-lucide="sprout" class="w-3.5 h-3.5 text-amber-400"></i>
-                                <span>Dinh Dưỡng Thực Vật Nguyên Bản</span>
-                            </span>
-                            <p class="text-white/95 text-sm font-medium m-0 leading-relaxed">
-                                Công thức dinh dưỡng từ các loại hạt hữu cơ, cung cấp nguồn đạm thực vật và năng lượng lành tính cho cả gia đình.
-                            </p>
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-6 pointer-events-none">
+                            <div class="p-4 rounded-2xl bg-slate-950/60 backdrop-blur-md border border-white/10 shadow-lg">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-emerald-300 mb-2 inline-flex items-center gap-1.5 w-fit border border-emerald-400/30 font-bold">
+                                    <i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    <span>Dinh Dưỡng Thực Vật Nguyên Bản</span>
+                                </span>
+                                <p class="text-white/95 text-xs sm:text-sm font-medium m-0 leading-relaxed">
+                                    Công thức dinh dưỡng từ các loại hạt hữu cơ, cung cấp nguồn đạm thực vật và năng lượng lành tính cho cả gia đình.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
