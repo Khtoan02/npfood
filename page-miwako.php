@@ -572,18 +572,16 @@ get_header(); ?>
                 <!-- Left Column (7 cols): Nutrition Facts Table Box -->
                 <div class="lg:col-span-7 flex flex-col">
 
-                    <!-- Nutrition Facts Table Box (Unique Miwako Blue Texture Background) -->
-                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-blue-900/15 shadow-2xl shadow-blue-950/8 bg-[#FAFDFE] flex-1 flex flex-col"
+                    <!-- Nutrition Facts Table Box (Vintage Kraft Paper Texture Background with Warm Brown Typography) -->
+                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-[#8D6E63]/35 shadow-2xl shadow-stone-900/10 bg-[#EFE6D8] flex-1 flex flex-col"
                         id="nutrition-table-box">
 
-                        <!-- Unique Miwako Art Paper Texture Layer (Completely different from Miwako A+) -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-75 mix-blend-multiply pointer-events-none z-0"
-                            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/miwako-nutrition-bg.webp'); ?>');">
+                        <!-- Vintage Kraft Paper Background Image Layer -->
+                        <div class="absolute inset-0 bg-cover bg-center pointer-events-none z-0"
+                            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/miwako-paper-bg.webp'); ?>');">
                         </div>
-                        <!-- Soft Ambient Blue-Tinted Glow Layer -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-blue-50/25 pointer-events-none z-0">
-                        </div>
+                        <!-- Soft Warm Highlight Layer for optimal contrast & clarity -->
+                        <div class="absolute inset-0 bg-[#FFFDF9]/10 pointer-events-none z-0"></div>
 
                         <!-- Table Content -->
                         <div id="nutrition-table-content"
@@ -592,55 +590,55 @@ get_header(); ?>
                                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                     <thead>
                                         <tr
-                                            class="bg-gradient-to-r from-[#173a6b] via-[#1b4d89] to-[#1e40af] text-white font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm">
-                                            <th class="py-3 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                            class="bg-gradient-to-r from-[#3D2314] via-[#4A2E18] to-[#54321A] text-[#FAF4EB] font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm border-b border-[#2E180B]">
+                                            <th class="py-3.5 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
                                             <th
-                                                class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Trong 100g Bột</th>
                                             <th
-                                                class="py-3 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Khẩu Phần (30g)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($nutrition_groups_miwako as $group): ?>
-                                            <!-- Group Header Row inside Table (Miwako Royal Blue Visual Palette) -->
-                                            <tr class="bg-blue-50/90 border-y border-blue-200/80">
+                                            <!-- Group Header Row inside Table (Warm Brown Palette) -->
+                                            <tr class="bg-[#795548]/15 border-y border-[#5C3A21]/30 backdrop-blur-[2px]">
                                                 <td colspan="3"
-                                                    class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#173a6b] font-bold">
+                                                    class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#3D2314] font-bold">
                                                     <span class="inline-flex items-center gap-2">
                                                         <i data-lucide="<?php echo esc_attr($group['icon']); ?>"
-                                                            class="w-3.5 h-3.5 text-[#1b4d89]"></i>
+                                                            class="w-3.5 h-3.5 text-[#5C3A21]"></i>
                                                         <span><?php echo esc_html($group['title']); ?></span>
                                                         <span
-                                                            class="text-[10px] font-sans font-bold text-[#1b4d89] bg-white px-2 py-0.5 rounded-full border border-blue-200 lowercase shadow-xs"><?php echo count($group['items']); ?>
+                                                            class="text-[10px] font-sans font-bold text-[#4A2E18] bg-[#FFF8ED]/90 px-2 py-0.5 rounded-full border border-[#8D6E63]/40 lowercase shadow-xs"><?php echo count($group['items']); ?>
                                                             chỉ tiêu</span>
                                                     </span>
                                                 </td>
                                             </tr>
                                             <?php foreach ($group['items'] as $item): ?>
                                                 <tr
-                                                    class="border-b border-blue-900/10 hover:bg-blue-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-blue-950/[0.02]' : ''; ?>">
+                                                    class="border-b border-[#5C3A21]/15 hover:bg-[#5C3A21]/10 transition-colors <?php echo $item['is_bold'] ? 'bg-[#5C3A21]/[0.06]' : ''; ?>">
                                                     <td class="py-2.5 px-3.5 sm:px-5">
                                                         <?php if ($item['is_sub']): ?>
                                                             <div
-                                                                class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
+                                                                class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-[#5C3A21]">
                                                                 <span
-                                                                    class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 inline-block"></span>
+                                                                    class="w-1.5 h-1.5 rounded-full bg-[#8D5B36] shrink-0 inline-block"></span>
                                                                 <span
-                                                                    class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                                    class="text-xs sm:text-[13px] leading-tight text-[#4E301D] font-medium"><?php echo esc_html($item['name']); ?></span>
                                                             </div>
                                                         <?php else: ?>
                                                             <span
-                                                                class="font-bold text-slate-900 text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
+                                                                class="font-bold text-[#341F11] text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                         <?php endif; ?>
                                                     </td>
                                                     <td
-                                                        class="py-2.5 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#341F11]' : 'text-[#4E301D] font-medium'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
                                                     <td
-                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#1b4d89]' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#2A180D]' : 'text-[#3E2312] font-semibold'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -651,22 +649,22 @@ get_header(); ?>
                             </div>
                         </div>
 
-                        <!-- Lock / Blur Overlay with View Button -->
+                        <!-- Lock / Blur Overlay with View Button (Harmonized Warm Brown Tone) -->
                         <div id="nutrition-lock-overlay"
-                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-[#FAFDFE]/90 backdrop-blur-md transition-all duration-500">
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-[#F8F4EC]/88 backdrop-blur-md transition-all duration-500">
                             <div
-                                class="w-14 h-14 rounded-2xl bg-blue-50 text-[#1b4d89] flex items-center justify-center mb-3 shadow-sm border border-blue-200">
-                                <i data-lucide="file-text" class="w-7 h-7 text-[#1b4d89]"></i>
+                                class="w-14 h-14 rounded-2xl bg-[#EFE4D2] text-[#4A2E18] flex items-center justify-center mb-3 shadow-sm border border-[#8D6E63]/30">
+                                <i data-lucide="file-text" class="w-7 h-7 text-[#4A2E18]"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl font-dom text-[#173a6b] uppercase tracking-wide mb-2">
+                            <h3 class="text-lg sm:text-xl font-dom text-[#3E2312] uppercase tracking-wide mb-2">
                                 BẢNG THÀNH PHẦN &amp; GIÁ TRỊ DINH DƯỠNG
                             </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 max-w-sm mb-5 leading-relaxed">
+                            <p class="text-xs sm:text-sm text-[#5C3A21] max-w-sm mb-5 leading-relaxed font-medium">
                                 Vui lòng đọc kỹ thông tin lưu ý y tế và xác nhận để hiển thị bảng dữ liệu dinh dưỡng chi
                                 tiết của sản phẩm.
                             </p>
                             <button type="button" onclick="openNutritionDisclaimer()"
-                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#1b4d89] hover:bg-[#143765] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-blue-900/25 hover:shadow-xl transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
+                                class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#4A2E18] hover:bg-[#341F11] text-[#FFF9F2] rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-[#3E2312]/30 hover:shadow-xl transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
                                 <i data-lucide="eye" class="w-4 h-4"></i>
                                 <span>Xem Bảng Dinh Dưỡng Chi Tiết</span>
                             </button>
