@@ -547,51 +547,52 @@ get_header(); ?>
     ];
     ?>
     <section id="nutrition-facts"
-        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-teal-900/10 bg-[#F4F9F8]">
+        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-blue-900/10 bg-[#F5F8FC]">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <!-- Section Header (Balanced Centered/Top Layout) -->
+            <div class="max-w-3xl mb-8 lg:mb-12">
+                <span
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-dom uppercase tracking-wider mb-3 border border-blue-200/80 font-bold">
+                    <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-blue-600"></i>
+                    HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
+                </span>
+                <h2
+                    class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
+                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
+                    Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
+                </p>
+            </div>
 
-                <!-- Left Column (7 cols): Header & Single Nutrition Facts Table -->
+            <!-- Balanced 2-Column Grid (Equal Heights) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+                <!-- Left Column (7 cols): Nutrition Facts Table Box -->
                 <div class="lg:col-span-7 flex flex-col">
 
-                    <!-- Section Header -->
-                    <div class="mb-6 lg:mb-8">
-                        <span
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100/90 text-[#1a4e4d] text-xs font-dom uppercase tracking-wider mb-3 border border-teal-300/60 font-bold">
-                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#1a4e4d]"></i>
-                            HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
-                        </span>
-                        <h2
-                            class="text-3xl sm:text-4xl lg:text-[40px] font-dom text-slate-900 tracking-wide uppercase m-0 leading-tight">
-                            BẢNG GIÁ TRỊ DINH DƯỠNG
-                        </h2>
-                        <p class="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed m-0">
-                            Hàm lượng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g.
-                        </p>
-                    </div>
-
-                    <!-- Nutrition Facts Table Box (Single Table with Authentic Paper Certificate Background) -->
-                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-teal-900/15 shadow-2xl shadow-teal-950/8 bg-[#FFFDF9]"
+                    <!-- Nutrition Facts Table Box (Unique Miwako Blue Texture Background) -->
+                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-blue-900/15 shadow-2xl shadow-blue-950/8 bg-[#FAFDFE] flex-1 flex flex-col"
                         id="nutrition-table-box">
 
-                        <!-- Authentic Paper Texture Layer with enhanced contrast -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-multiply pointer-events-none z-0"
-                            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
+                        <!-- Unique Miwako Art Paper Texture Layer (Completely different from Miwako A+) -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-75 mix-blend-multiply pointer-events-none z-0"
+                            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/miwako-nutrition-bg.webp'); ?>');">
                         </div>
-                        <!-- Soft Ambient Teal-Tinted Glow Layer -->
+                        <!-- Soft Ambient Blue-Tinted Glow Layer -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-white/85 via-transparent to-teal-50/20 pointer-events-none z-0">
+                            class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-blue-50/25 pointer-events-none z-0">
                         </div>
 
                         <!-- Table Content -->
                         <div id="nutrition-table-content"
-                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
-                            <div class="overflow-x-auto">
+                            class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700 flex-1 flex flex-col">
+                            <div class="overflow-x-auto flex-1">
                                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                     <thead>
                                         <tr
-                                            class="bg-gradient-to-r from-[#133e3d] via-[#1a4e4d] to-[#164a49] text-white font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm">
+                                            class="bg-gradient-to-r from-[#173a6b] via-[#1b4d89] to-[#1e40af] text-white font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm">
                                             <th class="py-3 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
                                             <th
                                                 class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
@@ -603,29 +604,29 @@ get_header(); ?>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($nutrition_groups_miwako as $group): ?>
-                                            <!-- Group Header Row inside Table (Miwako Visual Palette) -->
-                                            <tr class="bg-[#E5F3F1] border-y border-teal-800/15">
+                                            <!-- Group Header Row inside Table (Miwako Royal Blue Visual Palette) -->
+                                            <tr class="bg-blue-50/90 border-y border-blue-200/80">
                                                 <td colspan="3"
-                                                    class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                    class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#173a6b] font-bold">
                                                     <span class="inline-flex items-center gap-2">
                                                         <i data-lucide="<?php echo esc_attr($group['icon']); ?>"
-                                                            class="w-3.5 h-3.5 text-[#1a4e4d]"></i>
+                                                            class="w-3.5 h-3.5 text-[#1b4d89]"></i>
                                                         <span><?php echo esc_html($group['title']); ?></span>
                                                         <span
-                                                            class="text-[10px] font-sans font-bold text-[#1a4e4d] bg-white/90 px-2 py-0.5 rounded-full border border-teal-300/70 lowercase"><?php echo count($group['items']); ?>
+                                                            class="text-[10px] font-sans font-bold text-[#1b4d89] bg-white px-2 py-0.5 rounded-full border border-blue-200 lowercase shadow-xs"><?php echo count($group['items']); ?>
                                                             chỉ tiêu</span>
                                                     </span>
                                                 </td>
                                             </tr>
                                             <?php foreach ($group['items'] as $item): ?>
                                                 <tr
-                                                    class="border-b border-teal-900/10 hover:bg-[#E5F3F1]/50 transition-colors <?php echo $item['is_bold'] ? 'bg-teal-950/[0.02]' : ''; ?>">
+                                                    class="border-b border-blue-900/10 hover:bg-blue-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-blue-950/[0.02]' : ''; ?>">
                                                     <td class="py-2.5 px-3.5 sm:px-5">
                                                         <?php if ($item['is_sub']): ?>
                                                             <div
                                                                 class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
                                                                 <span
-                                                                    class="w-1.5 h-1.5 rounded-full bg-teal-600 shrink-0 inline-block"></span>
+                                                                    class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 inline-block"></span>
                                                                 <span
                                                                     class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                             </div>
@@ -639,7 +640,7 @@ get_header(); ?>
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
                                                     <td
-                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#1a4e4d]' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#1b4d89]' : 'text-slate-800'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -652,12 +653,12 @@ get_header(); ?>
 
                         <!-- Lock / Blur Overlay with View Button -->
                         <div id="nutrition-lock-overlay"
-                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-[#FFFDF9]/90 backdrop-blur-md transition-all duration-500">
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-[#FAFDFE]/90 backdrop-blur-md transition-all duration-500">
                             <div
-                                class="w-14 h-14 rounded-2xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center mb-3 shadow-sm border border-teal-200/80">
-                                <i data-lucide="file-text" class="w-7 h-7 text-[#1a4e4d]"></i>
+                                class="w-14 h-14 rounded-2xl bg-blue-50 text-[#1b4d89] flex items-center justify-center mb-3 shadow-sm border border-blue-200">
+                                <i data-lucide="file-text" class="w-7 h-7 text-[#1b4d89]"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl font-dom text-[#1a4e4d] uppercase tracking-wide mb-2">
+                            <h3 class="text-lg sm:text-xl font-dom text-[#173a6b] uppercase tracking-wide mb-2">
                                 BẢNG THÀNH PHẦN &amp; GIÁ TRỊ DINH DƯỠNG
                             </h3>
                             <p class="text-xs sm:text-sm text-slate-600 max-w-sm mb-5 leading-relaxed">
@@ -665,7 +666,7 @@ get_header(); ?>
                                 tiết của sản phẩm.
                             </p>
                             <button type="button" onclick="openNutritionDisclaimer()"
-                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#1a4e4d] hover:bg-[#133d3c] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-[#1a4e4d]/25 hover:shadow-xl transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
+                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#1b4d89] hover:bg-[#143765] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-blue-900/25 hover:shadow-xl transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
                                 <i data-lucide="eye" class="w-4 h-4"></i>
                                 <span>Xem Bảng Dinh Dưỡng Chi Tiết</span>
                             </button>
@@ -675,19 +676,19 @@ get_header(); ?>
 
                 </div>
 
-                <!-- Right Column (5 cols): Immersive Nutritional Photography -->
-                <div class="lg:col-span-5 lg:sticky lg:top-24">
+                <!-- Right Column (5 cols): Balanced Product Showcase Matching Table Height -->
+                <div class="lg:col-span-5 flex flex-col">
                     <div
-                        class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-teal-900/15 group bg-sky-50/50">
+                        class="relative rounded-[2rem] overflow-hidden shadow-2xl border-2 border-blue-900/15 group bg-blue-50/60 flex-1 flex flex-col min-h-[540px] lg:min-h-[640px]">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-nutrition-showcase.webp'); ?>"
                             alt="Lon thực phẩm dinh dưỡng Miwako từ các loại hạt tự nhiên"
-                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out flex-1" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-5 pointer-events-none">
-                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#0f3837]/85 backdrop-blur-md border border-white/20 shadow-xl">
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#0c2b5c]/85 backdrop-blur-md border border-white/20 shadow-xl">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-emerald-400/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-emerald-300 mb-1.5 inline-flex items-center gap-1.5 w-fit border border-emerald-400/30 font-bold">
-                                    <i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    class="px-3 py-1 rounded-full bg-blue-400/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-blue-200 mb-1.5 inline-flex items-center gap-1.5 w-fit border border-blue-400/40 font-bold">
+                                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-300"></i>
                                     <span>Dinh Dưỡng Thực Vật Nguyên Bản</span>
                                 </span>
                                 <p class="text-white/95 text-xs sm:text-sm font-medium m-0 leading-relaxed">
@@ -718,11 +719,11 @@ get_header(); ?>
             <!-- Modal Header -->
             <div class="flex items-center gap-3.5 mb-5 pr-8">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center shrink-0 border border-teal-200/80">
-                    <i data-lucide="shield-check" class="w-6 h-6 text-[#1a4e4d]"></i>
+                    class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1b4d89] flex items-center justify-center shrink-0 border border-blue-200/80">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-[#1b4d89]"></i>
                 </div>
                 <div>
-                    <span class="text-xs font-dom uppercase tracking-wider text-[#1a4e4d] font-bold block">XÁC NHẬN TRUY
+                    <span class="text-xs font-dom uppercase tracking-wider text-[#1b4d89] font-bold block">XÁC NHẬN TRUY
                         CẬP</span>
                     <h4 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide m-0">THÔNG TIN DINH
                         DƯỠNG</h4>
@@ -731,7 +732,7 @@ get_header(); ?>
 
             <!-- Notice Message -->
             <div
-                class="p-4 rounded-2xl bg-teal-50/70 border border-teal-200/70 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
+                class="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/80 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
                 Thông tin bảng thành phần dinh dưỡng nhằm phục vụ mục đích tìm hiểu khoa học và đối soát dinh dưỡng.
             </div>
 
@@ -744,12 +745,12 @@ get_header(); ?>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="nutrition-role-container">
                     <!-- Option 1: Chuyên gia -->
                     <label
-                        class="role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all">
+                        class="role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1b4d89] bg-blue-900/[0.04] cursor-pointer transition-all">
                         <input type="radio" name="nutrition_role" value="expert" checked class="sr-only"
                             onchange="handleRoleChange(this)">
                         <div class="flex items-center gap-3 w-full">
                             <div
-                                class="w-9 h-9 rounded-xl bg-teal-100 text-[#1a4e4d] flex items-center justify-center shrink-0">
+                                class="w-9 h-9 rounded-xl bg-blue-100 text-[#1b4d89] flex items-center justify-center shrink-0">
                                 <i data-lucide="stethoscope" class="w-4 h-4"></i>
                             </div>
                             <div class="flex-1 min-w-0">
@@ -758,7 +759,7 @@ get_header(); ?>
                                 <span class="text-[11px] text-slate-500 leading-tight">Y tế &amp; Dinh dưỡng</span>
                             </div>
                             <div
-                                class="role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0">
+                                class="role-check w-5 h-5 rounded-full border-2 border-[#1b4d89] bg-[#1b4d89] text-white flex items-center justify-center shrink-0">
                                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
                             </div>
                         </div>
@@ -766,12 +767,12 @@ get_header(); ?>
 
                     <!-- Option 2: Trợ lý y tế -->
                     <label
-                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-300 bg-white cursor-pointer transition-all">
+                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-300 bg-white cursor-pointer transition-all">
                         <input type="radio" name="nutrition_role" value="assistant" class="sr-only"
                             onchange="handleRoleChange(this)">
                         <div class="flex items-center gap-3 w-full">
                             <div
-                                class="w-9 h-9 rounded-xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center shrink-0 border border-teal-100">
+                                class="w-9 h-9 rounded-xl bg-blue-50 text-[#1b4d89] flex items-center justify-center shrink-0 border border-blue-100">
                                 <i data-lucide="clipboard-list" class="w-4 h-4"></i>
                             </div>
                             <div class="flex-1 min-w-0">
@@ -796,7 +797,7 @@ get_header(); ?>
                     Đóng / Hủy
                 </button>
                 <button type="button" onclick="acceptNutritionDisclaimer()"
-                    class="w-full sm:w-auto px-6 py-3 bg-[#1a4e4d] hover:bg-[#133b3a] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border-none flex items-center justify-center gap-2">
+                    class="w-full sm:w-auto px-6 py-3 bg-[#1b4d89] hover:bg-[#143765] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border-none flex items-center justify-center gap-2">
                     <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
                     <span>Xác Nhận &amp; Xem Bảng Dinh Dưỡng</span>
                 </button>
@@ -811,12 +812,12 @@ get_header(); ?>
                 var radio = opt.querySelector('input[type="radio"]');
                 var check = opt.querySelector('.role-check');
                 if (radio && radio.checked) {
-                    opt.className = "role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1a4e4d] bg-teal-900/[0.04] cursor-pointer transition-all";
+                    opt.className = "role-option active relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-[#1b4d89] bg-blue-900/[0.04] cursor-pointer transition-all";
                     if (check) {
-                        check.className = "role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0";
+                        check.className = "role-check w-5 h-5 rounded-full border-2 border-[#1b4d89] bg-[#1b4d89] text-white flex items-center justify-center shrink-0";
                     }
                 } else {
-                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-300 bg-white cursor-pointer transition-all";
+                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-300 bg-white cursor-pointer transition-all";
                     if (check) {
                         check.className = "role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0";
                     }
