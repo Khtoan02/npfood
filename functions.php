@@ -40,3 +40,7 @@ add_action( 'wp_enqueue_scripts', 'np_food_scripts' );
 
 // Include Recruitment Settings & Logic
 require get_template_directory() . '/inc/recruitment-settings.php';
+
+// Include 1-Click Page Activator
+require get_template_directory() . '/inc/page-activator.php';
+
