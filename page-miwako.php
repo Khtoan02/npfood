@@ -547,7 +547,7 @@ get_header(); ?>
     ];
     ?>
     <section id="nutrition-facts"
-        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
+        class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-teal-900/10 bg-[#F4F9F8]">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -558,8 +558,8 @@ get_header(); ?>
                     <!-- Section Header -->
                     <div class="mb-6 lg:mb-8">
                         <span
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-dom uppercase tracking-wider mb-3">
-                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#D97706]"></i>
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100/90 text-[#1a4e4d] text-xs font-dom uppercase tracking-wider mb-3 border border-teal-300/60 font-bold">
+                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-[#1a4e4d]"></i>
                             HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
                         </span>
                         <h2
@@ -571,17 +571,17 @@ get_header(); ?>
                         </p>
                     </div>
 
-                    <!-- Nutrition Facts Table Box (Single Table) -->
-                    <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]"
+                    <!-- Nutrition Facts Table Box (Single Table with Authentic Paper Certificate Background) -->
+                    <div class="relative overflow-hidden rounded-[2rem] border-2 border-teal-900/15 shadow-2xl shadow-teal-950/8 bg-[#FFFDF9]"
                         id="nutrition-table-box">
 
-                        <!-- Luminous Subtle Paper Texture Layer -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-multiply pointer-events-none z-0"
+                        <!-- Authentic Paper Texture Layer with enhanced contrast -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-multiply pointer-events-none z-0"
                             style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
                         </div>
-                        <!-- Soft Ambient White Glow Layer -->
+                        <!-- Soft Ambient Teal-Tinted Glow Layer -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/60 pointer-events-none z-0">
+                            class="absolute inset-0 bg-gradient-to-b from-white/85 via-transparent to-teal-50/20 pointer-events-none z-0">
                         </div>
 
                         <!-- Table Content -->
@@ -591,41 +591,41 @@ get_header(); ?>
                                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                     <thead>
                                         <tr
-                                            class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-xs sm:text-sm">
-                                            <th class="py-2.5 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                            class="bg-gradient-to-r from-[#133e3d] via-[#1a4e4d] to-[#164a49] text-white font-dom uppercase tracking-wider text-xs sm:text-sm shadow-sm">
+                                            <th class="py-3 px-3.5 sm:px-5 font-bold w-[50%]">Chỉ Tiêu Dinh Dưỡng</th>
                                             <th
-                                                class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Trong 100g Bột</th>
                                             <th
-                                                class="py-2.5 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
+                                                class="py-3 px-3.5 sm:px-5 font-bold text-right whitespace-nowrap w-[25%]">
                                                 Khẩu Phần (30g)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($nutrition_groups_miwako as $group): ?>
-                                            <!-- Group Header Row inside Table -->
-                                            <tr class="bg-amber-100/40 border-y border-amber-900/10">
+                                            <!-- Group Header Row inside Table (Miwako Visual Palette) -->
+                                            <tr class="bg-[#E5F3F1] border-y border-teal-800/15">
                                                 <td colspan="3"
                                                     class="py-2.5 px-3.5 sm:px-5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
                                                     <span class="inline-flex items-center gap-2">
                                                         <i data-lucide="<?php echo esc_attr($group['icon']); ?>"
-                                                            class="w-3.5 h-3.5 text-[#D97706]"></i>
+                                                            class="w-3.5 h-3.5 text-[#1a4e4d]"></i>
                                                         <span><?php echo esc_html($group['title']); ?></span>
                                                         <span
-                                                            class="text-[10px] font-sans font-normal text-slate-500 lowercase">(<?php echo count($group['items']); ?>
-                                                            chỉ tiêu)</span>
+                                                            class="text-[10px] font-sans font-bold text-[#1a4e4d] bg-white/90 px-2 py-0.5 rounded-full border border-teal-300/70 lowercase"><?php echo count($group['items']); ?>
+                                                            chỉ tiêu</span>
                                                     </span>
                                                 </td>
                                             </tr>
                                             <?php foreach ($group['items'] as $item): ?>
                                                 <tr
-                                                    class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
-                                                    <td class="py-2 px-3.5 sm:px-5">
+                                                    class="border-b border-teal-900/10 hover:bg-[#E5F3F1]/50 transition-colors <?php echo $item['is_bold'] ? 'bg-teal-950/[0.02]' : ''; ?>">
+                                                    <td class="py-2.5 px-3.5 sm:px-5">
                                                         <?php if ($item['is_sub']): ?>
                                                             <div
                                                                 class="inline-flex items-center gap-1.5 pl-3 sm:pl-5 text-slate-600">
                                                                 <span
-                                                                    class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 inline-block"></span>
+                                                                    class="w-1.5 h-1.5 rounded-full bg-teal-600 shrink-0 inline-block"></span>
                                                                 <span
                                                                     class="text-xs sm:text-[13px] leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                             </div>
@@ -635,11 +635,11 @@ get_header(); ?>
                                                         <?php endif; ?>
                                                     </td>
                                                     <td
-                                                        class="py-2 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-2.5 sm:px-3 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
                                                     <td
-                                                        class="py-2 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                        class="py-2.5 px-3.5 sm:px-5 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-[#1a4e4d]' : 'text-slate-800'; ?> whitespace-nowrap">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -652,12 +652,12 @@ get_header(); ?>
 
                         <!-- Lock / Blur Overlay with View Button -->
                         <div id="nutrition-lock-overlay"
-                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-white/85 backdrop-blur-md transition-all duration-500">
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-[#FFFDF9]/90 backdrop-blur-md transition-all duration-500">
                             <div
-                                class="w-14 h-14 rounded-2xl bg-amber-100 text-[#D97706] flex items-center justify-center mb-3 shadow-sm border border-amber-200">
-                                <i data-lucide="file-text" class="w-7 h-7"></i>
+                                class="w-14 h-14 rounded-2xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center mb-3 shadow-sm border border-teal-200/80">
+                                <i data-lucide="file-text" class="w-7 h-7 text-[#1a4e4d]"></i>
                             </div>
-                            <h3 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide mb-2">
+                            <h3 class="text-lg sm:text-xl font-dom text-[#1a4e4d] uppercase tracking-wide mb-2">
                                 BẢNG THÀNH PHẦN &amp; GIÁ TRỊ DINH DƯỠNG
                             </h3>
                             <p class="text-xs sm:text-sm text-slate-600 max-w-sm mb-5 leading-relaxed">
@@ -665,7 +665,7 @@ get_header(); ?>
                                 tiết của sản phẩm.
                             </p>
                             <button type="button" onclick="openNutritionDisclaimer()"
-                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#D97706] hover:bg-amber-600 text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
+                                class="inline-flex items-center gap-2 px-5 py-3 bg-[#1a4e4d] hover:bg-[#133d3c] text-white rounded-xl font-dom text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-[#1a4e4d]/25 hover:shadow-xl transition-all cursor-pointer border-none transform hover:-translate-y-0.5">
                                 <i data-lucide="eye" class="w-4 h-4"></i>
                                 <span>Xem Bảng Dinh Dưỡng Chi Tiết</span>
                             </button>
@@ -678,15 +678,15 @@ get_header(); ?>
                 <!-- Right Column (5 cols): Immersive Nutritional Photography -->
                 <div class="lg:col-span-5 lg:sticky lg:top-24">
                     <div
-                        class="relative rounded-[2.5rem] overflow-hidden shadow-xl border border-amber-900/10 group bg-slate-100">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-20.jpg'); ?>"
+                        class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-2 border-teal-900/15 group bg-sky-50/50">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-nutrition-showcase.webp'); ?>"
                             alt="Lon thực phẩm dinh dưỡng Miwako từ các loại hạt tự nhiên"
-                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            class="w-full h-[480px] sm:h-[540px] lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-6 pointer-events-none">
-                            <div class="p-4 rounded-2xl bg-slate-950/60 backdrop-blur-md border border-white/10 shadow-lg">
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-5 pointer-events-none">
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#0f3837]/85 backdrop-blur-md border border-white/20 shadow-xl">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-emerald-300 mb-2 inline-flex items-center gap-1.5 w-fit border border-emerald-400/30 font-bold">
+                                    class="px-3 py-1 rounded-full bg-emerald-400/20 backdrop-blur-md text-xs font-dom tracking-wider uppercase text-emerald-300 mb-1.5 inline-flex items-center gap-1.5 w-fit border border-emerald-400/30 font-bold">
                                     <i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400"></i>
                                     <span>Dinh Dưỡng Thực Vật Nguyên Bản</span>
                                 </span>
@@ -718,11 +718,11 @@ get_header(); ?>
             <!-- Modal Header -->
             <div class="flex items-center gap-3.5 mb-5 pr-8">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200">
-                    <i data-lucide="shield-check" class="w-6 h-6 text-[#D97706]"></i>
+                    class="w-12 h-12 rounded-2xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center shrink-0 border border-teal-200/80">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-[#1a4e4d]"></i>
                 </div>
                 <div>
-                    <span class="text-xs font-dom uppercase tracking-wider text-[#D97706] font-bold block">XÁC NHẬN TRUY
+                    <span class="text-xs font-dom uppercase tracking-wider text-[#1a4e4d] font-bold block">XÁC NHẬN TRUY
                         CẬP</span>
                     <h4 class="text-lg sm:text-xl font-dom text-slate-900 uppercase tracking-wide m-0">THÔNG TIN DINH
                         DƯỠNG</h4>
@@ -731,7 +731,7 @@ get_header(); ?>
 
             <!-- Notice Message -->
             <div
-                class="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
+                class="p-4 rounded-2xl bg-teal-50/70 border border-teal-200/70 text-slate-700 text-sm sm:text-base leading-relaxed mb-5">
                 Thông tin bảng thành phần dinh dưỡng nhằm phục vụ mục đích tìm hiểu khoa học và đối soát dinh dưỡng.
             </div>
 
@@ -766,12 +766,12 @@ get_header(); ?>
 
                     <!-- Option 2: Trợ lý y tế -->
                     <label
-                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all">
+                        class="role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-300 bg-white cursor-pointer transition-all">
                         <input type="radio" name="nutrition_role" value="assistant" class="sr-only"
                             onchange="handleRoleChange(this)">
                         <div class="flex items-center gap-3 w-full">
                             <div
-                                class="w-9 h-9 rounded-xl bg-amber-100 text-[#D97706] flex items-center justify-center shrink-0">
+                                class="w-9 h-9 rounded-xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center shrink-0 border border-teal-100">
                                 <i data-lucide="clipboard-list" class="w-4 h-4"></i>
                             </div>
                             <div class="flex-1 min-w-0">
@@ -816,7 +816,7 @@ get_header(); ?>
                         check.className = "role-check w-5 h-5 rounded-full border-2 border-[#1a4e4d] bg-[#1a4e4d] text-white flex items-center justify-center shrink-0";
                     }
                 } else {
-                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-300 bg-white cursor-pointer transition-all";
+                    opt.className = "role-option relative flex items-center p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-teal-300 bg-white cursor-pointer transition-all";
                     if (check) {
                         check.className = "role-check w-5 h-5 rounded-full border-2 border-slate-300 text-transparent flex items-center justify-center shrink-0";
                     }
