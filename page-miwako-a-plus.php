@@ -624,8 +624,15 @@ get_header(); ?>
         ],
     ];
     ?>
-    <section id="nutrition-facts" class="py-20 lg:py-28 bg-[#FFFDF7] border-y border-amber-100/60 relative scroll-mt-12 overflow-hidden">
-        <div class="container mx-auto px-4 lg:px-8">
+    <section id="nutrition-facts" class="py-20 lg:py-28 relative scroll-mt-12 overflow-hidden border-y border-amber-200/60 bg-[#FBF9F4]">
+        <!-- Authentic Paper Texture Background Layer -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-65 mix-blend-multiply pointer-events-none -z-0"
+            style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
+        </div>
+        <!-- Ambient Warm Tint Overlay for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#FFFDF7]/60 via-transparent to-[#FFFDF7]/60 pointer-events-none -z-0"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
 
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
@@ -643,7 +650,7 @@ get_header(); ?>
 
             <!-- 4 Quick Key Metric Cards -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/60 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Năng lượng</span>
                         <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-[#D97706]">
@@ -656,7 +663,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/60 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Đạm thực vật</span>
                         <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
@@ -669,7 +676,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/60 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Canxi hữu cơ</span>
                         <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
@@ -682,7 +689,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/60 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Omega-3 (ALA)</span>
                         <div class="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-[#1a4e4d]">
@@ -703,7 +710,7 @@ get_header(); ?>
                 <div class="lg:col-span-8 space-y-6">
 
                     <!-- Filter Tabs -->
-                    <div class="flex flex-wrap items-center gap-2 p-1.5 bg-slate-200/70 rounded-2xl w-fit" id="nutrition-tabs">
+                    <div class="flex flex-wrap items-center gap-2 p-1.5 bg-amber-900/10 backdrop-blur-sm rounded-2xl w-fit" id="nutrition-tabs">
                         <button type="button" onclick="filterNutritionGroup('all', this)"
                             class="nutrition-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-dom uppercase tracking-wider font-bold transition-all bg-[#1a4e4d] text-white shadow-sm border-none cursor-pointer">
                             Tất Cả (36 Chỉ Tiêu)
@@ -723,7 +730,7 @@ get_header(); ?>
                     </div>
 
                     <!-- Table Card -->
-                    <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 shadow-sm bg-white">
+                    <div class="overflow-hidden rounded-[2rem] border border-amber-200/70 shadow-sm bg-white/95 backdrop-blur-sm">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse text-sm min-w-[560px]">
                                 <thead>
@@ -796,7 +803,7 @@ get_header(); ?>
                 <!-- Right Column (4 cols): Sticky Visual Presentation Card -->
                 <div class="lg:col-span-4 sticky top-28 space-y-6">
 
-                    <div class="bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                    <div class="bg-white/95 backdrop-blur-sm rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-amber-200/70 flex flex-col items-center text-center">
                         
                         <!-- Editorial Heading -->
                         <div class="mb-4">
