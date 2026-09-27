@@ -510,6 +510,313 @@ get_header(); ?>
         </div>
     </section>
 
+    <!-- 4. SECTION: BẢNG GIÁ TRỊ DINH DƯỠNG (NUTRITION FACTS) -->
+    <?php
+    $miwako_ingredients = [
+        ['name' => 'Quinoa (Diêm mạch) hữu cơ', 'desc' => 'Giàu 9 axit amin thiết yếu', 'icon' => 'sprout'],
+        ['name' => 'Hạt Kê (Millet) hữu cơ', 'desc' => 'Giàu khoáng chất tự nhiên & kiềm tính', 'icon' => 'wheat'],
+        ['name' => 'Protein đậu Hà Lan phân lập', 'desc' => 'Đạm thực vật tinh khiết Pisane™', 'icon' => 'sparkles'],
+        ['name' => 'Gạo lứt nảy mầm hữu cơ', 'desc' => 'Giàu dưỡng chất GABA & vitamin nhóm B', 'icon' => 'leaf'],
+        ['name' => 'Gạo lứt tự nhiên', 'desc' => 'Carbohydrate phức hợp hấp thu chậm', 'icon' => 'sun'],
+        ['name' => 'Chất xơ hòa tan FOS', 'desc' => 'Prebiotic nuôi dưỡng lợi khuẩn đường ruột', 'icon' => 'shield-check'],
+        ['name' => 'Dầu hướng dương & dầu hạt lanh', 'desc' => 'Nguồn giàu Omega-3 (ALA) và Omega-6 (LA)', 'icon' => 'droplet'],
+    ];
+
+    $nutrition_groups_miwako = [
+        [
+            'id'       => 'macro',
+            'title'    => 'Giá Trị Dinh Dưỡng Năng Lượng & Đại Lượng',
+            'badge'    => 'Năng lượng & Đại lượng',
+            'icon'     => 'zap',
+            'items'    => [
+                ['name' => 'Năng lượng', 'per_100g' => '405 Kcal (1701 kJ)', 'per_serving' => '122 Kcal (512 kJ)', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Năng lượng sạch'],
+                ['name' => 'Carbonhydrate', 'per_100g' => '73.5 g', 'per_serving' => '22.1 g', 'is_bold' => true, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Chất xơ', 'per_100g' => '5.8 g', 'per_serving' => '1.7 g', 'is_bold' => false, 'is_sub' => true, 'tag' => ''],
+                ['name' => 'Chất xơ hòa tan FOS', 'per_100g' => '4.8 g', 'per_serving' => '1.4 g', 'is_bold' => true, 'is_sub' => true, 'tag' => 'Prebiotic dồi dào'],
+                ['name' => 'Protein (Chất đạm thực vật)', 'per_100g' => '20.0 g', 'per_serving' => '6.0 g', 'is_bold' => true, 'is_sub' => false, 'tag' => '20% Protein'],
+                ['name' => 'Tổng số chất béo', 'per_100g' => '2.2 g', 'per_serving' => '0.7 g', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Chất béo thấp'],
+                ['name' => 'Axit béo không bão hòa đơn', 'per_100g' => '0.2 g', 'per_serving' => '0.1 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'MUFA'],
+                ['name' => 'Axit béo không bão hòa đa', 'per_100g' => '1.0 g', 'per_serving' => '0.3 g', 'is_bold' => false, 'is_sub' => true, 'tag' => 'PUFA'],
+                ['name' => 'Axit alpha-linolenic (ALA)', 'per_100g' => '450 mg', 'per_serving' => '135 mg', 'is_bold' => true, 'is_sub' => true, 'tag' => 'Omega-3'],
+                ['name' => 'Axit Linoleic (LA)', 'per_100g' => '550 mg', 'per_serving' => '165 mg', 'is_bold' => false, 'is_sub' => true, 'tag' => 'Omega-6'],
+                ['name' => 'Axit béo bão hòa', 'per_100g' => '1.0 g', 'per_serving' => '0.3 g', 'is_bold' => false, 'is_sub' => true, 'tag' => ''],
+                ['name' => 'Axit béo chuyển hóa', 'per_100g' => '0 g', 'per_serving' => '0 g', 'is_bold' => true, 'is_sub' => true, 'tag' => '0g Trans Fat'],
+                ['name' => 'Cholesterol', 'per_100g' => '0 mg', 'per_serving' => '0 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => '0mg Cholesterol'],
+            ],
+        ],
+        [
+            'id'       => 'minerals',
+            'title'    => 'Các Khoáng Chất Tự Nhiên',
+            'badge'    => 'Khoáng chất tự nhiên',
+            'icon'     => 'shield-check',
+            'items'    => [
+                ['name' => 'Natri', 'per_100g' => '103 mg', 'per_serving' => '31 mg', 'is_bold' => false, 'is_sub' => false, 'tag' => ''],
+                ['name' => 'Canxi', 'per_100g' => '160 mg', 'per_serving' => '48 mg', 'is_bold' => true, 'is_sub' => false, 'tag' => 'Canxi thực vật'],
+            ],
+        ],
+    ];
+    ?>
+    <section id="nutrition-facts" class="py-20 lg:py-28 bg-[#F8FAFD] border-y border-slate-200/60 relative scroll-mt-12 overflow-hidden">
+        <div class="container mx-auto px-4 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100 text-[#1a4e4d] text-xs font-dom uppercase tracking-wider mb-3 font-bold">
+                    <i data-lucide="clipboard-check" class="w-4 h-4 text-[#1a4e4d]"></i>
+                    HỒ SƠ CÔNG BỐ CHẤT LƯỢNG CHÍNH THỨC
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-dom text-slate-900 tracking-wide uppercase m-0">
+                    BẢNG GIÁ TRỊ DINH DƯỠNG MIWAKO
+                </h2>
+                <p class="text-base lg:text-lg text-slate-600 mt-3 leading-relaxed m-0">
+                    Thành phần nguyên liệu tự nhiên cùng hàm lượng dinh dưỡng chi tiết trong 100g bột và mỗi khẩu phần chuẩn 30g từ Dale &amp; Cecil Malaysia.
+                </p>
+            </div>
+
+            <!-- 4 Quick Key Metric Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Năng lượng</span>
+                        <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-slate-900 leading-none">405 <span class="text-sm font-sans font-semibold text-slate-500">Kcal</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">122 Kcal / khẩu phần 30g năng lượng từ các loại hạt lành tính</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Đạm thực vật cao</span>
+                        <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                            <i data-lucide="sprout" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-emerald-800 leading-none">20.0 <span class="text-sm font-sans font-semibold text-slate-500">g</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Chiếm 20% tỉ trọng từ mầm gạo nâu &amp; đạm đậu Hà Lan Pisane™</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Chất xơ hòa tan FOS</span>
+                        <div class="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-[#1a4e4d]">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-[#1a4e4d] leading-none">4.8 <span class="text-sm font-sans font-semibold text-slate-500">g</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Nguồn Prebiotic dồi dào, hỗ trợ tiêu hóa vượt trội &amp; êm dịu đường ruột</p>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-dom uppercase tracking-wider text-slate-500">Omega-3 (ALA)</span>
+                        <div class="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-600">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-dom text-sky-800 leading-none">450 <span class="text-sm font-sans font-semibold text-slate-500">mg</span></div>
+                        <p class="text-xs text-slate-500 mt-1.5 m-0">Cùng 550mg LA từ dầu hạt lanh &amp; hướng dương nuôi dưỡng trí não</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natural Ingredients Showcase Banner -->
+            <div class="p-6 sm:p-8 rounded-[2rem] bg-white border border-slate-200/80 shadow-sm mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-teal-50 text-[#1a4e4d] flex items-center justify-center">
+                        <i data-lucide="leaf" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-dom uppercase tracking-wider text-[#1a4e4d] block font-bold">NGUỒN NGUYÊN LIỆU HỮU CƠ TỰ NHIÊN</span>
+                        <h4 class="text-lg sm:text-xl font-dom text-slate-900 m-0 uppercase">THÀNH PHẦN NGUYÊN BẢN</h4>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    Miwako được bào chế từ 100% nguồn hạt và ngũ cốc hữu cơ lành tính, không chứa chất bảo quản, không phẩm màu nhân tạo, không đường lactose và không đậu nành:
+                </p>
+                <div class="flex flex-wrap gap-2.5">
+                    <?php foreach ($miwako_ingredients as $ing): ?>
+                        <div class="inline-flex items-center gap-2 py-2 px-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs sm:text-sm text-slate-800">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                            <span class="font-medium"><?php echo esc_html($ing['name']); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <!-- Main Layout: Table (8 cols) + Sticky Side Showcase (4 cols) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+                <!-- Left Column (8 cols): Nutrition Facts Table -->
+                <div class="lg:col-span-8 space-y-6">
+
+                    <!-- Table Card -->
+                    <div class="overflow-hidden rounded-[2rem] border border-slate-200/80 shadow-sm bg-white">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-sm min-w-[560px]">
+                                <thead>
+                                    <tr class="bg-[#1a4e4d] text-white font-dom text-xs sm:text-sm uppercase tracking-wider">
+                                        <th class="py-4 px-5 sm:px-7 font-bold">Giá Trị Dinh Dưỡng</th>
+                                        <th class="py-4 px-4 sm:px-6 font-bold text-right whitespace-nowrap">Trong 100g bột</th>
+                                        <th class="py-4 px-5 sm:px-7 font-bold text-right whitespace-nowrap">Trong khẩu phần (30g)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($nutrition_groups_miwako as $group): ?>
+                                        <!-- Group Header Row -->
+                                        <tr class="bg-teal-900/[0.04] border-y border-teal-800/10">
+                                            <td colspan="3" class="py-3.5 px-5 sm:px-7 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                <span class="inline-flex items-center gap-2">
+                                                    <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 text-emerald-600"></i>
+                                                    <span><?php echo esc_html($group['title']); ?></span>
+                                                    <span class="text-[10px] font-sans font-normal text-slate-500 lowercase">(<?php echo count($group['items']); ?> chỉ tiêu)</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Group Items Rows -->
+                                        <?php foreach ($group['items'] as $item): ?>
+                                            <tr class="border-b border-slate-100 hover:bg-teal-50/40 transition-colors <?php echo $item['is_bold'] ? 'bg-slate-50/40' : ''; ?>">
+                                                
+                                                <!-- Nutrient Name -->
+                                                <td class="py-3.5 <?php echo $item['is_sub'] ? 'pl-9 sm:pl-12 pr-4 text-slate-600 text-xs sm:text-sm' : 'px-5 sm:px-7 text-xs sm:text-sm'; ?> <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?>">
+                                                    <div class="inline-flex items-center gap-2 flex-wrap">
+                                                        <?php if ($item['is_sub']): ?>
+                                                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>
+                                                        <?php endif; ?>
+                                                        <span><?php echo esc_html($item['name']); ?></span>
+                                                        <?php if (!empty($item['tag'])): ?>
+                                                            <span class="text-[10px] font-dom uppercase px-2 py-0.5 rounded-full <?php echo strpos($item['tag'], '0') !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-teal-100 text-[#1a4e4d]'; ?> font-bold tracking-tight">
+                                                                <?php echo esc_html($item['tag']); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </td>
+
+                                                <!-- Per 100g -->
+                                                <td class="py-3.5 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'font-medium text-slate-700'; ?> whitespace-nowrap">
+                                                    <?php echo esc_html($item['per_100g']); ?>
+                                                </td>
+
+                                                <!-- Per Serving (30g) -->
+                                                <td class="py-3.5 px-5 sm:px-7 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'font-semibold text-slate-800'; ?> whitespace-nowrap">
+                                                    <?php echo esc_html($item['per_serving']); ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Table Footer Note -->
+                        <div class="p-4 sm:p-5 bg-slate-50 border-t border-slate-100 flex items-start gap-3 text-xs text-slate-500">
+                            <i data-lucide="info" class="w-4 h-4 text-teal-700 shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">
+                                <strong>Lưu ý:</strong> Bảng thành phần dinh dưỡng được công bố chính thức theo nhãn phụ sản phẩm của tập đoàn <strong>Dale &amp; Cecil Malaysia</strong>. Miwako là thực phẩm bổ sung dinh dưỡng thực vật từ các loại hạt, thích hợp cho trẻ từ 12 tháng tuổi trở lên và cả gia đình.
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (4 cols): Sticky Visual Presentation Card -->
+                <div class="lg:col-span-4 sticky top-28 space-y-6">
+
+                    <div class="bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                        
+                        <!-- Editorial Heading -->
+                        <div class="mb-4">
+                            <span class="text-xs font-dom uppercase tracking-widest text-[#1a4e4d] font-bold block mb-1">
+                                CÔNG THỨC DINH DƯỠNG
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-dom text-slate-900 uppercase tracking-wide leading-tight m-0">
+                                GIÁ TRỊ DINH DƯỠNG CỦA MIWAKO
+                            </h3>
+                        </div>
+
+                        <!-- Product Can Photo -->
+                        <div class="relative py-2 w-full flex justify-center">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/images/products/miwako.webp'); ?>"
+                                alt="Lon thực phẩm dinh dưỡng Miwako Dale & Cecil"
+                                class="w-full max-w-[260px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] hover:scale-105 transition-transform duration-500 ease-out" />
+                        </div>
+
+                        <!-- Super Health Brand Award Banner -->
+                        <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-teal-50/80 border border-teal-200/60 text-left w-full mt-4">
+                            <div class="w-14 h-14 shrink-0 flex items-center justify-center">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
+                                    alt="Asia Pacific Super Health Brand 2022 &amp; 2023" class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-dom uppercase tracking-wider text-[#1a4e4d] block font-bold">CHỨNG NHẬN QUỐC TẾ</span>
+                                <p class="text-xs text-slate-700 font-medium m-0 leading-snug">
+                                    Asia Pacific Super Health Brand — Giải thưởng thương hiệu sức khỏe uy tín khu vực Châu Á - Thái Bình Dương.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Standard Serving Guide Box -->
+                        <div class="p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200/60 space-y-3 text-left w-full mt-5">
+                            <div class="flex items-center gap-2 text-slate-900 font-dom text-sm uppercase">
+                                <i data-lucide="cup-soda" class="w-4 h-4 text-emerald-600"></i>
+                                <span>Quy Chuẩn 1 Khẩu Phần Chuẩn</span>
+                            </div>
+                            <ul class="text-xs text-slate-600 space-y-2 m-0 p-0 list-none">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span><strong>3 muỗng gạt bột</strong> (tương đương khoảng <strong>30g</strong>).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Pha cùng <strong>150ml nước ấm</strong> (45°C - 50°C), khuấy đều.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Cung cấp <strong>122 Kcal</strong> năng lượng từ hạt tự nhiên.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 3 Safety Commitments (0 Trans fat, 0 Cholesterol, 0 Lactose) -->
+                        <div class="grid grid-cols-3 gap-2 w-full mt-4 text-center">
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0g</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Trans Fat</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0mg</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Cholesterol</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
+                                <span class="text-base font-bold text-emerald-700 block font-dom">0%</span>
+                                <span class="text-[10px] text-emerald-800 uppercase tracking-tight block font-medium">Lactose</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Jump Button -->
+                        <a href="#usage-guidelines"
+                            class="block w-full py-3.5 px-5 bg-[#1a4e4d] hover:bg-[#133e3d] text-white text-center rounded-xl font-dom text-xs uppercase tracking-wider font-bold transition-colors shadow-sm no-underline mt-5">
+                            Xem Cách Pha Chi Tiết
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- 5. SECTION: HƯỚNG DẪN SỬ DỤNG VÀ BẢO QUẢN (USAGE & STORAGE GUIDELINES) -->
     <section id="usage-guidelines" class="py-20 lg:py-28 bg-[#F8FAFD] relative">
         <div class="container mx-auto px-4 lg:px-8">
