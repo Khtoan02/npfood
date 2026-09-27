@@ -163,9 +163,9 @@ get_header(); ?>
                 <!-- Left: Expansive Brand & Origin Photography (5 cols) -->
                 <div class="lg:col-span-5">
                     <div class="relative rounded-[2.5rem] overflow-hidden shadow-md group bg-slate-100">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-02.webp'); ?>"
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-03.webp'); ?>"
                             alt="Thực phẩm dinh dưỡng Miwako A+ của tập đoàn Dale & Cecil Malaysia"
-                            class="w-full h-[520px] lg:h-[620px] object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            class="w-full h-[520px] lg:h-[620px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 lg:p-8">
                             <span
