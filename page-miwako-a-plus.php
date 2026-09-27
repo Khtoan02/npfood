@@ -641,6 +641,23 @@ get_header(); ?>
                 </p>
             </div>
 
+            <!-- 3 Tabs Navigation Bar -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
+                <?php foreach ($nutrition_groups as $index => $group): ?>
+                    <?php $isActive = ($index === 0); ?>
+                    <button type="button"
+                        onclick="switchNutritionTab('<?php echo esc_attr($group['id']); ?>')"
+                        data-nutrition-tab="<?php echo esc_attr($group['id']); ?>"
+                        class="nutrition-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider transition-all duration-200 cursor-pointer border <?php echo $isActive ? 'active bg-[#1a4e4d] text-white border-[#1a4e4d] shadow-md shadow-[#1a4e4d]/20 font-bold' : 'bg-white/95 text-slate-700 hover:text-[#1a4e4d] hover:bg-amber-50/80 border-amber-900/15 shadow-sm font-semibold'; ?>">
+                        <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 shrink-0 <?php echo $isActive ? 'text-amber-400' : 'text-[#D97706]'; ?>"></i>
+                        <span><?php echo esc_html($group['badge']); ?></span>
+                        <span class="tab-badge text-[11px] px-2 py-0.5 rounded-full font-mono font-bold <?php echo $isActive ? 'bg-white/20 text-white' : 'bg-amber-100/70 text-amber-900'; ?>">
+                            <?php echo count($group['items']); ?>
+                        </span>
+                    </button>
+                <?php endforeach; ?>
+            </div>
+
             <!-- Nutrition Facts Table Container (Unified Single Board, Clean & Perfectly Aligned) -->
             <div class="max-w-3xl mx-auto">
                 <div class="relative overflow-hidden rounded-2xl border border-amber-900/15 shadow-xl bg-[#FFFDF9]" id="nutrition-table-box">
@@ -663,22 +680,12 @@ get_header(); ?>
                                         <th class="py-3 px-4 sm:px-6 font-bold text-right whitespace-nowrap w-[24%]">Khẩu Phần (30g)</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($nutrition_groups as $group): ?>
-                                        <!-- Group Header Row -->
-                                        <tr class="bg-teal-900/[0.06] border-y border-teal-900/15">
-                                            <td colspan="3" class="py-2 px-4 sm:px-6 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
-                                                <div class="flex items-center gap-2">
-                                                    <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 text-[#1a4e4d] shrink-0"></i>
-                                                    <span><?php echo esc_html($group['title']); ?></span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Group Items Rows -->
+                                <?php foreach ($nutrition_groups as $index => $group): ?>
+                                    <tbody id="nutrition-panel-<?php echo esc_attr($group['id']); ?>"
+                                           class="nutrition-tab-panel <?php echo ($index === 0) ? 'table-row-group' : 'hidden'; ?>">
                                         <?php foreach ($group['items'] as $item): ?>
                                             <tr class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/25' : ''; ?>">
-                                                <td class="py-2 px-4 sm:px-6">
+                                                <td class="py-2.5 px-4 sm:px-6">
                                                     <?php if ($item['is_sub']): ?>
                                                         <div class="inline-flex items-center gap-2 pl-4 sm:pl-6 text-slate-600">
                                                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 inline-block"></span>
@@ -688,16 +695,16 @@ get_header(); ?>
                                                         <span class="font-bold text-slate-900 text-xs sm:text-sm leading-tight"><?php echo esc_html($item['name']); ?></span>
                                                     <?php endif; ?>
                                                 </td>
-                                                <td class="py-2 px-3 sm:px-4 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
+                                                <td class="py-2.5 px-3 sm:px-4 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
                                                     <?php echo esc_html($item['per_100g']); ?>
                                                 </td>
-                                                <td class="py-2 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
+                                                <td class="py-2.5 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
                                                     <?php echo esc_html($item['per_serving']); ?>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                    </tbody>
+                                <?php endforeach; ?>
                             </table>
                         </div>
 
@@ -787,6 +794,49 @@ get_header(); ?>
     </div>
 
     <script>
+    function switchNutritionTab(tabId) {
+        var buttons = document.querySelectorAll('[data-nutrition-tab]');
+        buttons.forEach(function(btn) {
+            var isCurrent = btn.getAttribute('data-nutrition-tab') === tabId;
+            var badge = btn.querySelector('.tab-badge');
+            var icon = btn.querySelector('svg') || btn.querySelector('i');
+            if (isCurrent) {
+                btn.className = "nutrition-tab-btn active inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-bold bg-[#1a4e4d] text-white border border-[#1a4e4d] shadow-md shadow-[#1a4e4d]/20 transition-all cursor-pointer";
+                if (icon) {
+                    icon.classList.remove('text-[#D97706]');
+                    icon.classList.add('text-amber-400');
+                }
+                if (badge) {
+                    badge.className = "tab-badge text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-white/20 text-white";
+                }
+            } else {
+                btn.className = "nutrition-tab-btn inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-dom uppercase tracking-wider font-semibold bg-white/95 text-slate-700 hover:text-[#1a4e4d] hover:bg-amber-50/80 border border-amber-900/15 shadow-sm transition-all cursor-pointer";
+                if (icon) {
+                    icon.classList.remove('text-amber-400');
+                    icon.classList.add('text-[#D97706]');
+                }
+                if (badge) {
+                    badge.className = "tab-badge text-[11px] px-2 py-0.5 rounded-full font-mono font-bold bg-amber-100/70 text-amber-900";
+                }
+            }
+        });
+
+        var panels = document.querySelectorAll('.nutrition-tab-panel');
+        panels.forEach(function(panel) {
+            if (panel.id === 'nutrition-panel-' + tabId) {
+                panel.classList.remove('hidden');
+                panel.classList.add('table-row-group');
+            } else {
+                panel.classList.add('hidden');
+                panel.classList.remove('table-row-group');
+            }
+        });
+
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
+
     function openNutritionDisclaimer() {
         var modal = document.getElementById('nutrition-disclaimer-modal');
         if (modal) {
