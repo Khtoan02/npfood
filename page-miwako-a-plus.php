@@ -641,65 +641,143 @@ get_header(); ?>
                 </p>
             </div>
 
-            <!-- Nutrition Facts Table Container (Centered & Balanced) -->
-            <div class="max-w-4xl mx-auto">
-                <div class="relative overflow-hidden rounded-[2rem] border border-amber-300/80 shadow-lg bg-[#FAF7F0]" id="nutrition-table-box">
+            <!-- Nutrition Facts Table Container (2 Balanced Columns, Luminous Background) -->
+            <div class="max-w-5xl mx-auto">
+                <div class="relative overflow-hidden rounded-[2.5rem] border border-amber-200/90 shadow-xl bg-[#FFFDF9] p-4 sm:p-6 lg:p-8" id="nutrition-table-box">
                     
-                    <!-- Authentic Paper Texture Background Layer for Table -->
-                    <div class="absolute inset-0 bg-cover bg-center opacity-85 mix-blend-multiply pointer-events-none z-0"
+                    <!-- Luminous Subtle Paper Texture Layer -->
+                    <div class="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-multiply pointer-events-none z-0"
                         style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/images/background-to-giay.webp'); ?>');">
                     </div>
+                    <!-- Soft Ambient White Glow Layer -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/70 pointer-events-none z-0"></div>
 
                     <!-- Table Content -->
                     <div id="nutrition-table-content" class="relative z-10 filter blur-md select-none pointer-events-none transition-all duration-700">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-sm min-w-[560px]">
-                                <thead>
-                                    <tr class="bg-[#1a4e4d] text-white font-dom text-xs sm:text-sm uppercase tracking-wider">
-                                        <th class="py-4 px-6 sm:px-8 font-bold w-[48%]">Chỉ Tiêu Dinh Dưỡng</th>
-                                        <th class="py-4 px-4 sm:px-6 font-bold text-right whitespace-nowrap w-[26%]">Trong 100g Bột</th>
-                                        <th class="py-4 px-6 sm:px-8 font-bold text-right whitespace-nowrap w-[26%]">Trong Khẩu Phần (30g)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($nutrition_groups as $group): ?>
-                                        <!-- Group Header Row -->
-                                        <tr class="bg-[#1a4e4d]/[0.08] border-y border-[#1a4e4d]/20 backdrop-blur-[1px]">
-                                            <td colspan="3" class="py-3 px-6 sm:px-8 font-dom text-xs sm:text-sm uppercase tracking-wider text-[#1a4e4d] font-bold">
-                                                <div class="flex items-center gap-2">
-                                                    <i data-lucide="<?php echo esc_attr($group['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
-                                                    <span><?php echo esc_html($group['title']); ?></span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Group Items Rows -->
-                                        <?php foreach ($group['items'] as $item): ?>
-                                            <tr class="border-b border-amber-900/10 hover:bg-amber-100/40 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-900/[0.04]' : ''; ?>">
-                                                <td class="py-3.5 px-6 sm:px-8 <?php echo $item['is_sub'] ? 'pl-11 sm:pl-14 text-slate-600 text-xs sm:text-sm' : 'text-xs sm:text-sm font-semibold text-slate-800'; ?>">
-                                                    <div class="inline-flex items-center gap-2">
-                                                        <?php if ($item['is_sub']): ?>
-                                                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
-                                                        <?php endif; ?>
-                                                        <span><?php echo esc_html($item['name']); ?></span>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                            
+                            <!-- CỘT 1: NĂNG LƯỢNG & ĐẠI LƯỢNG -->
+                            <div class="rounded-2xl border border-amber-200/80 shadow-sm bg-white/95 backdrop-blur-sm overflow-hidden">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px]">
+                                        <thead>
+                                            <tr class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-[11px] sm:text-xs">
+                                                <th class="py-3 px-3.5 sm:px-4 font-bold w-[48%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                                <th class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%]">Trong 100g</th>
+                                                <th class="py-3 px-3 sm:px-4 font-bold text-right whitespace-nowrap w-[26%]">Khẩu phần (30g)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Group Header -->
+                                            <tr class="bg-teal-900/[0.06] border-b border-teal-900/15">
+                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                    <div class="flex items-center gap-1.5">
+                                                        <i data-lucide="<?php echo esc_attr($nutrition_groups[0]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
+                                                        <span><?php echo esc_html($nutrition_groups[0]['title']); ?></span>
                                                     </div>
                                                 </td>
-                                                <td class="py-3.5 px-4 sm:px-6 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : 'text-slate-700'; ?> whitespace-nowrap">
-                                                    <?php echo esc_html($item['per_100g']); ?>
-                                                </td>
-                                                <td class="py-3.5 px-6 sm:px-8 text-right font-mono text-xs sm:text-sm <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : 'text-slate-800'; ?> whitespace-nowrap">
-                                                    <?php echo esc_html($item['per_serving']); ?>
+                                            </tr>
+                                            <!-- Items -->
+                                            <?php foreach ($nutrition_groups[0]['items'] as $item): ?>
+                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                        <div class="inline-flex items-center gap-1.5 flex-wrap">
+                                                            <?php if ($item['is_sub']): ?>
+                                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+                                                            <?php endif; ?>
+                                                            <span><?php echo esc_html($item['name']); ?></span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_100g']); ?>
+                                                    </td>
+                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_serving']); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- CỘT 2: KHOÁNG CHẤT & VITAMIN -->
+                            <div class="rounded-2xl border border-amber-200/80 shadow-sm bg-white/95 backdrop-blur-sm overflow-hidden">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px]">
+                                        <thead>
+                                            <tr class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-[11px] sm:text-xs">
+                                                <th class="py-3 px-3.5 sm:px-4 font-bold w-[48%]">Chỉ Tiêu Dinh Dưỡng</th>
+                                                <th class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%]">Trong 100g</th>
+                                                <th class="py-3 px-3 sm:px-4 font-bold text-right whitespace-nowrap w-[26%]">Khẩu phần (30g)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Nhóm Khoáng chất -->
+                                            <tr class="bg-teal-900/[0.06] border-b border-teal-900/15">
+                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                    <div class="flex items-center gap-1.5">
+                                                        <i data-lucide="<?php echo esc_attr($nutrition_groups[1]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
+                                                        <span><?php echo esc_html($nutrition_groups[1]['title']); ?></span>
+                                                    </div>
                                                 </td>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                            <?php foreach ($nutrition_groups[1]['items'] as $item): ?>
+                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                        <div class="inline-flex items-center gap-1.5 flex-wrap">
+                                                            <?php if ($item['is_sub']): ?>
+                                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+                                                            <?php endif; ?>
+                                                            <span><?php echo esc_html($item['name']); ?></span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_100g']); ?>
+                                                    </td>
+                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_serving']); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+
+                                            <!-- Nhóm 13 Loại Vitamin -->
+                                            <tr class="bg-teal-900/[0.06] border-y border-teal-900/15">
+                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                    <div class="flex items-center gap-1.5">
+                                                        <i data-lucide="<?php echo esc_attr($nutrition_groups[2]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
+                                                        <span><?php echo esc_html($nutrition_groups[2]['title']); ?></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <?php foreach ($nutrition_groups[2]['items'] as $item): ?>
+                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                        <div class="inline-flex items-center gap-1.5 flex-wrap">
+                                                            <?php if ($item['is_sub']): ?>
+                                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+                                                            <?php endif; ?>
+                                                            <span><?php echo esc_html($item['name']); ?></span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_100g']); ?>
+                                                    </td>
+                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                        <?php echo esc_html($item['per_serving']); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                         </div>
 
                         <!-- Table Footer Note -->
-                        <div class="p-4 sm:p-5 bg-amber-50/70 border-t border-amber-900/10 flex items-start gap-3 text-xs text-slate-600 backdrop-blur-[2px]">
-                            <i data-lucide="info" class="w-4 h-4 text-amber-700 shrink-0 mt-0.5"></i>
+                        <div class="mt-6 p-4 sm:p-5 bg-white/90 rounded-2xl border border-amber-200/80 shadow-sm flex items-start gap-3 text-xs text-slate-600 backdrop-blur-[2px]">
+                            <i data-lucide="info" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5"></i>
                             <span class="leading-relaxed">
                                 <strong>Lưu ý:</strong> Bảng thành phần dinh dưỡng được công bố chính thức theo hồ sơ sản phẩm của tập đoàn <strong>Dale &amp; Cecil Malaysia</strong>. Miwako A+ là thực phẩm bổ sung dinh dưỡng thực vật cho trẻ từ 1 - 6 tuổi, không thay thế sữa mẹ hoặc bữa ăn chính hoàn chỉnh.
                             </span>
@@ -707,7 +785,7 @@ get_header(); ?>
                     </div>
 
                     <!-- Lock / Blur Overlay with View Button -->
-                    <div id="nutrition-lock-overlay" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-10 text-center bg-[#FAF7F0]/85 backdrop-blur-md transition-all duration-500">
+                    <div id="nutrition-lock-overlay" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 sm:p-10 text-center bg-white/80 backdrop-blur-md transition-all duration-500">
                         <div class="w-16 h-16 rounded-2xl bg-amber-100 text-[#D97706] flex items-center justify-center mb-4 shadow-sm border border-amber-200">
                             <i data-lucide="file-text" class="w-8 h-8"></i>
                         </div>
