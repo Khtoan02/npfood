@@ -659,18 +659,18 @@ get_header(); ?>
                             <!-- CỘT 1: NĂNG LƯỢNG & ĐẠI LƯỢNG -->
                             <div class="rounded-2xl border border-amber-200/80 shadow-sm bg-white/95 backdrop-blur-sm overflow-hidden">
                                 <div class="overflow-x-auto">
-                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px]">
+                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px] leading-tight">
                                         <thead>
                                             <tr class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-[11px] sm:text-xs">
-                                                <th class="py-3 px-3.5 sm:px-4 font-bold w-[48%]">Chỉ Tiêu Dinh Dưỡng</th>
-                                                <th class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%]">Trong 100g</th>
-                                                <th class="py-3 px-3 sm:px-4 font-bold text-right whitespace-nowrap w-[26%]">Khẩu phần (30g)</th>
+                                                <th class="py-2.5 px-3 sm:px-3.5 font-bold w-[48%] leading-tight">Chỉ Tiêu Dinh Dưỡng</th>
+                                                <th class="py-2.5 px-2 sm:px-2.5 font-bold text-right whitespace-nowrap w-[26%] leading-tight">Trong 100g</th>
+                                                <th class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%] leading-tight">Khẩu phần (30g)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Group Header -->
                                             <tr class="bg-teal-900/[0.06] border-b border-teal-900/15">
-                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                <td colspan="3" class="py-2 px-3 sm:px-3.5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold leading-tight">
                                                     <div class="flex items-center gap-1.5">
                                                         <i data-lucide="<?php echo esc_attr($nutrition_groups[0]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
                                                         <span><?php echo esc_html($nutrition_groups[0]['title']); ?></span>
@@ -679,8 +679,8 @@ get_header(); ?>
                                             </tr>
                                             <!-- Items -->
                                             <?php foreach ($nutrition_groups[0]['items'] as $item): ?>
-                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
-                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                <tr class="border-b border-slate-100/80 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-1.5 px-3 sm:px-3.5 <?php echo $item['is_sub'] ? 'pl-6 sm:pl-7 text-slate-600' : 'font-semibold text-slate-900'; ?> leading-tight">
                                                         <div class="inline-flex items-center gap-1.5 flex-wrap">
                                                             <?php if ($item['is_sub']): ?>
                                                                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
@@ -688,10 +688,10 @@ get_header(); ?>
                                                             <span><?php echo esc_html($item['name']); ?></span>
                                                         </div>
                                                     </td>
-                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2 sm:px-2.5 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
-                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -704,18 +704,18 @@ get_header(); ?>
                             <!-- CỘT 2: KHOÁNG CHẤT & VITAMIN -->
                             <div class="rounded-2xl border border-amber-200/80 shadow-sm bg-white/95 backdrop-blur-sm overflow-hidden">
                                 <div class="overflow-x-auto">
-                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px]">
+                                    <table class="w-full text-left border-collapse text-xs sm:text-[13px] leading-tight">
                                         <thead>
                                             <tr class="bg-[#1a4e4d] text-white font-dom uppercase tracking-wider text-[11px] sm:text-xs">
-                                                <th class="py-3 px-3.5 sm:px-4 font-bold w-[48%]">Chỉ Tiêu Dinh Dưỡng</th>
-                                                <th class="py-3 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%]">Trong 100g</th>
-                                                <th class="py-3 px-3 sm:px-4 font-bold text-right whitespace-nowrap w-[26%]">Khẩu phần (30g)</th>
+                                                <th class="py-2.5 px-3 sm:px-3.5 font-bold w-[48%] leading-tight">Chỉ Tiêu Dinh Dưỡng</th>
+                                                <th class="py-2.5 px-2 sm:px-2.5 font-bold text-right whitespace-nowrap w-[26%] leading-tight">Trong 100g</th>
+                                                <th class="py-2.5 px-2.5 sm:px-3 font-bold text-right whitespace-nowrap w-[26%] leading-tight">Khẩu phần (30g)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Nhóm Khoáng chất -->
                                             <tr class="bg-teal-900/[0.06] border-b border-teal-900/15">
-                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                <td colspan="3" class="py-2 px-3 sm:px-3.5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold leading-tight">
                                                     <div class="flex items-center gap-1.5">
                                                         <i data-lucide="<?php echo esc_attr($nutrition_groups[1]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
                                                         <span><?php echo esc_html($nutrition_groups[1]['title']); ?></span>
@@ -723,8 +723,8 @@ get_header(); ?>
                                                 </td>
                                             </tr>
                                             <?php foreach ($nutrition_groups[1]['items'] as $item): ?>
-                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
-                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                <tr class="border-b border-slate-100/80 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-1.5 px-3 sm:px-3.5 <?php echo $item['is_sub'] ? 'pl-6 sm:pl-7 text-slate-600' : 'font-semibold text-slate-900'; ?> leading-tight">
                                                         <div class="inline-flex items-center gap-1.5 flex-wrap">
                                                             <?php if ($item['is_sub']): ?>
                                                                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
@@ -732,10 +732,10 @@ get_header(); ?>
                                                             <span><?php echo esc_html($item['name']); ?></span>
                                                         </div>
                                                     </td>
-                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2 sm:px-2.5 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
-                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
@@ -743,7 +743,7 @@ get_header(); ?>
 
                                             <!-- Nhóm 13 Loại Vitamin -->
                                             <tr class="bg-teal-900/[0.06] border-y border-teal-900/15">
-                                                <td colspan="3" class="py-2.5 px-3.5 sm:px-4 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold">
+                                                <td colspan="3" class="py-2 px-3 sm:px-3.5 font-dom text-xs uppercase tracking-wider text-[#1a4e4d] font-bold leading-tight">
                                                     <div class="flex items-center gap-1.5">
                                                         <i data-lucide="<?php echo esc_attr($nutrition_groups[2]['icon']); ?>" class="w-4 h-4 text-[#1a4e4d]"></i>
                                                         <span><?php echo esc_html($nutrition_groups[2]['title']); ?></span>
@@ -751,8 +751,8 @@ get_header(); ?>
                                                 </td>
                                             </tr>
                                             <?php foreach ($nutrition_groups[2]['items'] as $item): ?>
-                                                <tr class="border-b border-slate-100 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
-                                                    <td class="py-2 px-3.5 sm:px-4 <?php echo $item['is_sub'] ? 'pl-7 sm:pl-8 text-slate-600' : 'font-semibold text-slate-900'; ?>">
+                                                <tr class="border-b border-slate-100/80 hover:bg-amber-50/60 transition-colors <?php echo $item['is_bold'] ? 'bg-amber-50/30' : ''; ?>">
+                                                    <td class="py-1.5 px-3 sm:px-3.5 <?php echo $item['is_sub'] ? 'pl-6 sm:pl-7 text-slate-600' : 'font-semibold text-slate-900'; ?> leading-tight">
                                                         <div class="inline-flex items-center gap-1.5 flex-wrap">
                                                             <?php if ($item['is_sub']): ?>
                                                                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
@@ -760,10 +760,10 @@ get_header(); ?>
                                                             <span><?php echo esc_html($item['name']); ?></span>
                                                         </div>
                                                     </td>
-                                                    <td class="py-2 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2 sm:px-2.5 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-slate-900' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_100g']); ?>
                                                     </td>
-                                                    <td class="py-2 px-3 sm:px-4 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap">
+                                                    <td class="py-1.5 px-2.5 sm:px-3 text-right font-mono text-slate-800 <?php echo $item['is_bold'] ? 'font-bold text-emerald-800' : ''; ?> whitespace-nowrap leading-tight">
                                                         <?php echo esc_html($item['per_serving']); ?>
                                                     </td>
                                                 </tr>
