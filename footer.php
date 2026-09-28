@@ -29,8 +29,8 @@
           <!-- Column 1: Company Info (4/12) -->
           <div class="lg:col-span-4 space-y-8 pr-0 lg:pr-8">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center font-bold text-2xl shadow-lg text-primary">
-                NP
+              <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1 shadow-lg shrink-0 overflow-hidden">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/images/logos/logo-npfood.webp'); ?>" alt="NP FOOD" class="w-full h-full object-contain" />
               </div>
               <div class="flex flex-col">
                 <span class="font-bold text-2xl tracking-wide uppercase leading-none text-white">

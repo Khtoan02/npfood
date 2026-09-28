@@ -135,7 +135,7 @@ get_header(); ?>
                 <div class="lg:col-span-5">
                     <div class="relative rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-md group bg-slate-100">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako/miwako-06.jpg'); ?>"
-                            alt="Thực phẩm dinh dưỡng Miwako của tập đoàn Dale & Cecil Malaysia"
+                            alt="Thực phẩm dinh dưỡng Miwako của Dale & Cecil Malaysia"
                             class="w-full h-[260px] sm:h-[380px] lg:h-[620px] object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-6 lg:p-8">
@@ -145,7 +145,7 @@ get_header(); ?>
                                 <span>Dale &amp; Cecil • Malaysia</span>
                             </span>
                             <p class="text-white/95 text-xs sm:text-sm lg:text-base font-medium m-0 leading-snug">
-                                Thực phẩm dinh dưỡng Miwako được nghiên cứu và phát triển bởi tập đoàn Dale &amp; Cecil.
+                                Thực phẩm dinh dưỡng Miwako được nghiên cứu và phát triển bởi Dale &amp; Cecil.
                             </p>
                         </div>
                     </div>
@@ -164,21 +164,31 @@ get_header(); ?>
                     </div>
 
                     <!-- Fact 1: Dale & Cecil -->
-                    <div class="p-5 sm:p-8 rounded-3xl lg:rounded-[2rem] bg-[#F8FAFD] space-y-2.5 sm:space-y-3">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 m-0 uppercase">
-                                TẬP ĐOÀN DALE &amp; CECIL (MALAYSIA)
-                            </h3>
+                    <div class="p-5 sm:p-8 rounded-3xl lg:rounded-[2rem] bg-[#F8FAFD] space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 sm:gap-4">
+                                <div class="h-11 sm:h-12 px-3 sm:px-3.5 py-1.5 rounded-xl sm:rounded-2xl bg-white shadow-xs border border-slate-100 flex items-center justify-center shrink-0">
+                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/images/logos/logo-dalececil.svg'); ?>"
+                                        alt="Dale &amp; Cecil"
+                                        class="h-6 sm:h-7 w-auto object-contain" />
+                                </div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 m-0 uppercase">
+                                        DALE &amp; CECIL (MALAYSIA)
+                                    </h3>
+                                    <span class="text-xs text-slate-500 font-sans block sm:hidden">Nghiên cứu &amp; Phát triển</span>
+                                </div>
+                            </div>
                             <span
-                                class="text-[11px] sm:text-xs font-dom uppercase text-[#2563EB] bg-blue-50 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full w-fit">
+                                class="text-[11px] sm:text-xs font-dom uppercase text-[#2563EB] bg-blue-50 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full w-fit hidden sm:inline-block">
                                 Nghiên cứu &amp; Phát triển
                             </span>
                         </div>
                         <p class="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed m-0">
-                            Thực phẩm dinh dưỡng Miwako được nghiên cứu bởi tập đoàn Dale &amp; Cecil (Malaysia), định
+                            Thực phẩm dinh dưỡng Miwako được nghiên cứu bởi Dale &amp; Cecil (Malaysia), định
                             hướng phát triển nguồn dinh dưỡng thực vật tự nhiên.
                         </p>
-                        <div class="pt-1 sm:pt-2">
+                        <div class="pt-1">
                             <a href="https://daleandcecil.com.my/our-story/" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-dom uppercase text-[#2563EB] hover:text-[#1E40AF] tracking-wider transition-colors no-underline group">
                                 <span>TÌM HIỂU VỀ DALE &amp; CECIL</span>
@@ -189,13 +199,23 @@ get_header(); ?>
                     </div>
 
                     <!-- Fact 2: Omega Health Factory -->
-                    <div class="p-5 sm:p-8 rounded-3xl lg:rounded-[2rem] bg-[#F8FAFD] space-y-2.5 sm:space-y-3">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
-                            <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 m-0 uppercase">
-                                NHÀ MÁY OMEGA HEALTH PRODUCTS
-                            </h3>
+                    <div class="p-5 sm:p-8 rounded-3xl lg:rounded-[2rem] bg-[#F8FAFD] space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 sm:gap-4">
+                                <div class="h-11 sm:h-12 px-3 sm:px-3.5 py-1.5 rounded-xl sm:rounded-2xl bg-white shadow-xs border border-slate-100 flex items-center justify-center shrink-0">
+                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/images/logos/logo-omega.webp'); ?>"
+                                        alt="Nhà máy Omega Health Products"
+                                        class="h-6 sm:h-7 w-auto object-contain" />
+                                </div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 m-0 uppercase">
+                                        NHÀ MÁY OMEGA HEALTH PRODUCTS
+                                    </h3>
+                                    <span class="text-xs text-slate-500 font-sans block sm:hidden">Chuẩn GMP &amp; HACCP</span>
+                                </div>
+                            </div>
                             <span
-                                class="text-[11px] sm:text-xs font-dom uppercase text-emerald-800 bg-emerald-50 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full w-fit">
+                                class="text-[11px] sm:text-xs font-dom uppercase text-emerald-800 bg-emerald-50 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full w-fit hidden sm:inline-block">
                                 Chuẩn GMP &amp; HACCP
                             </span>
                         </div>
@@ -203,7 +223,7 @@ get_header(); ?>
                             Sản xuất trực tiếp tại nhà máy Omega Health Products (Malaysia) trên dây chuyền hiện đại đạt
                             tiêu chuẩn quốc tế GMP và HACCP.
                         </p>
-                        <div class="pt-1 sm:pt-2">
+                        <div class="pt-1">
                             <a href="https://omegahealth.com.my/about-us/" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-dom uppercase text-[#2563EB] hover:text-[#1E40AF] tracking-wider transition-colors no-underline group">
                                 <span>THÔNG TIN NHÀ MÁY OMEGA HEALTH</span>
@@ -239,11 +259,13 @@ get_header(); ?>
 
                     <!-- Company Info Card (Borderless, Soft Elevation) -->
                     <div class="bg-white p-5 sm:p-8 lg:p-10 rounded-3xl lg:rounded-[2rem] shadow-sm space-y-4 sm:space-y-6">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 sm:gap-4">
                                 <div
-                                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0F2322] text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-xs">
-                                    NP
+                                    class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white p-1.5 shadow-xs border border-slate-100 flex items-center justify-center shrink-0 overflow-hidden">
+                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/images/logos/logo-npfood.webp'); ?>"
+                                        alt="Công ty TNHH Thực Phẩm NP"
+                                        class="w-full h-full object-contain" />
                                 </div>
                                 <div>
                                     <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 uppercase m-0">
