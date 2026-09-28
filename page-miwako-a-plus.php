@@ -405,7 +405,7 @@ get_header(); ?>
                     <div
                         class="w-22 h-22 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/badges/badge-health-brand.webp'); ?>"
-                            alt="Chứng nhận Asia Pacific Super Health Brand 2022 &amp; 2023"
+                            alt="Chứng nhận giải thưởng Asia Pacific Super Health Brand 2019–2021"
                             class="max-h-full max-w-full object-contain" loading="lazy" />
                     </div>
                     <div class="flex-1 flex flex-col justify-between h-full text-center sm:text-left">
@@ -418,14 +418,12 @@ get_header(); ?>
                                 ASIA PACIFIC SUPER HEALTH BRAND
                             </h3>
                             <p class="text-xs sm:text-sm lg:text-base text-slate-700 leading-relaxed mb-3 sm:mb-4">
-                                Theo chứng nhận giải thưởng uy tín khu vực Châu Á - Thái Bình Dương (Asia Pacific Super
-                                Health Brand 2022 &amp; 2023), ghi nhận tiêu chuẩn chất lượng và sự tin cậy của thương
-                                hiệu Dale &amp; Cecil đối với các giải pháp dinh dưỡng thực vật lành tính.
+                                Đạt chứng nhận giải thưởng Asia Pacific Super Health Brand (Thương hiệu tiêu biểu Châu Á - Thái Bình Dương) giai đoạn 2019–2021, ghi nhận tiêu chuẩn chất lượng và sự tin cậy của Dale &amp; Cecil đối với các giải pháp dinh dưỡng thực vật lành tính.
                             </p>
                         </div>
                         <div
                             class="pt-3 sm:pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs sm:text-sm font-dom mt-auto">
-                            <span class="text-amber-800 uppercase">SUPER HEALTH BRAND 2022 &amp; 2023</span>
+                            <span class="text-amber-800 uppercase">SUPER HEALTH BRAND 2019–2021</span>
                             <span class="text-slate-500 font-sans text-xs">Chứng nhận khu vực</span>
                         </div>
                     </div>
