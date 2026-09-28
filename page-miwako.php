@@ -309,7 +309,7 @@ get_header(); ?>
                                 TÀI LIỆU SẢN PHẨM
                             </span>
                             <h4 class="text-lg sm:text-xl lg:text-2xl font-dom text-white uppercase m-0">
-                                BẢN CÔNG BỐ SẢN PHẨM
+                                BẢN TỰ CÔNG BỐ SẢN PHẨM
                             </h4>
                             <p class="text-xs sm:text-sm text-white/80 m-0">
                                 Sản phẩm Miwako được nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công
@@ -321,7 +321,7 @@ get_header(); ?>
                             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-2.5 px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl bg-white hover:bg-sky-50 text-[#1E3A8A] text-xs sm:text-sm font-dom uppercase tracking-wider shadow-md hover:shadow-lg transition-all group no-underline shrink-0">
                             <i data-lucide="external-link"
                                 class="w-4 h-4 text-[#2563EB] group-hover:scale-110 transition-transform"></i>
-                            <span>XEM BẢN CÔNG BỐ (PDF)</span>
+                            <span>XEM BẢN TỰ CÔNG BỐ (PDF)</span>
                         </a>
                     </div>
                 </div>
@@ -525,7 +525,7 @@ get_header(); ?>
                                 loading="lazy" />
                         </div>
                         <p class="mt-2 sm:mt-3 text-[11px] sm:text-xs text-slate-600 leading-snug m-0 max-w-[155px]">
-                            Không chứa đậu nành theo hồ sơ công bố sản phẩm
+                            Không chứa đậu nành theo hồ sơ tự công bố sản phẩm
                         </p>
                     </div>
 
@@ -1283,7 +1283,7 @@ get_header(); ?>
                     NHỮNG ĐIỀU BA MẸ BĂN&nbsp;KHOĂN
                 </h2>
                 <p class="text-xs sm:text-base lg:text-lg text-slate-600 mt-2 sm:mt-3 leading-relaxed m-0">
-                    Thông tin giải thích khách quan dựa trên hồ sơ công bố, tài liệu kỹ thuật và nhãn sản phẩm.
+                    Thông tin giải thích khách quan dựa trên hồ sơ tự công bố, tài liệu kỹ thuật và nhãn sản phẩm.
                 </p>
 
                 <!-- Mandatory Notice in FAQ -->
@@ -1428,7 +1428,7 @@ get_header(); ?>
                         • <strong>Bản chất sản phẩm:</strong> Sản phẩm này là thực phẩm dinh dưỡng bổ sung nguồn gốc thực vật, không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.
                     </p>
                     <p class="m-0">
-                        • <strong>Lưu ý sử dụng &amp; thông tin:</strong> Không dùng khi quá hạn in dưới đáy lon hoặc bao bì bị hở, hỏng. Toàn bộ thông tin được cung cấp theo hồ sơ công bố và tài liệu của nhà sản xuất, không mang tính chất chỉ định y khoa.
+                        • <strong>Lưu ý sử dụng &amp; thông tin:</strong> Không dùng khi quá hạn in dưới đáy lon hoặc bao bì bị hở, hỏng. Toàn bộ thông tin được cung cấp theo hồ sơ tự công bố và tài liệu của nhà sản xuất, không mang tính chất chỉ định y khoa.
                     </p>
                 </div>
             </div>
