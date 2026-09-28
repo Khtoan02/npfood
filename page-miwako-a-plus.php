@@ -255,96 +255,96 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- 3. SECTION: ĐƠN VỊ NHẬP KHẨU VÀ PHÂN PHỐI (NP FOOD) -->
-    <section id="importer-npfood" class="py-12 sm:py-16 lg:py-28 bg-[#F8FAFD] relative">
+    <!-- 3. SECTION: ĐƠN VỊ NHẬP KHẨU VÀ PHÂN PHỐI NP FOOD (IMPORTER & REGISTRATION) -->
+    <section id="importer-npfood" class="py-12 sm:py-16 lg:py-28 bg-[#F8FAFD] relative scroll-mt-12">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
-                <!-- Left Column (7 cols): Importer Credentials & Official Notice -->
-                <div class="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6">
-
+                <!-- Left: NP Food Information & Self-Declaration (7 cols) -->
+                <div class="lg:col-span-7 space-y-5 sm:space-y-8">
                     <div>
                         <h2
                             class="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-dom text-slate-900 tracking-wide uppercase leading-tight m-0">
-                            CÔNG TY TNHH THỰC&nbsp;PHẨM&nbsp;NP
+                            ĐƠN VỊ NHẬP KHẨU NP&nbsp;FOOD
                         </h2>
-                    </div>
-
-                    <div class="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed font-normal">
-                        <p class="m-0">
-                            Sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công
-                            ty TNHH
-                            Thực Phẩm NP. Đơn vị cam kết cung cấp sản phẩm với đầy đủ nhãn phụ tiếng Việt và thông tin
-                            minh bạch
-                            theo hồ sơ tự công bố.
+                        <p class="text-sm sm:text-base lg:text-lg text-slate-600 mt-2 sm:mt-3 leading-relaxed">
+                            Nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công ty TNHH Thực Phẩm NP.
                         </p>
                     </div>
 
-                    <!-- Direct Action Card: Dossier Reference Document -->
-                    <div
-                        class="p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] bg-white shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
-                                <i data-lucide="file-check-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    <!-- Company Info Card (Borderless, Soft Elevation) -->
+                    <div class="bg-white p-5 sm:p-8 lg:p-10 rounded-3xl lg:rounded-[2rem] shadow-sm space-y-4 sm:space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#0F2322] text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-xs">
+                                    NP
+                                </div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl lg:text-2xl font-dom text-slate-900 uppercase m-0">
+                                        CÔNG TY TNHH THỰC PHẨM NP
+                                    </h3>
+                                    <span class="text-xs sm:text-sm text-slate-500">Mã số thuế: 0109082378 • Cấp bởi Sở KH&ĐT TP.
+                                        Hà Nội</span>
+                                </div>
                             </div>
-                            <div>
-                                <span class="font-dom text-slate-900 text-base sm:text-lg uppercase block">BẢN CÔNG BỐ CHẤT LƯỢNG SẢN
-                                    PHẨM</span>
-                                <span class="text-xs lg:text-sm text-slate-500">Tài liệu tham chiếu hồ sơ tự công bố
-                                    Miwako A+ (Định dạng PDF)</span>
-                            </div>
+                            <span
+                                class="text-[11px] sm:text-xs font-dom uppercase text-emerald-800 bg-emerald-50 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full hidden sm:inline-block">
+                                Nhập khẩu chính ngạch
+                            </span>
                         </div>
 
+                        <!-- Core Contact Points (Large readable text) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 text-slate-700 pt-1 sm:pt-2">
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#F8FAFD]">
+                                <span class="block text-[10px] sm:text-xs font-dom text-slate-400 uppercase mb-1">VĂN PHÒNG ĐẠI
+                                    DIỆN</span>
+                                <strong class="text-slate-900 font-medium text-xs sm:text-sm lg:text-base leading-snug block">489
+                                    Hoàng Quốc Việt, Cầu Giấy, Hà Nội</strong>
+                            </div>
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#F8FAFD]">
+                                <span class="block text-[10px] sm:text-xs font-dom text-slate-400 uppercase mb-1">HOTLINE TƯ VẤN</span>
+                                <a href="tel:0869858268" class="text-slate-900 hover:text-[#2563EB] font-mono font-bold text-base sm:text-lg block no-underline">0869.858.268</a>
+                            </div>
+                            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#F8FAFD]">
+                                <span class="block text-[10px] sm:text-xs font-dom text-slate-400 uppercase mb-1">CỔNG THÔNG TIN</span>
+                                <a href="https://npfood.vn" target="_blank" rel="noopener noreferrer"
+                                    class="text-[#2563EB] hover:underline font-mono font-bold text-sm sm:text-base block">npfood.vn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Self-Declaration Action Card (Borderless, Deep Brand Forest Green / Teal) -->
+                    <div
+                        class="p-5 sm:p-6 lg:p-8 rounded-3xl lg:rounded-[2rem] bg-gradient-to-r from-[#1a4e4d] via-[#164443] to-[#0d2b2a] text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
+                        <div class="space-y-1 sm:space-y-1.5 text-left">
+                            <span class="text-[11px] sm:text-xs font-dom uppercase tracking-wider text-amber-300 block">
+                                TÀI LIỆU SẢN PHẨM
+                            </span>
+                            <h4 class="text-lg sm:text-xl lg:text-2xl font-dom text-white uppercase m-0">
+                                BẢN TỰ CÔNG BỐ SẢN PHẨM
+                            </h4>
+                            <p class="text-xs sm:text-sm text-white/80 m-0">
+                                Sản phẩm Miwako A+ được nhập khẩu chính ngạch và phân phối độc quyền tại Việt Nam bởi Công
+                                ty TNHH Thực Phẩm NP.
+                            </p>
+                        </div>
                         <a href="https://drive.google.com/file/d/1IiShj06_KwHANPHp41j4aC8J0YSSTDN3/view" target="_blank"
                             rel="noopener noreferrer"
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl sm:rounded-2xl bg-[#D97706] hover:bg-[#b45309] text-white font-dom text-xs sm:text-sm uppercase tracking-wide transition-all shadow-sm hover:shadow-md no-underline shrink-0">
-                            <span>XEM TÀI LIỆU CÔNG BỐ</span>
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-2.5 px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl bg-white hover:bg-amber-50 text-[#1a4e4d] text-xs sm:text-sm font-dom uppercase tracking-wider shadow-md hover:shadow-lg transition-all group no-underline shrink-0">
+                            <i data-lucide="external-link"
+                                class="w-4 h-4 text-[#1a4e4d] group-hover:scale-110 transition-transform"></i>
+                            <span>XEM BẢN CÔNG BỐ (PDF)</span>
                         </a>
                     </div>
-
-                    <!-- 3 Contact Information Pills -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-                        <div class="p-3.5 sm:p-4 rounded-2xl bg-white shadow-xs">
-                            <div class="flex items-center gap-2 text-slate-900 font-dom text-xs sm:text-sm uppercase mb-1">
-                                <i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] shrink-0"></i>
-                                <span>Trụ sở chính</span>
-                            </div>
-                            <p class="text-xs text-slate-600 m-0 leading-relaxed">
-                                Tầng 6, Số 14-16 Hàm Long, P. Phan Chu Trinh, Hoàn Kiếm, Hà Nội
-                            </p>
-                        </div>
-
-                        <div class="p-3.5 sm:p-4 rounded-2xl bg-white shadow-xs">
-                            <div class="flex items-center gap-2 text-slate-900 font-dom text-xs sm:text-sm uppercase mb-1">
-                                <i data-lucide="phone-call" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] shrink-0"></i>
-                                <span>Hotline tư vấn</span>
-                            </div>
-                            <p class="text-xs text-slate-600 m-0 leading-relaxed font-mono">
-                                <a href="tel:0986985632" class="text-slate-700 hover:text-[#D97706] no-underline">0986 985 632</a> / <a href="tel:0989313066" class="text-slate-700 hover:text-[#D97706] no-underline">0989 313 066</a>
-                            </p>
-                        </div>
-
-                        <div class="p-3.5 sm:p-4 rounded-2xl bg-white shadow-xs">
-                            <div class="flex items-center gap-2 text-slate-900 font-dom text-xs sm:text-sm uppercase mb-1">
-                                <i data-lucide="mail" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] shrink-0"></i>
-                                <span>Hộp thư liên hệ</span>
-                            </div>
-                            <p class="text-xs text-slate-600 m-0 leading-relaxed font-mono break-all">
-                                <a href="mailto:npfood.com.vn@gmail.com" class="text-slate-700 hover:text-[#D97706] no-underline">npfood.com.vn@gmail.com</a>
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Right Column (5 cols): Importer Presentation Photography -->
                 <div class="lg:col-span-5">
                     <div class="relative rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-md group bg-slate-100">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/images/gallery/miwako-a/miwako-a-04.webp'); ?>"
-                            alt="Miwako A+ do Công ty TNHH Thực Phẩm NP nhập khẩu chính ngạch"
-                            class="w-full h-[260px] sm:h-[380px] lg:h-[580px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            alt="Thực phẩm dinh dưỡng Miwako A+ do Công ty TNHH Thực Phẩm NP nhập khẩu chính ngạch"
+                            class="w-full h-[260px] sm:h-[380px] lg:h-[620px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-6 lg:p-8">
                             <span
