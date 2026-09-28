@@ -111,7 +111,7 @@ get_header(); ?>
                     </div>
                     <div class="lg:col-span-8 border-t lg:border-t-0 lg:border-l border-gray-100 pt-6 lg:pt-0 lg:pl-10 space-y-4">
                         <p class="text-gray-600 leading-relaxed text-justify m-0">
-                            NP FOOD tuân thủ các quy định hiện hành về kinh doanh thực phẩm, đảm bảo sản phẩm có nguồn gốc xuất xứ rõ ràng, đầy đủ hồ sơ tự công bố và ghi nhãn phụ tiếng Việt theo đúng quy chuẩn Nhà nước.
+                            NP FOOD tuân thủ các quy định hiện hành về kinh doanh thực phẩm, đảm bảo sản phẩm có nguồn gốc xuất xứ rõ ràng, đầy đủ hồ sơ công bố và ghi nhãn phụ tiếng Việt theo đúng quy chuẩn Nhà nước.
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="flex items-center gap-2 text-xs font-semibold text-gray-700">
